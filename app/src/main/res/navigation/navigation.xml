@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation"
+            app:startDestination="@id/fragment_shopping">
+
+    <fragment android:id="@+id/fragment_carts"
+              android:name="com.aldab2.android.seniorproject.views.fragments.Carts"
+              android:label="@string/carts"
+              tools:layout="@layout/fragment_carts">
+        <action android:id="@+id/action_fragment_carts_to_fragment_shopping" app:destination="@id/fragment_shopping"/>
+    </fragment>
+    <fragment android:id="@+id/fragment_chat"
+
+              android:name="com.aldab2.android.seniorproject.views.fragments.ChatFragment" android:label="@string/chat"
+              tools:layout="@layout/fragment_chat"/>
+    <fragment android:id="@+id/fragment_profile"
+              android:name="com.aldab2.android.seniorproject.views.fragments.ProfileFragment"
+              android:label="@string/profile" tools:layout="@layout/fragment_profile"/>
+    <fragment android:id="@+id/fragment_shopping"
+              android:name="com.aldab2.android.seniorproject.views.fragments.ShoppingFragment"
+              android:label="@string/shopping" tools:layout="@layout/fragment_shopping"/>
+</navigation>

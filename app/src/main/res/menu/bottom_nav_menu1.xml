@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <item
+            android:id="@+id/fragment_shopping"
+            android:icon="@drawable/store"
+            android:title="@string/shopping"/>
+    <item
+            android:id="@+id/fragment_carts"
+            android:icon="@drawable/cart"
+            android:title="@string/carts"/>
+
+    <item
+            android:id="@+id/fragment_chat"
+            android:icon="@drawable/message_text"
+            android:title="@string/chat"/>
+    <item
+            android:id="@+id/fragment_profile"
+            android:icon="@drawable/account_settings"
+            android:title="@string/profile"/>
+
+</menu>

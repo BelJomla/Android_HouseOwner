@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">App Name</string>
+
+
+    <string name="carts">Carts</string>
+    <string name="chat">Chat</string>
+    <string name="profile">Profile</string>
+    <string name="shopping">Shopping</string>
+    <string name="balance">Balance</string>
+    <string name="locations">Locations</string>
+    <string name="history">History</string>
+    <string name="settings">Settings</string>
+    <string name="feedback">Feedback</string>
+    <string name="about">About</string>
+    <string name="name_placeholder">Abdullah Barnawi</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_your_mobile">Enter Your Mobile</string>
+    <string name="_966">+966</string>
+    <string name="_5xxxxxxxx">5xxxxxxxx</string>
+    <string name="next">Next</string>
+
+
+</resources>

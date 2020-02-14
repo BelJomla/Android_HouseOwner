@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="profile_items_labels">
+        <item>@string/balance</item>
+        <item>@string/locations</item>
+        <item>@string/history</item>
+        <item>@string/settings</item>
+        <item>@string/feedback</item>
+        <item>@string/about</item>
+    </array>
+
+</resources>
