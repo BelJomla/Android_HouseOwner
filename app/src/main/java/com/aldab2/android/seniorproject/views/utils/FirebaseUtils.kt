@@ -1,4 +1,4 @@
-package com.aldab2.android.seniorproject.views
+package com.aldab2.android.seniorproject.views.utils
 
 
 import android.app.Activity
@@ -11,7 +11,7 @@ class FirebaseUtils {
         fun verifyPhoneNumber(activity: Activity, phoneNumber : String, mCallbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks){
             PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 phoneNumber,        // Phone number to verify
-                60,                 // Timeout duration
+                55,                 // Timeout duration
                 TimeUnit.SECONDS,   // Unit of timeout
                 activity,               // Activity (for callback binding)
                 mCallbacks)

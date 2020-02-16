@@ -1,11 +1,6 @@
 package com.aldab2.android.seniorproject.views.activities
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.Toast
-import androidx.appcompat.app.ActionBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -16,10 +11,10 @@ import com.aldab2.android.seniorproject.R
 import com.google.android.material.appbar.AppBarLayout
 
 
-class MainActivity1 : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     companion object {
-        val TAG = MainActivity1.javaClass.simpleName
+        val TAG = MainActivity.javaClass.simpleName
 
     }
     private lateinit var  navController: NavController
@@ -29,7 +24,7 @@ class MainActivity1 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main1)
+        setContentView(R.layout.activity_main)
 
 
         setSupportActionBar(findViewById(R.id.toolbar))

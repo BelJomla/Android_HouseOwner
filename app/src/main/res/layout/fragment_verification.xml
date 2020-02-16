@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:theme="@style/AppTheme.Verification"
+        android:background="@color/colorPrimary"
+
+        tools:context=".views.fragments.VerificationFragment">
+
+
+    <TextView
+            android:text="@string/verification_code"
+            android:textColor="@color/dark_white"
+            android:fontFamily="@font/seguisb"
+            android:textSize="28sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_verif_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="90dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+            android:text="@string/please_type_the_verification_code_sent_to_966_5xxxxxxxxx"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_mini_label"
+            android:textSize="13sp"
+            android:textColor="@color/mini_white"
+            android:fontFamily="@font/segoeui"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_verif_label"
+            app:layout_constraintStart_toStartOf="@+id/tv_verif_label"
+            app:layout_constraintEnd_toEndOf="@id/tv_verif_label"
+            />
+
+    <EditText
+            android:layout_width="300dp"
+            android:layout_height="54dp"
+            android:inputType="number"
+            android:maxLength="4"
+            android:textAlignment="center"
+            android:textSize="40sp"
+            android:background="@drawable/edit_text_verif_background"
+            android:textColorHint="@color/white"
+            android:ems="10"
+            android:id="@+id/et_verification"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="80dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_mini_label"
+            android:autofillHints="@string/_4325"/>
+
+    <TextView
+            android:text="@string/did_not_receive_sms_in_42s"
+            android:textColor="@color/verif_counter_gray"
+            android:textSize="13sp"
+            android:fontFamily="@font/segoeui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_counter"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/et_verification"
+            app:layout_constraintStart_toStartOf="@+id/tv_mini_label"
+            app:layout_constraintEnd_toStartOf="@+id/tv_resend_sms"
+            android:layout_marginEnd="2dp"/>
+
+    <TextView
+            android:text="@string/resend_sms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:visibility="gone"
+            android:textColor="@color/dark_white"
+            android:fontFamily="@font/segoeuib"
+            android:padding="4dp"
+            android:id="@+id/tv_resend_sms"
+            android:layout_marginStart="2dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_counter"
+            android:layout_marginTop="28dp"
+            app:layout_constraintTop_toBottomOf="@+id/et_verification"
+            app:layout_constraintEnd_toEndOf="@+id/tv_mini_label"
+            />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

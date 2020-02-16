@@ -8,10 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 
 import com.aldab2.android.seniorproject.R
-import com.aldab2.android.seniorproject.views.activities.MainActivity1
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class Carts : Fragment() {
@@ -24,7 +22,7 @@ class Carts : Fragment() {
         val view =inflater.inflate(R.layout.fragment_carts, container, false)
         val btnShop =  view.findViewById<FloatingActionButton>(R.id.btn_shop)
 
-       // if (activity!!.localClassName == MainActivity1().localClassName)
+       // if (activity!!.localClassName == MainActivity().localClassName)
         btnShop.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_fragment_carts_to_fragment_shopping))
         Toast.makeText(view.context,"Clicked ", Toast.LENGTH_SHORT).show()
 

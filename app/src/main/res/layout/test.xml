@@ -3,40 +3,21 @@
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
                                                    android:orientation="vertical"
                                                    android:layout_width="match_parent"
-                                                   android:layout_height="match_parent">
+                                                   android:layout_height="match_parent"
+                                                    android:background="@color/colorPrimary"
+        >
 
-
-    <com.google.android.material.appbar.AppBarLayout
+    <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height='wrap_content'
+            android:layout_height="wrap_content"
+            android:minHeight="700dp"
+            app:cardCornerRadius="64dp"
+            app:cardBackgroundColor="#F9F9F9"
             app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="200dp"
             app:layout_constraintStart_toStartOf="parent"
-
-            >
-        <androidx.appcompat.widget.Toolbar
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize">
-
-        </androidx.appcompat.widget.Toolbar>
-        <com.google.android.material.tabs.TabLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            <com.google.android.material.tabs.TabItem
-                    android:text="Tab1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            <com.google.android.material.tabs.TabItem
-                    android:text="Tab2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            <com.google.android.material.tabs.TabItem
-                    android:text="Tab3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-        </com.google.android.material.tabs.TabLayout>
-
-
-    </com.google.android.material.appbar.AppBarLayout>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

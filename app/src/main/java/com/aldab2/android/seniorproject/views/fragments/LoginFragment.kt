@@ -1,26 +1,28 @@
 package com.aldab2.android.seniorproject.views.fragments
 
 
-import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import androidx.navigation.NavController
-import androidx.navigation.NavOptions
-import androidx.navigation.fragment.findNavController
 
 import com.aldab2.android.seniorproject.R
-import com.aldab2.android.seniorproject.views.FirebaseUtils
-import com.aldab2.android.seniorproject.views.activities.MainActivity1
+import com.aldab2.android.seniorproject.views.models.NavigationMessage
+import org.greenrobot.eventbus.EventBus
 
 
 class LoginFragment : Fragment() {
+    private val TAG = "LoginFragment"
+    private val countryCode = "+966"
 
     lateinit var btnLogin : Button
     lateinit var navController: NavController
+    lateinit var etMobile  :EditText
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,12 +34,23 @@ class LoginFragment : Fragment() {
 
 
 
+
+
         btnLogin = view.findViewById(R.id.btn_login_next)
+        etMobile = view.findViewById<EditText>(R.id.et_login_mobile)
+
+
         btnLogin.setOnClickListener {
-            val mainPageIntent = Intent(context,MainActivity1::class.java)
-            mainPageIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            startActivity(mainPageIntent)
-            activity!!.finish()
+            val phoneNumber = countryCode + etMobile.text.toString()
+            Log.i("XEXEXEXE","Phone is $phoneNumber")
+          //  FirebaseUtils.verifyPhoneNumber(activity as Activity,phoneNumber,callbacks)
+
+            val event  = NavigationMessage()
+            event.eventLoginNext()
+            EventBus.getDefault().post(event)
+
+
+
 
         }
 

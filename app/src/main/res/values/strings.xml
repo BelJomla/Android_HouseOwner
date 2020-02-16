@@ -17,6 +17,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="verification_code">Verification Code</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -24,6 +25,14 @@
     <string name="_966">+966</string>
     <string name="_5xxxxxxxx">5xxxxxxxx</string>
     <string name="next">Next</string>
+    <string name="saudi_arabia_966">Saudi Arabia ( + 966 )</string>
+    <string name="please_type_the_verification_code_sent_to_966_5xxxxxxxxx">Please type the verification code sent to +966 5xxxxxxxxx</string>
+    <string name="_4325">4325</string>
+    <string name="did_not_receive_sms_in_42s">Did not receive SMS in %ds ?</string>
+    <string name="resend_sms">Resend SMS</string>
+    <string name="wrong_verif_code">Wrong Verification Code</string>
+    <string name="invalid_code">Invalid Code</string>
+    <string name="too_many_requests">You have sent too many requests... Please contanct support</string>
 
 
 </resources>
