@@ -15,6 +15,51 @@
       },
       "oauth_client": [
         {
+          "client_id": "658292407251-u3hovfqus69eseuqlt246q433g04satg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aldab2.android.seniorproject",
+            "certificate_hash": "f66d85b719328688665d831c99745bbcec996bfe"
+          }
+        },
+        {
+          "client_id": "658292407251-akagmcdb700tl7pktgrebatb0ihn1r1f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHkphzWDpMAiPtfiXuisfjgOPVmRmYFYs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "658292407251-akagmcdb700tl7pktgrebatb0ihn1r1f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:658292407251:android:6752505d85a25895708d26",
+        "android_client_info": {
+          "package_name": "com.android.BelJomla"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "658292407251-e6hicbjk34aaor1gap2hq0ve4pjojfv1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.BelJomla",
+            "certificate_hash": "f66d85b719328688665d831c99745bbcec996bfe"
+          }
+        },
+        {
           "client_id": "658292407251-akagmcdb700tl7pktgrebatb0ihn1r1f.apps.googleusercontent.com",
           "client_type": 3
         }
