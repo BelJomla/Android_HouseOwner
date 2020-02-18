@@ -1,4 +1,4 @@
-package com.android.BelJomla.views.models
+package com.android.BelJomla.models
 
 class NavigationMessage {
     companion object {

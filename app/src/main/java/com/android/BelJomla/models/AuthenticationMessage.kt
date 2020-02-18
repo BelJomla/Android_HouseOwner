@@ -1,4 +1,4 @@
-package com.android.BelJomla.views.models
+package com.android.BelJomla.models
 
 import com.google.firebase.auth.PhoneAuthProvider
 

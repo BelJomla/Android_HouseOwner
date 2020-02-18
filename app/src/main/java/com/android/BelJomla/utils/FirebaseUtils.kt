@@ -1,4 +1,4 @@
-package com.android.BelJomla.views.utils
+package com.android.BelJomla.utils
 
 
 import android.app.Activity
@@ -11,7 +11,7 @@ class FirebaseUtils {
         fun verifyPhoneNumber(activity: Activity, phoneNumber : String, mCallbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks){
             PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 phoneNumber,        // Phone number to verify
-                55,                 // Timeout duration
+                15,                 // Timeout duration
                 TimeUnit.SECONDS,   // Unit of timeout
                 activity,               // Activity (for callback binding)
                 mCallbacks)

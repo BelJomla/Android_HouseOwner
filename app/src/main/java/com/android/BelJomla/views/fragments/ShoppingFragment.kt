@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.android.BelJomla.R
-import com.android.BelJomla.views.utils.FirebaseUtils
+import com.android.BelJomla.utils.FirebaseUtils
 
 
 class ShoppingFragment : Fragment() {
