@@ -19,8 +19,9 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
             android:id="@+id/et_login_mobile"
-            android:hint="Your Number Here"
+            android:hint="@string/your_number_here"
             android:autofillHints="@string/_5xxxxxxxx"
+            android:imeOptions="actionDone"
             android:inputType="number"
             android:textAlignment="center"
 

@@ -6,4 +6,6 @@ interface VerificationCallbacks {
 
 
     fun onSignInCompleteCallback(authenticatedUser : User?)
+
+    fun onUserInFireStoreCreatedCallback()
 }

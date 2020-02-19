@@ -16,4 +16,5 @@
     <color name="dark_grey">#6A6A6A</color>
     <color name="mini_white">#F2F2F2</color>
     <color name="verif_counter_gray">#BCBCBC</color>
+    <color name="signup_welcome_grey">#BCBCBC</color>
 </resources>

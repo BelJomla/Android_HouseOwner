@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import com.android.belJomla.R
+import com.android.belJomla.models.User
 
 
 import com.android.belJomla.utils.Constants
@@ -45,7 +46,7 @@ class LoginActivity : AppCompatActivity() {
                 fm.popBackStack(Constants.VERIFICATION_FRAGMENT_TAG, FragmentManager.POP_BACK_STACK_INCLUSIVE)
                 fm.beginTransaction().replace(
                     R.id.login_fragment_container,
-                    VerificationFragment()
+                    VerificationFragment.newInstance()
                 ).addToBackStack(Constants.VERIFICATION_FRAGMENT_TAG)
                     .commit()
                 viewModel.onCodeSentComplete()
@@ -67,12 +68,32 @@ class LoginActivity : AppCompatActivity() {
             }
         })
         viewModel.user.observe(this, Observer { user ->
-            if (user.isAuthenticated) {
+            if (user.isAuthenticated && !user.isNew) {
                 goToMainActivity()
 
-            } else {
+            }
+            else if (user.isAuthenticated && user.isNew) {
+                fm.beginTransaction().replace(
+                    R.id.login_fragment_container,
+                    SignUpFragment.newInstance()
+                ).addToBackStack(Constants.SIGNUP_FRAGMENT_TAG)
+                    .commit()
+                Toast.makeText(this, "New User", Toast.LENGTH_SHORT).show()
+
+            }
+            else {
                 Toast.makeText(this, "User not Authenticated", Toast.LENGTH_SHORT).show()
 
+            }
+        })
+
+        viewModel.eventFirestoreUserCreated.observe(this, Observer { isCreatingUserInProgress ->
+            // If the app is not in the signup screen !isCreatingUserInProgress and the user is authenticated and is new
+            if (!isCreatingUserInProgress && viewModel.user.value != null ){
+                val user : User = viewModel.user.value!!
+                if (user.isAuthenticated) {
+                    goToMainActivity()
+                }
             }
         })
 
@@ -86,13 +107,6 @@ class LoginActivity : AppCompatActivity() {
         finish()
     }
 
-    override fun onStart() {
-        super.onStart()
-    }
-
-    override fun onStop() {
-        super.onStop()
 
 
-    }
 }

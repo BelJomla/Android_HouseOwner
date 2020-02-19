@@ -4,11 +4,11 @@ import com.google.firebase.firestore.Exclude
 
 class User(var firstName : String, var lastName:String,var mobile : String) {
 
-    @Exclude
+    @get:Exclude
     var isAuthenticated: Boolean = false
-    @Exclude
+    @get:Exclude
     var isNew: Boolean = false
-    @Exclude
+    @get:Exclude
     var isCreated: Boolean = false
     init {
         isAuthenticated = false

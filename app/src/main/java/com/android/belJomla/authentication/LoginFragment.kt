@@ -11,7 +11,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.android.belJomla.databinding.FragmentLoginBinding
-
 import com.android.belJomla.R
 import com.android.belJomla.utils.FirebaseUtils
 
@@ -21,10 +20,7 @@ class LoginFragment : Fragment() {
     private val countryCode = "+966"
     private lateinit var  viewModel: AuthenticationViewModel
 
-//    lateinit var btnLogin : Button
-    //lateinit var navController: NavController
-   // lateinit var etMobile  :EditText
-   // lateinit var pbLoading : ProgressBar
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

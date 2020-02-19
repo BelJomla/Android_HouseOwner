@@ -33,6 +33,10 @@ class AuthenticationViewModel :ViewModel(), VerificationCallbacks{
         get() = _eventCodeResent
     private var codeSentOnce = false
 
+    private val _eventFirestoreUserCreated =  MutableLiveData<Boolean>()
+    val eventFirestoreUserCreated : LiveData<Boolean>
+        get() = _eventFirestoreUserCreated
+
     private val _eventVerificationFailed =  MutableLiveData<Boolean>()
     val eventVerificationFailed : LiveData<Boolean>
         get() = _eventVerificationFailed
@@ -64,6 +68,7 @@ class AuthenticationViewModel :ViewModel(), VerificationCallbacks{
         codeSentOnce = false
         _eventVerificationFailed.value = false
         _eventVerificationSuccess.value = false
+        _eventFirestoreUserCreated.value = false
         _callbacks.value = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
@@ -164,10 +169,22 @@ class AuthenticationViewModel :ViewModel(), VerificationCallbacks{
         startLoading()
         return repository.signInWithPhoneAuthCredential(credential)
     }
+    fun createUserInFirestore(firstName:String ,lastName:String) {
+        startLoading()
+        _eventFirestoreUserCreated.value = true
+        return repository.createUserInFirestore(firstName,lastName,user.value!!.mobile)
+    }
 
     override fun onSignInCompleteCallback(authenticatedUser : User?) {
         _user.value = authenticatedUser
         stopLoading()
+    }
+
+    override fun onUserInFireStoreCreatedCallback() {
+
+        _eventFirestoreUserCreated.value = false
+        stopLoading()
+
     }
 
 }

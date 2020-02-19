@@ -33,6 +33,14 @@
     <string name="wrong_verif_code">Wrong Verification Code</string>
     <string name="invalid_code">Invalid Code</string>
     <string name="too_many_requests">You have sent too many requests... Please contanct support</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="welcome">Welcome</string>
+    <string name="first_name">First Name</string>
+    <string name="your_first_name_here">Your First Name Here</string>
+    <string name="last_name">Last Name</string>
+    <string name="your_last_name">Your Last Name</string>
+    <string name="your_number_here">Your Number Here</string>
+    <string name="sign_out">Sign Out</string>
 
 
 </resources>

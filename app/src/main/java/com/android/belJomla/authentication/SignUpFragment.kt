@@ -6,18 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 
 import com.android.belJomla.R
+import com.android.belJomla.databinding.FragmentSignUpBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- *
- */
 class SignUpFragment : Fragment() {
 
     override fun onCreateView(
@@ -26,8 +22,35 @@ class SignUpFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        return inflater.inflate(R.layout.fragment_sign_up, container, false)
+        val binding : FragmentSignUpBinding = DataBindingUtil.inflate(layoutInflater,R.layout.fragment_sign_up,container,false)
+        val viewModel by activityViewModels<AuthenticationViewModel>()
+
+        binding.btnSignup.setOnClickListener {
+            val fname = binding.etFname.text.toString()
+            val lname = binding.etLname.text.toString()
+
+
+            viewModel.createUserInFirestore(fname,lname)
+        }
+
+        viewModel.isLoading.observe(this, Observer {isLoading ->
+            if (isLoading){
+                binding.pbLoading.visibility = View.VISIBLE
+                binding.btnSignup.isClickable = false
+            }
+            else {
+                binding.pbLoading.visibility = View.GONE
+                binding.btnSignup.isClickable = true
+            }
+
+        })
+
+
+        return binding.root
     }
 
+    companion object {
+        fun newInstance() = SignUpFragment()
+    }
 
 }
