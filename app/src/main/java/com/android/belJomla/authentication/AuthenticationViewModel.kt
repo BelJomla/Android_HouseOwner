@@ -1,8 +1,8 @@
-package com.android.BelJomla.authentication
+package com.android.belJomla.authentication
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.android.BelJomla.models.User
+import com.android.belJomla.models.User
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException

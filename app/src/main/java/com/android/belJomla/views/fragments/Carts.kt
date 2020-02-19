@@ -1,4 +1,4 @@
-package com.android.BelJomla.views.fragments
+package com.android.belJomla.views.fragments
 
 
 import android.os.Bundle
@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.Navigation
 
-import com.android.BelJomla.R
+import com.android.belJomla.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class Carts : Fragment() {

@@ -1,4 +1,4 @@
-package com.android.BelJomla.views.fragments.dummy
+package com.android.belJomla.views.fragments.dummy
 
 import java.util.ArrayList
 import java.util.HashMap

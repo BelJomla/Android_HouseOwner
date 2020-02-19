@@ -1,6 +1,6 @@
-package com.android.BelJomla.authentication
+package com.android.belJomla.authentication
 
-import com.android.BelJomla.models.User
+import com.android.belJomla.models.User
 
 interface VerificationCallbacks {
 

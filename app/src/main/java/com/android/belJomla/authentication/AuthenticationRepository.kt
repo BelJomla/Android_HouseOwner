@@ -1,7 +1,7 @@
-package com.android.BelJomla.authentication
+package com.android.belJomla.authentication
 
 import android.util.Log
-import com.android.BelJomla.models.User
+import com.android.belJomla.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential

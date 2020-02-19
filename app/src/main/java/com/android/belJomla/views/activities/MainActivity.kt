@@ -1,4 +1,4 @@
-package com.android.BelJomla.views.activities
+package com.android.belJomla.views.activities
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,7 +7,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.NavigationUI.onNavDestinationSelected
-import com.android.BelJomla.R
+import com.android.belJomla.R
 import com.google.android.material.appbar.AppBarLayout
 
 

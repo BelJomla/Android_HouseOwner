@@ -1,4 +1,4 @@
-package com.android.BelJomla
+package com.android.belJomla
 
 import org.junit.Test
 

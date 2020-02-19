@@ -1,4 +1,4 @@
-package com.android.BelJomla.utils
+package com.android.belJomla.utils
 
 object Constants {
     const val USERS = "users"

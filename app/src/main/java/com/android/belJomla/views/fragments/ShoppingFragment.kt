@@ -1,4 +1,4 @@
-package com.android.BelJomla.views.fragments
+package com.android.belJomla.views.fragments
 
 
 import android.os.Bundle
@@ -7,17 +7,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-import com.android.BelJomla.R
+import com.android.belJomla.R
+import com.android.belJomla.utils.FirebaseUtils
 
-class ChatFragment : Fragment() {
+
+class ShoppingFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
-        return inflater.inflate(R.layout.fragment_chat, container, false)
+        val view = inflater.inflate(R.layout.fragment_shopping, container, false)
+        FirebaseUtils.isLoggedIn = true
+        return view
     }
 
 

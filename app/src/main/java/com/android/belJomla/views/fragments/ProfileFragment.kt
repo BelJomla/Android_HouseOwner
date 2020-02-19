@@ -1,4 +1,4 @@
-package com.android.BelJomla.views.fragments
+package com.android.belJomla.views.fragments
 
 
 import android.os.Bundle
@@ -11,7 +11,7 @@ import android.widget.ListAdapter
 import android.widget.ListView
 import android.widget.Toast
 
-import com.android.BelJomla.R
+import com.android.belJomla.R
 
 class ProfileFragment : Fragment() {
 

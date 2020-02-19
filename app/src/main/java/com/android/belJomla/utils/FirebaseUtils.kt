@@ -1,4 +1,4 @@
-package com.android.BelJomla.utils
+package com.android.belJomla.utils
 
 
 import android.app.Activity

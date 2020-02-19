@@ -1,4 +1,4 @@
-package com.android.BelJomla
+package com.android.belJomla
 
 import android.os.CountDownTimer
 import androidx.lifecycle.Lifecycle

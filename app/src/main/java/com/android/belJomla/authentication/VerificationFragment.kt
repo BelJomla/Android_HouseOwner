@@ -1,4 +1,4 @@
-package com.android.BelJomla.authentication
+package com.android.belJomla.authentication
 
 
 import android.os.Bundle
@@ -14,25 +14,26 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import com.android.BelJomla.LifeCycleCountdownTimer
+import com.android.belJomla.LifeCycleCountdownTimer
 
-import com.android.BelJomla.R
-import com.android.BelJomla.utils.Constants.CODE_MAX_LENGTH as CODE_MAX_LENGTH
+import com.android.belJomla.R
+import com.android.belJomla.utils.Constants.CODE_MAX_LENGTH as CODE_MAX_LENGTH
 import android.app.Activity
 import android.content.Context
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
-import com.android.BelJomla.utils.FirebaseUtils
+import androidx.databinding.DataBindingUtil
+import com.android.belJomla.databinding.FragmentVerificationBinding
+import com.android.belJomla.utils.FirebaseUtils
 
 
 class VerificationFragment : Fragment() {
 
 
     lateinit var viewModel: AuthenticationViewModel
-    lateinit var tvCounter : TextView
-    lateinit var tvResend : TextView
-    lateinit var etVerification : EditText
-    lateinit var pbLoading : ProgressBar
+
+
+
+    //TODO Move Timer counter to view model
     lateinit var timer : CountDownTimer
     var counter = 15
 
@@ -41,30 +42,25 @@ class VerificationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_verification, container, false)
+        val binding : FragmentVerificationBinding = DataBindingUtil.inflate(layoutInflater,R.layout.fragment_verification,container,false)
         val viewModel by activityViewModels<AuthenticationViewModel>()
 
 
-        tvCounter = view.findViewById(R.id.tv_counter)
-        tvResend = view.findViewById(R.id.tv_resend_sms)
-        etVerification = view.findViewById(R.id.et_verification)
-        pbLoading = view.findViewById(R.id.pb_loading2)
 
-        startResendCounter()
 
-        Toast.makeText(context,viewModel.isLoading.value.toString(),Toast.LENGTH_SHORT).show()
+        startResendCounter(binding)
+
 
         viewModel.isLoading.observe(this, Observer { isLoading ->
-            Toast.makeText(context,isLoading.toString(),Toast.LENGTH_SHORT).show()
 
             if (isLoading){
-                pbLoading.visibility = View.VISIBLE
-                etVerification.isEnabled = false
+                binding.pbLoading2.visibility = View.VISIBLE
+                binding.etVerification.isEnabled = false
             }
             else {
-                pbLoading.visibility = View.GONE
-                etVerification.setText("")
-                etVerification.isEnabled = true
+                binding.pbLoading2.visibility = View.GONE
+                binding.etVerification.setText("")
+                binding.etVerification.isEnabled = true
 
 
             }
@@ -73,11 +69,11 @@ class VerificationFragment : Fragment() {
 
 
 
-        etVerification.addTextChangedListener(object : TextWatcher{
+        binding.etVerification.addTextChangedListener(object : TextWatcher{
             override fun afterTextChanged(editable: Editable?) {
                 if(editable!!.length == CODE_MAX_LENGTH) {
 
-                    hideKeyboardFrom(context!!,view)
+                    hideKeyboardFrom(context!!,binding.root)
                     viewModel.signInWithPhoneAuthCredential(editable.toString())
                 }
             }
@@ -90,11 +86,11 @@ class VerificationFragment : Fragment() {
 
         })
 
-        tvResend.setOnClickListener {
+        binding.tvResendSms.setOnClickListener {
             FirebaseUtils.verifyPhoneNumber(activity as Activity,viewModel.phoneNumber.value!!,
                 viewModel.callbacks.value!!
             )
-            startResendCounter()
+            startResendCounter(binding)
             viewModel.startLoading()
         }
 
@@ -104,20 +100,20 @@ class VerificationFragment : Fragment() {
         return view
     }
 
-    private fun startResendCounter() {
+    private fun startResendCounter(binding : FragmentVerificationBinding) {
         counter =15
-        tvResend.visibility = View.GONE
+        binding.tvResendSms.visibility = View.GONE
 
         timer = object : LifeCycleCountdownTimer(lifecycle,15000, 1000)  {
             override fun onTick(millisUntilFinished: Long) {
-                tvCounter.text = getString(R.string.did_not_receive_sms_in_42s, counter)
+                binding.tvCounter.text = getString(R.string.did_not_receive_sms_in_42s, counter)
                 counter--
 
             }
 
             override fun onFinish() {
-                tvCounter.text = "You can Resend now"
-                tvResend.visibility = View.VISIBLE
+                binding.tvCounter.text = "You can Resend now"
+                binding.tvResendSms.visibility = View.VISIBLE
 
 
 

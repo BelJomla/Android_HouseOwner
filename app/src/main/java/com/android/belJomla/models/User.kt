@@ -1,4 +1,4 @@
-package com.android.BelJomla.models
+package com.android.belJomla.models
 
 import com.google.firebase.firestore.Exclude
 

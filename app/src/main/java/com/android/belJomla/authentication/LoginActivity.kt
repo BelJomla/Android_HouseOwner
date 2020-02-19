@@ -1,29 +1,18 @@
-package com.android.BelJomla.authentication
+package com.android.belJomla.authentication
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.android.BelJomla.R
-import com.android.BelJomla.models.AuthenticationMessage
+import com.android.belJomla.R
 
 
-import com.android.BelJomla.models.NavigationMessage
-import com.android.BelJomla.utils.Constants
-import com.android.BelJomla.utils.FirebaseUtils
-import com.android.BelJomla.views.activities.MainActivity
-import com.google.firebase.FirebaseException
-import com.google.firebase.FirebaseTooManyRequestsException
+import com.android.belJomla.utils.Constants
+import com.android.belJomla.views.activities.MainActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-import com.google.firebase.auth.PhoneAuthCredential
-import com.google.firebase.auth.PhoneAuthProvider
 
 
 class LoginActivity : AppCompatActivity() {
@@ -37,6 +26,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         val viewModel by viewModels<AuthenticationViewModel>()
+        FirebaseAuth.getInstance().signOut()
+
         if (savedInstanceState == null) {
 
 
@@ -44,8 +35,8 @@ class LoginActivity : AppCompatActivity() {
                 goToMainActivity()
             }
 
-            fm.beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-                .add(R.id.login_fragment_container, LoginFragment(), Constants.LOGIN_FRAGMENT_TAG).commit()
+            fm.beginTransaction().setCustomAnimations(android.R.anim.fade_in,android.R.anim.slide_out_right)
+                .add(R.id.login_fragment_container, LoginFragment.getInstance(), Constants.LOGIN_FRAGMENT_TAG).commit()
 
         }
 
