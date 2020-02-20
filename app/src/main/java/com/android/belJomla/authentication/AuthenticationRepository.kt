@@ -37,8 +37,10 @@ class AuthenticationRepository(var verifCallbacks: VerificationCallbacks) {
                 isNewUser = if (userDocument!!.exists()){
                     Log.d(TAG, "signInWithCredential_getUserRef: userDocument exists! ")
 
+                    Log.d(TAG, "Fname ${userDocument["firstName"].toString()} Lname ${userDocument["firstName"].toString()}")
+
                     // New user if fname or lname is empty. else , not new user
-                    userDocument["firstname"].toString().isEmpty() || userDocument["lastname"].toString().isEmpty()
+                    userDocument["firstName"].toString().isEmpty() && userDocument["lastName"].toString().isEmpty()
                 } else {
                     Log.d(TAG, "signInWithCredential_getUserRef: userDocument does not exist! ")
 

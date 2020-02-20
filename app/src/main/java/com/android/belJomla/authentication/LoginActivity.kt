@@ -37,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
             }
 
             fm.beginTransaction().setCustomAnimations(android.R.anim.fade_in,android.R.anim.slide_out_right)
-                .add(R.id.login_fragment_container, LoginFragment.getInstance(), Constants.LOGIN_FRAGMENT_TAG).commit()
+                .add(R.id.login_fragment_container, LoginFragment.newInstance(), Constants.LOGIN_FRAGMENT_TAG).commit()
 
         }
 
