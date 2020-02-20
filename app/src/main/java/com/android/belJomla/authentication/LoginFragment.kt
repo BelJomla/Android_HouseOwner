@@ -69,7 +69,7 @@ class LoginFragment : Fragment() {
     }
 
     companion object {
-        fun getInstance() = LoginFragment()
+        fun newInstance() = LoginFragment()
     }
 
 
