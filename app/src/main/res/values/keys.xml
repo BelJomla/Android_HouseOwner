@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="account_category">account_category</string>
+    <string name="settings_profile">Profile</string>
+    <string name="acco">account_category</string>
+    <string name="general_category">general_category</string>
+    <string name="about_category">about_category</string>
+    <string name="settings_language">settings_language</string>
+    <string name="settings_notification">settings_notification</string>
+    <string name="settings_signout">settings_signout</string>
+    <string name="settings_terms">settings_terms</string>
+    <string name="settings_aboutus">settings_aboutus</string>
+    <string name="settings_getcredit">settings_aboutus</string>
+</resources>

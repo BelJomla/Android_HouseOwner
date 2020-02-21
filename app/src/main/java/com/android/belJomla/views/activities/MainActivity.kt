@@ -1,5 +1,6 @@
 package com.android.belJomla.views.activities
 
+import android.graphics.PorterDuff
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.NavigationUI.onNavDestinationSelected
 import com.android.belJomla.R
 import com.google.android.material.appbar.AppBarLayout
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {

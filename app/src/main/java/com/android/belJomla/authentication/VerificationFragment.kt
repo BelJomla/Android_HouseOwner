@@ -48,6 +48,7 @@ class VerificationFragment : Fragment() {
         startResendCounter(binding)
 
 
+
         viewModel.isLoading.observe(this, Observer { isLoading ->
 
             if (isLoading){

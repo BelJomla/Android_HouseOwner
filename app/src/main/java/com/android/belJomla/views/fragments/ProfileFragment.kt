@@ -11,6 +11,7 @@ import android.widget.*
 
 import com.android.belJomla.R
 import com.android.belJomla.authentication.LoginActivity
+import com.android.belJomla.views.activities.SettingsActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class ProfileFragment : Fragment() {
@@ -36,6 +37,11 @@ class ProfileFragment : Fragment() {
             signOutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(signOutIntent)
             activity!!.finish()
+        }
+        val settingsButton = view.findViewById<ImageButton>(R.id.btn_settings)
+        settingsButton.setOnClickListener {
+            val settingsIntent = Intent(context,SettingsActivity::class.java)
+            startActivity(settingsIntent)
         }
 
         return view
