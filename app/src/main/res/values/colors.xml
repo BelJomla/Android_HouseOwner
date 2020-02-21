@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">@color/dark_blue</color>
-    <color name="colorPrimaryDark">@color/light_blue</color>
-    <color name="colorAccent">@color/black</color>
+    <color name="colorPrimaryDark">@color/black</color>
+    <color name="colorAccent">@color/sugar_white</color>
 
 
     <color name="dark_blue">#080E33</color>
@@ -15,6 +15,7 @@
     <color name="hint_gray">#BCBCBC</color>
     <color name="dark_grey">#6A6A6A</color>
     <color name="mini_white">#F2F2F2</color>
+    <color name="sugar_white">#E7DECD</color>
     <color name="verif_counter_gray">#BCBCBC</color>
     <color name="signup_welcome_grey">#BCBCBC</color>
 </resources>
