@@ -1,4 +1,4 @@
-package com.android.belJomla.authentication
+package com.android.belJomla.views.fragments
 
 
 import android.app.Activity
@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import com.android.belJomla.databinding.FragmentLoginBinding
 import com.android.belJomla.R
 import com.android.belJomla.utils.FirebaseUtils
+import com.android.belJomla.viewmodels.AuthenticationViewModel
 
 
 class LoginFragment : Fragment() {

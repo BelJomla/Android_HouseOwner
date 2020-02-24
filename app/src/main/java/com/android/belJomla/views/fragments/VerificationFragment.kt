@@ -1,4 +1,4 @@
-package com.android.belJomla.authentication
+package com.android.belJomla.views.fragments
 
 
 import android.os.Bundle
@@ -21,6 +21,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import com.android.belJomla.databinding.FragmentVerificationBinding
 import com.android.belJomla.utils.FirebaseUtils
+import com.android.belJomla.viewmodels.AuthenticationViewModel
 
 
 class VerificationFragment : Fragment() {
@@ -131,7 +132,7 @@ class VerificationFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(): VerificationFragment=
+        fun newInstance(): VerificationFragment =
             VerificationFragment()
     }
 

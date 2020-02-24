@@ -5,7 +5,7 @@
                                                    xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".authentication.LoginFragment">
+             tools:context=".views.fragments.LoginFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <EditText
@@ -21,6 +21,7 @@
             android:id="@+id/et_login_mobile"
             android:hint="@string/your_number_here"
             android:autofillHints="@string/_5xxxxxxxx"
+            android:padding="8dp"
             android:imeOptions="actionDone"
             android:inputType="number"
             android:textAlignment="center"

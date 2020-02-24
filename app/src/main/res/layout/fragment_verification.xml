@@ -9,7 +9,7 @@
         android:theme="@style/AppTheme.Verification"
         android:background="@color/colorPrimary"
 
-        tools:context=".authentication.VerificationFragment">
+        tools:context=".views.fragments.VerificationFragment">
 
 
     <TextView

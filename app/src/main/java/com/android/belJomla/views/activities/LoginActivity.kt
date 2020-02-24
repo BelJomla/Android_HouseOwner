@@ -1,4 +1,4 @@
-package com.android.belJomla.authentication
+package com.android.belJomla.views.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,11 +8,14 @@ import androidx.activity.viewModels
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import com.android.belJomla.R
+import com.android.belJomla.views.fragments.LoginFragment
+import com.android.belJomla.views.fragments.SignUpFragment
+import com.android.belJomla.views.fragments.VerificationFragment
 import com.android.belJomla.models.User
 
 
 import com.android.belJomla.utils.Constants
-import com.android.belJomla.views.activities.MainActivity
+import com.android.belJomla.viewmodels.AuthenticationViewModel
 import com.google.firebase.auth.FirebaseAuth
 
 
@@ -37,7 +40,8 @@ class LoginActivity : AppCompatActivity() {
             }
 
             fm.beginTransaction().setCustomAnimations(android.R.anim.fade_in,android.R.anim.slide_out_right)
-                .add(R.id.login_fragment_container, LoginFragment.newInstance(), Constants.LOGIN_FRAGMENT_TAG).commit()
+                .add(R.id.login_fragment_container,
+                    LoginFragment.newInstance(), Constants.LOGIN_FRAGMENT_TAG).commit()
 
         }
 

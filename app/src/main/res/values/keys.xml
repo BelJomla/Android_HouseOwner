@@ -13,4 +13,6 @@
     <string name="settings_terms">settings_terms</string>
     <string name="settings_aboutus">settings_aboutus</string>
     <string name="settings_getcredit">settings_aboutus</string>
+    <string name="settings_contact_us">settings_contact_us</string>
+    <string name="settings_feedback">settings_feedback</string>
 </resources>

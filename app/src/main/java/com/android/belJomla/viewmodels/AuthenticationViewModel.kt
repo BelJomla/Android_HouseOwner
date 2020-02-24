@@ -1,7 +1,8 @@
-package com.android.belJomla.authentication
+package com.android.belJomla.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.*
+import com.android.belJomla.repositories.AuthenticationRepository
 import com.android.belJomla.models.User
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
@@ -9,7 +10,8 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 
-class AuthenticationViewModel :ViewModel(), VerificationCallbacks{
+class AuthenticationViewModel :ViewModel(),
+    VerificationCallbacks {
 
 
     private val TAG = this@AuthenticationViewModel.javaClass.simpleName

@@ -63,6 +63,9 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="email">Email</string>
+    <string name="demo_mail">Demo@mail.com</string>
+    <string name="save">Save</string>
 
 
 </resources>

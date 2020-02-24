@@ -1,4 +1,4 @@
-package com.android.belJomla.authentication
+package com.android.belJomla.viewmodels
 
 import com.android.belJomla.models.User
 

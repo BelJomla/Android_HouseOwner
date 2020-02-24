@@ -6,12 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.android.belJomla.R
 
-import com.android.BelJomla.R
 
-/**
- * A simple [Fragment] subclass.
- */
 class EditProfileFragment : Fragment() {
 
     override fun onCreateView(
@@ -20,6 +17,10 @@ class EditProfileFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_edit_profile, container, false)
+    }
+
+    companion object {
+        fun getInstance() = EditProfileFragment()
     }
 
 

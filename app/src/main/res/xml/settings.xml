@@ -1,28 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        >
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
             app:key="@string/account_category"
             app:title="Account:"
+            app:icon="@drawable/account_settings"
             >
 
         <Preference
                 app:key="@string/settings_profile"
-                app:title="@string/edit_profile"/>
+                app:title="@string/edit_profile"
+
+                app:fragment="com.android.belJomla.views.fragments.EditProfileFragment"
+                />
 
     </PreferenceCategory>
 
     <PreferenceCategory
             app:key="@string/general_category"
-            app:title="General">
+            app:title="General"
+            app:icon="@drawable/ic_dashboard_black_24dp"
+            >
 
         <ListPreference
                 app:key="@string/settings_language"
-                app:title="@string/language"/>
+                app:title="@string/language"
+                android:defaultValue="0"
+                android:entries="@array/language_entries"
+                android:entryValues="@array/language_values"
+                app:summary="Only english is supported currently"
+                />
         <SwitchPreference
                 app:key="@string/settings_notification"
-                app:title="@string/notification"/>
+                app:title="@string/notification"
+                android:summaryOn="Notifications is turned on"
+                android:summaryOff="Notification is turned if"
+                />
         <Preference
                 app:key="@string/settings_signout"
                 app:title="@string/sign_out"/>
@@ -30,7 +43,9 @@
 
     <PreferenceCategory
             app:key="@string/about_category"
-            app:title="@string/about">
+            app:title="@string/about"
+            app:icon="@drawable/ic_info_black_24dp"
+            >
 
         <Preference
                 app:key="@string/settings_terms"
@@ -40,19 +55,26 @@
                 app:title="@string/about_us"/>
         <Preference
                 app:key="@string/settings_getcredit"
-                app:title="@string/get_free_credits"/>
+                app:title="@string/get_free_credits"
+                app:summary="Complete simple tasks to earn free points!"
+                />
 
     </PreferenceCategory>
 
     <PreferenceCategory
             app:key="help_category"
-            app:title="Help">
+            app:title="Help"
+            app:icon="@drawable/ic_help_black_24dp"
+            >
 
         <Preference
-                app:key="feedback"
+                app:key="@string/settings_feedback"
                 app:summary="Report technical issues or suggest new features"
                 app:title="Send feedback"/>
-
+        <Preference
+                app:key="@string/settings_contact_us"
+                app:summary="Reach out to us if you have any issue"
+                app:title="Contact Us"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

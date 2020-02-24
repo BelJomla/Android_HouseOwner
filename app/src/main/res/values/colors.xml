@@ -18,4 +18,5 @@
     <color name="sugar_white">#E7DECD</color>
     <color name="verif_counter_gray">#BCBCBC</color>
     <color name="signup_welcome_grey">#BCBCBC</color>
+    <color name="edit_profile_hint_color">#333333</color>
 </resources>

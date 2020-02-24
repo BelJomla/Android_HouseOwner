@@ -1,4 +1,4 @@
-package com.android.belJomla.authentication
+package com.android.belJomla.views.fragments
 
 
 import android.os.Bundle
@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 
 import com.android.belJomla.R
 import com.android.belJomla.databinding.FragmentSignUpBinding
+import com.android.belJomla.viewmodels.AuthenticationViewModel
 
 
 class SignUpFragment : Fragment() {

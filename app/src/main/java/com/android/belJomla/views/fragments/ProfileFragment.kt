@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import android.widget.*
 
 import com.android.belJomla.R
-import com.android.belJomla.authentication.LoginActivity
+import com.android.belJomla.views.activities.LoginActivity
 import com.android.belJomla.views.activities.SettingsActivity
 import com.google.firebase.auth.FirebaseAuth
 
@@ -33,7 +33,8 @@ class ProfileFragment : Fragment() {
         val signOutButton = view.findViewById<TextView>(R.id.tv_sign_out)
         signOutButton.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-            val signOutIntent = Intent(context,LoginActivity::class.java)
+            val signOutIntent = Intent(context,
+                LoginActivity::class.java)
             signOutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(signOutIntent)
             activity!!.finish()

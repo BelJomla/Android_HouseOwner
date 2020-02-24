@@ -1,23 +1,23 @@
-package com.android.belJomla.authentication
+package com.android.belJomla.repositories
 
 import android.util.Log
 import com.android.belJomla.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
-import androidx.databinding.adapters.NumberPickerBindingAdapter.setValue
-import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.DocumentReference
-import androidx.lifecycle.MutableLiveData
 import com.android.belJomla.utils.Constants
 import com.android.belJomla.utils.Constants.USERS
+import com.android.belJomla.viewmodels.VerificationCallbacks
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.core.FirestoreClient
 
 
 class AuthenticationRepository(var verifCallbacks: VerificationCallbacks) {
 
 
+    companion object {
+        lateinit var instance : AuthenticationRepository
+            private set
+    }
 
     val TAG = AuthenticationRepository::class.java.simpleName
 
@@ -26,7 +26,7 @@ class AuthenticationRepository(var verifCallbacks: VerificationCallbacks) {
     private var isNewUser = false
 
     fun funa(){}
-    private fun checkIfUserIsNew(user:User){
+    private fun checkIfUserIsNew(user: User){
         val userRef = firestore.collection(USERS).document(auth.uid!!)
         isNewUser = false
         userRef.get().addOnCompleteListener { getUserTask ->
@@ -82,14 +82,15 @@ class AuthenticationRepository(var verifCallbacks: VerificationCallbacks) {
                         val name = firebaseUser.displayName
                         val email = firebaseUser.email
                         val mobile = firebaseUser.phoneNumber
-                        val user = User(name ?: "", name ?: "", mobile!!)
+                        val user =
+                            User(name ?: "", name ?: "", mobile!!)
                         checkIfUserIsNew(user)
                         user.isAuthenticated = true
 
 
                     }
                     else {
-                        val user = User("","", "")
+                        val user = User("", "", "")
                         user.isNew = isNewUser
                         user.isAuthenticated = true
                         Log.d(TAG, "onSignInCompleteCallback  User : $user\n" +
@@ -104,7 +105,7 @@ class AuthenticationRepository(var verifCallbacks: VerificationCallbacks) {
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
                         // The verification code entered was invalid
-                        val user = User("","","")
+                        val user = User("", "", "")
                         user.isAuthenticated = false
                         user.isCreated = false
                         Log.d(TAG, "onSignInCompleteCallback  User : $user\n" +
@@ -124,7 +125,7 @@ class AuthenticationRepository(var verifCallbacks: VerificationCallbacks) {
      fun createUserInFirestore(firstName:String ,lastName:String,mobile:String){
          val usersRef = firestore.collection(Constants.USERS)
          val uidRef = usersRef.document(auth.currentUser!!.uid)
-         val user = User(firstName,lastName,mobile)
+         val user = User(firstName, lastName, mobile)
          uidRef.set(user).addOnCompleteListener{userCreationTask ->
              if (userCreationTask.isSuccessful) {
                  verifCallbacks.onUserInFireStoreCreatedCallback()
