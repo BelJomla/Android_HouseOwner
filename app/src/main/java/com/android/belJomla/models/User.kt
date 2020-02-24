@@ -2,7 +2,7 @@ package com.android.belJomla.models
 
 import com.google.firebase.firestore.Exclude
 
-class User(var firstName : String, var lastName:String,var mobile : String) {
+class User(var mobile : String) {
 
     @get:Exclude
     var isAuthenticated: Boolean = false
@@ -10,6 +10,9 @@ class User(var firstName : String, var lastName:String,var mobile : String) {
     var isNew: Boolean = false
     @get:Exclude
     var isCreated: Boolean = false
+    var email : String = ""
+    var firstName : String = ""
+    var lastName :String = ""
     init {
         isAuthenticated = false
         isNew = false

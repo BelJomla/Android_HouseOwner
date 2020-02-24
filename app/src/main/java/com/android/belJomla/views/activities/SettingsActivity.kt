@@ -13,6 +13,7 @@ import com.android.belJomla.viewmodels.SettingsViewModel
 class SettingsActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
     val viewmodel by viewModels<SettingsViewModel>()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)

@@ -177,7 +177,7 @@ class AuthenticationViewModel :ViewModel(),
         return repository.createUserInFirestore(firstName,lastName,user.value!!.mobile)
     }
 
-    override fun onSignInCompleteCallback(authenticatedUser : User?) {
+    override fun onUserFetched(authenticatedUser : User?) {
         _user.value = authenticatedUser
         stopLoading()
     }

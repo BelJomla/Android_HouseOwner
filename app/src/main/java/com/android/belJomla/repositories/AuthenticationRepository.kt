@@ -47,13 +47,13 @@ class AuthenticationRepository(var verifCallbacks: VerificationCallbacks) {
                     // If document does not exist ( no data in firestore) then he is a new user
                     true
                 }
-                Log.d(TAG, "onSignInCompleteCallback  User : $user\n" +
+                Log.d(TAG, "onUserFetched  User : $user\n" +
                         "FirebaseUser ${auth.currentUser?.phoneNumber}")
 
                 user.isNew = isNewUser
                 user.isCreated = true
                 user.isAuthenticated = true
-                verifCallbacks.onSignInCompleteCallback(user)
+                verifCallbacks.onUserFetched(user)
 
             }
             else {
@@ -82,20 +82,21 @@ class AuthenticationRepository(var verifCallbacks: VerificationCallbacks) {
                         val name = firebaseUser.displayName
                         val email = firebaseUser.email
                         val mobile = firebaseUser.phoneNumber
-                        val user =
-                            User(name ?: "", name ?: "", mobile!!)
+                        val user = User(auth.currentUser!!.phoneNumber!!)
+                        user.firstName = name!!
+                        user.lastName = name
                         checkIfUserIsNew(user)
                         user.isAuthenticated = true
 
 
                     }
                     else {
-                        val user = User("", "", "")
+                        val user = User("")
                         user.isNew = isNewUser
                         user.isAuthenticated = true
-                        Log.d(TAG, "onSignInCompleteCallback  User : $user\n" +
+                        Log.d(TAG, "onUserFetched  User : $user\n" +
                                 "FirebaseUser ${auth.currentUser?.phoneNumber}")
-                        verifCallbacks.onSignInCompleteCallback(user)
+                        verifCallbacks.onUserFetched(user)
                     }
 
 
@@ -105,12 +106,12 @@ class AuthenticationRepository(var verifCallbacks: VerificationCallbacks) {
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
                         // The verification code entered was invalid
-                        val user = User("", "", "")
+                        val user = User("")
                         user.isAuthenticated = false
                         user.isCreated = false
-                        Log.d(TAG, "onSignInCompleteCallback  User : $user\n" +
+                        Log.d(TAG, "onUserFetched  User : $user\n" +
                                 "FirebaseUser ${auth.currentUser?.phoneNumber}")
-                        verifCallbacks.onSignInCompleteCallback(user)
+                        verifCallbacks.onUserFetched(user)
 
 
                     }
@@ -125,7 +126,9 @@ class AuthenticationRepository(var verifCallbacks: VerificationCallbacks) {
      fun createUserInFirestore(firstName:String ,lastName:String,mobile:String){
          val usersRef = firestore.collection(Constants.USERS)
          val uidRef = usersRef.document(auth.currentUser!!.uid)
-         val user = User(firstName, lastName, mobile)
+         val user = User(auth.currentUser!!.phoneNumber!!)
+         user.firstName = firstName
+         user.lastName = lastName
          uidRef.set(user).addOnCompleteListener{userCreationTask ->
              if (userCreationTask.isSuccessful) {
                  verifCallbacks.onUserInFireStoreCreatedCallback()
@@ -142,8 +145,77 @@ class AuthenticationRepository(var verifCallbacks: VerificationCallbacks) {
 
      }
 
+    fun getUser(){
+        val userRef = firestore.collection(USERS).document(auth.uid!!)
+        isNewUser = false
+        userRef.get().addOnCompleteListener { getUserTask ->
+            Log.d(TAG, "signInWithCredential_getUserRef:  ")
+            if (getUserTask.isSuccessful){
+                Log.d(TAG, "signInWithCredential_getUserRef: getUserTask isSuccessful ")
+                val userDocument = getUserTask.result
+                if (userDocument!!.exists()) {
+                    val fname = userDocument["firstName"].toString()
+                    val lname = userDocument["lastName"].toString()
+                    val email = userDocument["email"].toString()
+                    val mobile = userDocument["mobile"].toString()
+                    val user = User(auth.currentUser!!.phoneNumber!!)
+                    user.firstName = fname
+                    user.lastName = lname
+                    user.email = email
+                    verifCallbacks.onUserFetched(user)
+                }
+                else {
+                    logErrorMessage("User Does Not Exist!!")
+                    verifCallbacks.onUserFetched(User(""))
+
+                }
+            /*    isNewUser = if (userDocument!!.exists()){
+                    Log.d(TAG, "signInWithCredential_getUserRef: userDocument exists! ")
+
+                    Log.d(TAG, "Fname ${userDocument["firstName"].toString()} Lname ${userDocument["firstName"].toString()}")
+
+                    // New user if fname or lname is empty. else , not new user
+                    userDocument["firstName"].toString().isEmpty() && userDocument["lastName"].toString().isEmpty()
+                } else {
+                    Log.d(TAG, "signInWithCredential_getUserRef: userDocument does not exist! ")
+
+                    // If document does not exist ( no data in firestore) then he is a new user
+                    true
+                }*/
+
+
+            }
+            else {
+                logErrorMessage(getUserTask.exception!!.message)
+            }
+
+        }
+    }
+
+    fun updateUser(fname: String ="", lname : String = "", email  :String = "") {
+
+        val usersRef = firestore.collection(Constants.USERS)
+        val uidRef = usersRef.document(auth.currentUser!!.uid)
+        val user = User(auth.currentUser!!.phoneNumber!!)
+        user.firstName = fname
+        user.lastName = lname
+        user.email = email
+        uidRef.set(user).addOnCompleteListener { userCreationTask ->
+            if (userCreationTask.isSuccessful) {
+                getUser()
+                // Todo SignUp Event Successful
+            } else {
+                // Todo SignUp Event Failure
+                getUser()
+                logErrorMessage("User Creation Failure")
+            }
+        }
+    }
+
     private fun logErrorMessage(message:String?){
         Log.e(TAG,message ?: "Error Message Null")
     }
+
+
 
 }
