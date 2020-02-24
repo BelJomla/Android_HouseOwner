@@ -83,8 +83,6 @@ class AuthenticationRepository(var verifCallbacks: VerificationCallbacks) {
                         val email = firebaseUser.email
                         val mobile = firebaseUser.phoneNumber
                         val user = User(auth.currentUser!!.phoneNumber!!)
-                        user.firstName = name!!
-                        user.lastName = name
                         checkIfUserIsNew(user)
                         user.isAuthenticated = true
 
