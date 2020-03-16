@@ -8,44 +8,55 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 
 import com.android.belJomla.R
+import com.android.belJomla.databinding.FragmentProfileBinding
+import com.android.belJomla.viewmodels.MainViewModel
 import com.android.belJomla.views.activities.LoginActivity
 import com.android.belJomla.views.activities.SettingsActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class ProfileFragment : Fragment() {
 
+    val viewModel by activityViewModels<MainViewModel>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_profile, container, false)
-        val listView = view.findViewById<ListView>(R.id.lv_profile)
-        val profileArray = context!!.resources.getStringArray(R.array.profile_items_labels)
-        listView.adapter = ArrayAdapter<String>(view.context,R.layout.fragment_item,profileArray) as ListAdapter
-        listView.setOnItemClickListener { _, view, i, _ ->
-            Toast.makeText(view.context,"Clicked ${profileArray[i]}",Toast.LENGTH_SHORT).show()
-        }
-        Toast.makeText(view.context,"Clicked ", Toast.LENGTH_SHORT).show()
+        val navController = findNavController()
 
-        val signOutButton = view.findViewById<TextView>(R.id.tv_sign_out)
-        signOutButton.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            val signOutIntent = Intent(context,
-                LoginActivity::class.java)
-            signOutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            startActivity(signOutIntent)
-            activity!!.finish()
-        }
-        val settingsButton = view.findViewById<ImageButton>(R.id.btn_settings)
-        settingsButton.setOnClickListener {
+        val binding : FragmentProfileBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_profile,container,false)
+
+        binding.user = viewModel.houseOwnerUser.value
+
+        binding.ivSettings.setOnClickListener {
             val settingsIntent = Intent(context,SettingsActivity::class.java)
             startActivity(settingsIntent)
         }
+        binding.btnAddress.setOnClickListener {
+            Toast.makeText(context,"Address",Toast.LENGTH_SHORT).show()
+            navController.navigate(R.id.addressesFragment)
+        }
+        binding.btnHistory.setOnClickListener {
+            Toast.makeText(context,"History",Toast.LENGTH_SHORT).show()
+            navController.navigate(R.id.historyFragment)
+        }
+        binding.btnBalance.setOnClickListener {
+            Toast.makeText(context,"Balance",Toast.LENGTH_SHORT).show()
+            navController.navigate(R.id.balanceFragment)
+        }
+        binding.btnPoints.setOnClickListener {
+            Toast.makeText(context,getString(R.string.points_soon),Toast.LENGTH_SHORT).show()
+        }
 
-        return view
+
+
+        return binding.root
     }
 
 
