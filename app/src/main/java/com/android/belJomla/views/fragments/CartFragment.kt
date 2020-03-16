@@ -6,15 +6,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 
 
 import com.android.belJomla.R
 import com.android.belJomla.adapters.CartAdapter
 import com.android.belJomla.databinding.FragmentCartBinding
+import com.android.belJomla.decorators.MarginItemDecoration
+import com.android.belJomla.models.CartItem
 import com.android.belJomla.viewmodels.MainViewModel
 
 
@@ -29,11 +34,35 @@ class CartFragment : Fragment() {
         val binding : FragmentCartBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_cart,container,false)
 
         binding.rvCart.adapter = CartAdapter(requireContext(),viewModel)
-        binding.rvCart.layoutManager = LinearLayoutManager(requireContext())
+        var items = mutableListOf<CartItem>()
+        for (item in viewModel.cart.value?.items?: mutableListOf<CartItem>()){
+            items.add(item)
+        }
+        (binding.rvCart.adapter as CartAdapter).submitList(items.toMutableList())
 
-        viewModel.cart.observe(viewLifecycleOwner, Observer {
-            (binding.rvCart.adapter as CartAdapter).notifyDataSetChanged()
+        binding.rvCart.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvCart.addItemDecoration(MarginItemDecoration(requireContext().resources.getDimension(R.dimen.eight_dp).toInt(),0))
+        viewModel.cart.observe(viewLifecycleOwner, Observer { cart ->
+             items = mutableListOf<CartItem>()
+            for (item in cart.items){
+                items.add(item)
+            }
+            (binding.rvCart.adapter as CartAdapter).submitList(items.toMutableList())
+
+            binding.cart = cart
+
+
+            Toast.makeText(requireContext(),"Changed",Toast.LENGTH_SHORT).show()
+            //(binding.rvCart.adapter as CartAdapter).submitList(null)
+
+
+
         })
+
+        binding.btnBack.setOnClickListener {
+            findNavController().navigateUp()
+
+        }
 
 
         return binding.root

@@ -86,6 +86,9 @@
     <string name="points_soon">Points Feature Will Be Available Soon</string>
     <string name="my_locations">My Locations</string>
     <string name="choose_delivery_address">Choose Delivery Address</string>
+    <string name="shopping_cart">Shopping Cart</string>
+    <string name="total_colon">Total:</string>
+    <string name="including_vat">( Including VAT )</string>
 
 
 </resources>

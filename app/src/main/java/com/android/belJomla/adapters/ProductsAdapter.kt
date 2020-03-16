@@ -32,26 +32,6 @@ class ProductsAdapter(var context: Context,var viewModel: MainViewModel) : Recyc
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-      /*  if (holder.adapterPosition%2 ==0){
-            holder.binding.tvRemove.visibility = View.GONE
-            holder.binding.ivAdd.visibility = View.GONE
-            holder.binding.ivRemove.visibility = View.GONE
-            holder.binding.tvCartCount.visibility = View.GONE
-
-            holder.binding.ivCart.visibility = View.VISIBLE
-            holder.binding.tvLblAddToCart.visibility = View.VISIBLE
-
-        }
-        else {
-            holder.binding.ivCart.visibility = View.GONE
-            holder.binding.tvLblAddToCart.visibility = View.GONE
-
-            holder.binding.tvRemove.visibility = View.VISIBLE
-            holder.binding.ivAdd.visibility = View.VISIBLE
-            holder.binding.ivRemove.visibility = View.VISIBLE
-            holder.binding.tvCartCount.visibility = View.VISIBLE
-
-        }*/
 
         val product = viewModel.productList.value!![holder.adapterPosition]
         holder.binding.product = product

@@ -28,7 +28,7 @@ class ShoppingRepository(var categoryCallbacks: CategoryCallBacks,var  productsC
 
     val TAG = ShoppingRepository::class.java.simpleName
     val settings = FirebaseFirestoreSettings.Builder()
-        .setPersistenceEnabled(false)
+        .setPersistenceEnabled(true)
         .build()
 
 
@@ -41,7 +41,7 @@ class ShoppingRepository(var categoryCallbacks: CategoryCallBacks,var  productsC
         //addDummyProducts()
         //addDummyCategories()
         getCategories()
-        getProducts()
+        //getProducts()
         //startCategoriesListeners()
     }
 

@@ -29,13 +29,16 @@ fun ArrayList<CartItem>.cartContains(product: Product):Boolean{
     }
     return false
 }
-fun ArrayList<CartItem>.incrementQuantity(product: Product) {
+fun ArrayList<CartItem>.incrementQuantity(product: Product)  {
+
     for (item in listIterator()) {
         if (item.product == product) {
             item.quantity++
         }
 
+
     }
+
 }
 
     fun ArrayList<CartItem>.decrementQuantity(product: Product) {
@@ -44,6 +47,7 @@ fun ArrayList<CartItem>.incrementQuantity(product: Product) {
                 item.quantity--
                 if (item.quantity==0){
                     remove(CartItem(product,-1))
+                    break
                 }
             }
 
@@ -53,6 +57,7 @@ fun ArrayList<CartItem>.removeAllOf(product: Product) {
     for (item in listIterator()) {
         if (item.product == product) {
             remove(CartItem(product,-1))
+            break
         }
 
     }
@@ -69,6 +74,7 @@ fun ArrayList<CartItem>.removeAllOf(product: Product) {
                 items.add(CartItem(product, 1))
 
             }
+
         }
 
         fun removeOneFromCart(product: Product) {
@@ -88,8 +94,16 @@ fun ArrayList<CartItem>.removeAllOf(product: Product) {
         fun calculateCartPrice(): Double {
             var price = 0.0
             for (cartItem in items) {
-                price += cartItem.product.sellingPrice
+                price += (cartItem.product.sellingPrice*cartItem.quantity)
             }
             return price
+        }
+
+        fun makeCopy() :Cart{
+            val newCart = Cart()
+            for (item in items){
+                newCart.items.add(item)
+            }
+            return newCart
         }
     }
