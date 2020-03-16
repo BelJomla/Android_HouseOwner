@@ -11,7 +11,7 @@ import com.android.belJomla.R
 import com.android.belJomla.views.fragments.LoginFragment
 import com.android.belJomla.views.fragments.SignUpFragment
 import com.android.belJomla.views.fragments.VerificationFragment
-import com.android.belJomla.models.User
+import com.android.belJomla.models.HouseOwnerUser
 
 
 import com.android.belJomla.utils.Constants
@@ -71,7 +71,7 @@ class LoginActivity : AppCompatActivity() {
                 viewModel.onVerificationComplete()
             }
         })
-        viewModel.user.observe(this, Observer { user ->
+        viewModel.houseOwnerUser.observe(this, Observer { user ->
             if (user.isAuthenticated && !user.isNew) {
                 goToMainActivity()
 
@@ -82,20 +82,20 @@ class LoginActivity : AppCompatActivity() {
                     SignUpFragment.newInstance()
                 ).addToBackStack(Constants.SIGNUP_FRAGMENT_TAG)
                     .commit()
-                Toast.makeText(this, "New User", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "New HouseOwnerUser", Toast.LENGTH_SHORT).show()
 
             }
             else {
-                Toast.makeText(this, "User not Authenticated", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "HouseOwnerUser not Authenticated", Toast.LENGTH_SHORT).show()
 
             }
         })
 
         viewModel.eventFirestoreUserCreated.observe(this, Observer { isCreatingUserInProgress ->
-            // If the app is not in the signup screen !isCreatingUserInProgress and the user is authenticated and is new
-            if (!isCreatingUserInProgress && viewModel.user.value != null ){
-                val user : User = viewModel.user.value!!
-                if (user.isAuthenticated) {
+            // If the app is not in the signup screen !isCreatingUserInProgress and the houseOwnerUser is authenticated and is new
+            if (!isCreatingUserInProgress && viewModel.houseOwnerUser.value != null ){
+                val houseOwnerUser : HouseOwnerUser = viewModel.houseOwnerUser.value!!
+                if (houseOwnerUser.isAuthenticated) {
                     goToMainActivity()
                 }
             }

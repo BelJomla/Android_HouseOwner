@@ -5,8 +5,8 @@
 
     <data>
         <variable
-                name="user"
-                type="com.android.belJomla.models.User" />
+                name="houseOwnerUser"
+                type="com.android.belJomla.models.HouseOwnerUser" />
 
 
     </data>
@@ -31,7 +31,7 @@
             android:drawablePadding="16dp"
             android:padding="8dp"
             android:hint="@string/first_name"
-            android:text="@{user.firstName}"
+            android:text="@{houseOwnerUser.firstName}"
             android:inputType="textPersonName"
             android:imeOptions="actionNext"
             android:nextFocusForward="@id/et_profile_lname"
@@ -54,7 +54,7 @@
             android:drawablePadding="16dp"
             android:padding="8dp"
             android:hint="@string/last_name"
-            android:text="@{user.lastName}"
+            android:text="@{houseOwnerUser.lastName}"
             android:inputType="textPersonName"
             android:imeOptions="actionNext"
             android:nextFocusForward="@id/et_profile_email"
@@ -78,7 +78,7 @@
             android:drawablePadding="16dp"
             android:padding="8dp"
             android:hint="@string/demo_mail"
-            android:text="@{user.email}"
+            android:text="@{houseOwnerUser.email}"
             android:inputType="textEmailAddress"
             android:imeOptions="actionDone"
             app:layout_constraintEnd_toEndOf="parent"

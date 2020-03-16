@@ -32,9 +32,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
         navController = findNavController(R.id.nav_host_fragment)
          navView = findViewById(R.id.nav_view)
-         mActionBar = findViewById<AppBarLayout>(R.id.appbar)
+         /*mActionBar = findViewById<AppBarLayout>(R.id.appbar)*/
 
-        NavigationUI.setupActionBarWithNavController(this,navController)
         NavigationUI.setupWithNavController(navView,navController)
 
 

@@ -26,8 +26,8 @@ class EditProfileFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding : FragmentEditProfileBinding  = DataBindingUtil.inflate(inflater,R.layout.fragment_edit_profile,container,false)
 
-        viewModel.user.observe(this, Observer {user ->
-            binding.user = user
+        viewModel.houseOwnerUser.observe(this, Observer { user ->
+            binding.houseOwnerUser = user
 
         })
         viewModel.isLoading.observe(this, Observer { isLoading ->

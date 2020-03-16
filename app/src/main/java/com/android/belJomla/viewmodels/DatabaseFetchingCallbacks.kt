@@ -1,8 +1,8 @@
 package com.android.belJomla.viewmodels
 
-import com.android.belJomla.models.User
+import com.android.belJomla.models.HouseOwnerUser
 
 interface DatabaseFetchingCallbacks {
 
-    fun onUserFetched(user  :User)
+    fun onUserFetched(houseOwnerUser  :HouseOwnerUser)
 }

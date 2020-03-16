@@ -34,7 +34,7 @@ class SignUpFragment : Fragment() {
             viewModel.createUserInFirestore(fname,lname)
         }
 
-        viewModel.isLoading.observe(this, Observer {isLoading ->
+        viewModel.isLoading.observe(viewLifecycleOwner, Observer {isLoading ->
             if (isLoading){
                 binding.pbLoading.visibility = View.VISIBLE
                 binding.btnSignup.isClickable = false

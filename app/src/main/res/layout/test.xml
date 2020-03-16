@@ -64,7 +64,7 @@
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/tv_label_signup"
+                            android:id="@+id/layout_search"
                             app:layout_constraintStart_toStartOf="parent"
 
                             app:layout_constraintTop_toTopOf="parent"/>

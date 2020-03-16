@@ -9,6 +9,7 @@
         tools:context=".views.activities.MainActivity">
 
 
+<!--
     <com.google.android.material.appbar.AppBarLayout
 
             android:layout_width="match_parent"
@@ -19,15 +20,16 @@
             android:id="@+id/appbar">
 
 
-        <androidx.appcompat.widget.Toolbar
+        <include
                 android:id="@+id/toolbar"
+                layout="@layout/action_bar_shopping"
+                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize">
-
-        </androidx.appcompat.widget.Toolbar>
+                />
 
 
     </com.google.android.material.appbar.AppBarLayout>
+-->
 
 
     <fragment
@@ -36,13 +38,13 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:defaultNavHost="true"
-            app:navGraph="@navigation/navigation"
-
             app:layout_constraintBottom_toTopOf="@+id/nav_view"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appbar">
-    </fragment>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:navGraph="@navigation/navigation"
+            tools:layout="@layout/fragment_shopping" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/nav_view"
@@ -50,8 +52,8 @@
             android:layout_height="56dp"
             android:background="?android:attr/windowBackground"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/nav_host_fragment"
             app:menu="@menu/bottom_nav_menu1"
             tools:visibility="visible"/>

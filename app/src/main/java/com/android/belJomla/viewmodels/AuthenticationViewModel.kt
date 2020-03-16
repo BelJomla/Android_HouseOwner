@@ -2,24 +2,25 @@ package com.android.belJomla.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.android.belJomla.repositories.AuthenticationRepository
-import com.android.belJomla.models.User
+import com.android.belJomla.callbacks.VerificationCallbacks
+import com.android.belJomla.repositories.UserRepository
+import com.android.belJomla.models.HouseOwnerUser
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 
-class AuthenticationViewModel :ViewModel(),
-    VerificationCallbacks {
+ class AuthenticationViewModel :ViewModel(),
+     VerificationCallbacks {
 
 
     private val TAG = this@AuthenticationViewModel.javaClass.simpleName
-    private val repository = AuthenticationRepository(this)
+    private val repository = UserRepository(this)
 
 
-    private var _user =  MutableLiveData<User>()
-    val user : LiveData<User>
+    private var _user =  MutableLiveData<HouseOwnerUser>()
+    val houseOwnerUser : LiveData<HouseOwnerUser>
         get() = _user
 
     private val _isLoading =  MutableLiveData<Boolean>()
@@ -79,11 +80,12 @@ class AuthenticationViewModel :ViewModel(),
                 //     verified without needing to send or enter a verification code.
                 // 2 - Auto-retrieval. On some devices Google Play services can automatically
                 //     detect the incoming verification SMS and perform verification without
-                //     user action.
+                //     houseOwnerUser action.
                 Log.d(TAG, "onVerificationCompleted:$credential")
              //   _eventVerificationSuccess.value = true
                 //  stopLoading()
                 signInWithPhoneAuthCredential(credential)
+
             }
 
             override fun onVerificationFailed(e: FirebaseException) {
@@ -116,7 +118,7 @@ class AuthenticationViewModel :ViewModel(),
                 token: PhoneAuthProvider.ForceResendingToken
             ) {
                 // The SMS verification code has been sent to the provided phone number, we
-                // now need to ask the user to enter the code and then construct a credential
+                // now need to ask the houseOwnerUser to enter the code and then construct a credential
                 // by combining the code with a verification ID.
                 Log.d(TAG, "onCodeSent:$verificationId")
 
@@ -174,11 +176,11 @@ class AuthenticationViewModel :ViewModel(),
     fun createUserInFirestore(firstName:String ,lastName:String) {
         startLoading()
         _eventFirestoreUserCreated.value = true
-        return repository.createUserInFirestore(firstName,lastName,user.value!!.mobile)
+        return repository.createUserInFirestore(firstName,lastName,houseOwnerUser.value!!.mobileNumber)
     }
 
-    override fun onUserFetched(authenticatedUser : User?) {
-        _user.value = authenticatedUser
+    override fun onUserFetched(authenticatedHouseOwnerUser : HouseOwnerUser?) {
+        _user.value = authenticatedHouseOwnerUser
         stopLoading()
     }
 

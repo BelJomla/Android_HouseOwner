@@ -3,18 +3,16 @@ package com.android.belJomla.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.android.belJomla.models.User
-import com.android.belJomla.repositories.AuthenticationRepository
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
+import com.android.belJomla.callbacks.VerificationCallbacks
+import com.android.belJomla.models.HouseOwnerUser
+import com.android.belJomla.repositories.UserRepository
 
-class SettingsViewModel : ViewModel() , VerificationCallbacks{
+class SettingsViewModel : ViewModel() , VerificationCallbacks {
+    private val TAG = javaClass.simpleName
 
 
 
-    val auth = FirebaseAuth.getInstance()
-    val firestore = FirebaseFirestore.getInstance()
-    val repo = AuthenticationRepository(this)
+    private val repo = UserRepository(this)
 
     private val _firstName = MutableLiveData<String>()
     val firstName : LiveData<String>
@@ -28,8 +26,8 @@ class SettingsViewModel : ViewModel() , VerificationCallbacks{
     val email : LiveData<String>
         get() = _email
 
-    private val _user = MutableLiveData<User>()
-    val user : LiveData<User>
+    private val _user = MutableLiveData<HouseOwnerUser>()
+    val houseOwnerUser : LiveData<HouseOwnerUser>
         get() = _user
 
     private val _isLoading =  MutableLiveData<Boolean>()
@@ -42,11 +40,11 @@ class SettingsViewModel : ViewModel() , VerificationCallbacks{
         get() = _eventUpdateProfile
 
     init {
-        getUser()
+        //getHouseOwnerUser()
         _isLoading.value = false
         _eventUpdateProfile.value = false
-        val displayName  = auth.currentUser!!.displayName
-        //user.value = User()
+        _user.value = repo.currentHouseOwnerUser
+
 
     }
 
@@ -70,10 +68,12 @@ class SettingsViewModel : ViewModel() , VerificationCallbacks{
     }
 
 
-    override fun onUserFetched(authenticatedUser: User?) {
+    override fun onUserFetched(authenticatedHouseOwnerUser: HouseOwnerUser?) {
         stopLoading()
-        _user.value = authenticatedUser!!
-        onUpdateProfileFinished()
+        _user.value = authenticatedHouseOwnerUser!!
+        if (_eventUpdateProfile.value == true) {
+            onUpdateProfileFinished()
+        }
     }
 
     override fun onUserInFireStoreCreatedCallback() {
