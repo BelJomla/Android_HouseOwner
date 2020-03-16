@@ -3,4 +3,10 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+    <dimen name="icon_size">24</dimen>
+    <dimen name="category_decorator_padding">8dp</dimen>
+    <dimen name="product_decorator_padding">4dp</dimen>
+    <dimen name="eight_dp">8dp</dimen>
+    <dimen name="four_dp">4dp</dimen>
+    <dimen name="sixteen_dp">16dp</dimen>
 </resources>

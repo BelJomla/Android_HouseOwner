@@ -19,5 +19,34 @@
               android:label="@string/profile" tools:layout="@layout/fragment_profile"/>
     <fragment android:id="@+id/fragment_shopping"
               android:name="com.android.belJomla.views.fragments.ShoppingFragment"
-              android:label="@string/shopping" tools:layout="@layout/fragment_shopping"/>
+              android:label="@string/shopping" tools:layout="@layout/fragment_shopping">
+        <action
+                android:id="@+id/action_fragment_shopping_to_cartFragment2"
+                app:destination="@id/cartFragment"
+                app:enterAnim="@anim/fragment_fade_enter"
+                app:exitAnim="@anim/fragment_fade_exit"
+                app:popEnterAnim="@anim/fragment_open_enter"
+                app:popExitAnim="@anim/fragment_open_exit" />
+    </fragment>
+    <fragment
+            android:id="@+id/cartFragment"
+            android:name="com.android.belJomla.views.fragments.CartFragment"
+            android:label="CartFragment"
+            tools:layout="@layout/fragment_cart"
+            />
+    <fragment
+            android:id="@+id/addressesFragment"
+            android:name="com.android.belJomla.views.fragments.AddressesFragment"
+            android:label="fragment_addresses"
+            tools:layout="@layout/fragment_addresses" />
+    <fragment
+            android:id="@+id/historyFragment"
+            android:name="com.android.belJomla.views.fragments.HistoryFragment"
+            android:label="fragment_history"
+            tools:layout="@layout/fragment_history" />
+    <fragment
+            android:id="@+id/balanceFragment"
+            android:name="com.android.belJomla.views.fragments.BalanceFragment"
+            android:label="fragment_balance"
+            tools:layout="@layout/fragment_balance" />
 </navigation>
