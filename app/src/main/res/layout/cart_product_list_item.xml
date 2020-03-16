@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+                name="product"
+                type="com.android.belJomla.models.CartItem" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+            android:id="@+id/product_image"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:product_image="@{product.imgURLs.get(0)}"
+            tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+            android:id="@+id/prdouct_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@{product.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/product_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+    <TextView
+            android:id="@+id/prdouct_size"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{product.qualitiveSize  +` `+product.quantativeSize}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/product_image"
+            app:layout_constraintTop_toBottomOf="@+id/prdouct_name"
+            tools:visibility="visible" />
+
+    <TextView
+            android:id="@+id/product_quantity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/product_image"
+            app:layout_constraintTop_toBottomOf="@+id/prdouct_size"
+            tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

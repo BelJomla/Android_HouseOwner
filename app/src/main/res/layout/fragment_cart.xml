@@ -1,0 +1,30 @@
+
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.android.belJomla.views.fragments.CartFragment"
+
+        >
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Cart"
+            android:gravity="center"
+
+            />
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_cart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/cart_product_list_item"
+            tools:itemCount="3"
+             />
+
+</LinearLayout>
+</layout>
