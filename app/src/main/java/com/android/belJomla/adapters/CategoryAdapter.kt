@@ -69,38 +69,36 @@ class CategoryAdapter(var context: Context, var viewModel: MainViewModel,var typ
         if (type == c.TYPE_CATEGORY) {
             return if (holder.tvCategory.text == viewModel.category.value?.getLocalisedName(context)) {
 
-                holder.cardView.setCardBackgroundColor(
-                    ContextCompat.getColor(
+                holder.cardView.background =
+                    ContextCompat.getDrawable(
                         context,
-                        R.color.categ_selected
+                        R.drawable.categ_selected_circle
                     )
-                )
+
             } else {
-                holder.cardView.setCardBackgroundColor(
-                    ContextCompat.getColor(
+                holder.cardView.background =
+                    ContextCompat.getDrawable(
                         context,
-                        R.color.white
+                        R.drawable.categ_non_selected_circle
                     )
-                )
 
             }
         }
         else {
             return if (holder.tvCategory.text == viewModel.subCategory.value?.getLocalisedName(context)) {
 
-                holder.cardView.setCardBackgroundColor(
-                    ContextCompat.getColor(
+                holder.cardView.background =
+                    ContextCompat.getDrawable(
                         context,
-                        R.color.categ_selected
+                        R.drawable.categ_selected_circle
                     )
-                )
             } else {
-                holder.cardView.setCardBackgroundColor(
-                    ContextCompat.getColor(
+                holder.cardView.background =
+                    ContextCompat.getDrawable(
                         context,
-                        R.color.white
+                        R.drawable.categ_non_selected_circle
                     )
-                )
+
 
             }
         }

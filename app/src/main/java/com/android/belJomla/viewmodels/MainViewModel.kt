@@ -63,6 +63,13 @@ class MainViewModel: ViewModel() , VerificationCallbacks , CategoryCallBacks, Pr
         get() = _modifiedProductItemPos
 
 
+    /**
+     * The following var is to know what is the last query for products and avoid
+     * doing the same query when the fragments restarts
+     */
+    private var lastQueryCategories = arrayOf("","")
+
+
 
 
     init {
@@ -92,7 +99,7 @@ class MainViewModel: ViewModel() , VerificationCallbacks , CategoryCallBacks, Pr
         val categoryID = category.value?.id?:""
         val subCategoryID = subCategory.value?.id?:""
 
-        if (categories.value?.size?:0 >0) {
+        if (categories.value?.size?:0 >0 && !isSameAsLastQuery()) {
             startLoading()
             clearProducts()
             if (subCategory.value?.id == "${category.value?.id}_1") {// If the subcategory is all
@@ -101,6 +108,10 @@ class MainViewModel: ViewModel() , VerificationCallbacks , CategoryCallBacks, Pr
                 shoppingRepo.getProducts(categoryID, subCategoryID)
             }
         }
+    }
+
+    private fun isSameAsLastQuery(): Boolean {
+            return category.value?.id == lastQueryCategories[0] && subCategory.value?.id == lastQueryCategories[1]
     }
 
     fun startLoading(){
@@ -183,6 +194,7 @@ class MainViewModel: ViewModel() , VerificationCallbacks , CategoryCallBacks, Pr
     override fun onProductsFetched(products: ArrayList<Product?>) {
         l.logMessage(this,"onProductsFetched : products => $products")
         _productList.value = products
+        updateLastQueriedCategory(category.value?.id?:"",subCategory.value?.id?:"")
         stopLoading()
     }
 
@@ -190,6 +202,11 @@ class MainViewModel: ViewModel() , VerificationCallbacks , CategoryCallBacks, Pr
         l.logMessage(this,"onProductsFechtingFailed")
         _productList.value = ArrayList()
         stopLoading()
+    }
+
+    private fun updateLastQueriedCategory(categoryID: String , subCategoryID: String){
+        lastQueryCategories[0] = categoryID
+        lastQueryCategories[1] = subCategoryID
     }
 
 }

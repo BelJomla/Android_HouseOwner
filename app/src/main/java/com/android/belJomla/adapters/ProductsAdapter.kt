@@ -46,8 +46,8 @@ class ProductsAdapter(var context: Context,var viewModel: MainViewModel) : Recyc
             holder.binding.tvLblAddToCart.visibility = View.VISIBLE
 
 
-            holder.binding.materialCardView.isClickable = true
-            holder.binding.materialCardView.setOnClickListener {
+            holder.binding.btnProduct.isClickable = true
+            holder.binding.btnProduct.setOnClickListener {
                 viewModel.addToCart(product!!)
             }
 
@@ -73,7 +73,7 @@ class ProductsAdapter(var context: Context,var viewModel: MainViewModel) : Recyc
             holder.binding.tvRemove.setOnClickListener{
                 viewModel.removeAllFromCart(product!!)
             }
-            holder.binding.materialCardView.isClickable = false
+            holder.binding.btnProduct.isClickable = false
 
         }
     }

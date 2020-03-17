@@ -93,19 +93,19 @@
                     android:text="@{product.quantativeSize + ` ` + product.qualitiveSize }"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    app:layout_constraintBottom_toTopOf="@+id/materialCardView"
+                    app:layout_constraintBottom_toTopOf="@+id/btn_product"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_product_desc"
                     tools:text="400 G" />
 
-            <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/materialCardView"
-                    style="@style/CustomCardViewStyle"
+            <FrameLayout
+                    android:id="@+id/btn_product"
+
                     android:layout_width="100dp"
                     android:layout_height="40dp"
-                    app:cardBackgroundColor="@color/colorPrimary"
+                    android:background="@drawable/round_primary_backgorund"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent">
 
@@ -193,7 +193,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-            </com.google.android.material.card.MaterialCardView>
+            </FrameLayout>
 
             <TextView
                     android:id="@+id/tv_remove"
@@ -208,7 +208,7 @@
                     android:textColor="@color/red"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/materialCardView"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_product"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_product_desc"

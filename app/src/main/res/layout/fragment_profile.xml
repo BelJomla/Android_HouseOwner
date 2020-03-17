@@ -17,175 +17,189 @@
             >
 
 
-        <androidx.cardview.widget.CardView
+        <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="-64dp"
                 android:minHeight="700dp"
 
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="64dp"
+                android:background="@drawable/top_rounded_white_bg"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_settings">
 
-            <!--  <ScrollView
-                        android:id="@+id/nested_scroll_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0">-->
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <ScrollView
+                    android:id="@+id/nested_scroll_view"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/top_rounded_white_bg"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_settings">
 
-                <include
-                        android:id="@+id/btn_address"
-                        layout="@layout/btn_my_adresses"
-
+                <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="32dp"
-                        android:layout_marginEnd="32dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/btn_balance" />
+                        android:layout_marginTop="8dp">
 
-                <include
-                        android:id="@+id/btn_history"
-                        layout="@layout/btn_history"
+                    <include
+                            android:id="@+id/btn_address"
+                            layout="@layout/btn_my_adresses"
 
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="32dp"
-                        android:layout_marginEnd="32dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/btn_address" />
-
-
-                <androidx.cardview.widget.CardView
-                        android:id="@+id/btn_balance"
-                        android:layout_width="126dp"
-                        android:layout_height="126dp"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="32dp"
-                        android:layout_marginEnd="16dp"
-                        app:cardCornerRadius="63dp"
-                        app:cardElevation="4dp"
-                        android:foreground="?attr/selectableItemBackground"
-
-                        app:layout_constraintEnd_toStartOf="@+id/btn_points"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="16dp">
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:layout_marginEnd="32dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/btn_balance" />
 
-                        <TextView
-                                android:id="@+id/tv_balance"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/seguisb"
-                                android:text="@{`SR ` + user.balance}"
-                                android:textColor="@color/black"
-                                android:textSize="30sp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                tools:text="SR 215">
+                    <include
+                            android:id="@+id/btn_history"
+                            layout="@layout/btn_history"
 
-                        </TextView>
-
-                        <TextView
-                                android:id="@+id/tv_lbl_balance"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/segoeuil"
-                                android:text="@string/balance"
-                                android:textColor="@color/dark_grey"
-                                android:textSize="19sp"
-
-                                app:layout_constraintEnd_toEndOf="@id/tv_balance"
-                                app:layout_constraintStart_toStartOf="@id/tv_balance"
-                                app:layout_constraintTop_toBottomOf="@id/tv_balance" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                        android:id="@+id/btn_points"
-                        android:layout_width="126dp"
-                        android:layout_height="126dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="32dp"
-                        android:layout_marginEnd="32dp"
-                        app:cardCornerRadius="63dp"
-                        app:cardElevation="4dp"
-                        android:foreground="?attr/selectableItemBackground"
-
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/btn_balance"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:layout_marginEnd="32dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/btn_address" />
 
 
-                            android:layout_margin="16dp">
+                    <include
+                            android:id="@+id/btn_history2"
+                            layout="@layout/btn_history"
 
-                        <TextView
-                                android:id="@+id/tv_points"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/seguisb"
-                                android:text="@{String.valueOf(user.points)}"
-                                android:textColor="@color/black"
-                                android:textSize="30sp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                tools:text="512">
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginBottom="64dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/btn_history" />
 
-                        </TextView>
+                    <androidx.cardview.widget.CardView
+                            android:id="@+id/btn_balance"
+                            android:layout_width="126dp"
+                            android:layout_height="126dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="16dp"
+                            android:foreground="?attr/selectableItemBackground"
+                            app:cardCornerRadius="63dp"
+                            app:cardElevation="4dp"
 
-                        <TextView
-                                android:id="@+id/tv_lbl_points"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/segoeuil"
-                                android:text="@string/points"
-                                android:textColor="@color/dark_grey"
-                                android:textSize="19sp"
+                            app:layout_constraintEnd_toStartOf="@+id/btn_points"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                                app:layout_constraintEnd_toEndOf="@id/tv_points"
-                                app:layout_constraintStart_toStartOf="@id/tv_points"
-                                app:layout_constraintTop_toBottomOf="@id/tv_points" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="16dp">
+
+                            <TextView
+                                    android:id="@+id/tv_balance"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/seguisb"
+                                    android:text="@{`SR ` + user.balance}"
+                                    android:textColor="@color/black"
+                                    android:textSize="30sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    tools:text="SR 215">
+
+                            </TextView>
+
+                            <TextView
+                                    android:id="@+id/tv_lbl_balance"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/segoeuil"
+                                    android:text="@string/balance"
+                                    android:textColor="@color/dark_grey"
+                                    android:textSize="19sp"
+
+                                    app:layout_constraintEnd_toEndOf="@id/tv_balance"
+                                    app:layout_constraintStart_toStartOf="@id/tv_balance"
+                                    app:layout_constraintTop_toBottomOf="@id/tv_balance" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                            android:id="@+id/btn_points"
+                            android:layout_width="126dp"
+                            android:layout_height="126dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="32dp"
+                            android:foreground="?attr/selectableItemBackground"
+                            app:cardCornerRadius="63dp"
+                            app:cardElevation="4dp"
+
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/btn_balance"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
 
 
-                </androidx.cardview.widget.CardView>
+                                android:layout_margin="16dp">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-            <!--</ScrollView>-->
-        </androidx.cardview.widget.CardView>
+                            <TextView
+                                    android:id="@+id/tv_points"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/seguisb"
+                                    android:text="@{String.valueOf(user.points)}"
+                                    android:textColor="@color/black"
+                                    android:textSize="30sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    tools:text="512">
+
+                            </TextView>
+
+                            <TextView
+                                    android:id="@+id/tv_lbl_points"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/segoeuil"
+                                    android:text="@string/points"
+                                    android:textColor="@color/dark_grey"
+                                    android:textSize="19sp"
+
+                                    app:layout_constraintEnd_toEndOf="@id/tv_points"
+                                    app:layout_constraintStart_toStartOf="@id/tv_points"
+                                    app:layout_constraintTop_toBottomOf="@id/tv_points" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+        </FrameLayout>
 
 
 
@@ -203,14 +217,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-                android:id="@+id/view"
-                android:layout_width="wrap_content"
-                android:layout_height="72dp"
-                android:background="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
                 android:id="@+id/imageView2"
