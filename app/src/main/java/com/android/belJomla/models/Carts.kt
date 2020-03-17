@@ -29,30 +29,59 @@ fun ArrayList<CartItem>.cartContains(product: Product):Boolean{
     }
     return false
 }
-fun ArrayList<CartItem>.incrementQuantity(product: Product)  {
+
+/**
+ * Increments The quantity. !!Important!! THE VALUE TO BE INCREMENTED MUST BE PREVIOUSLY AVAILABLE IN THE LIST
+ * @param product the product that we want to increment its quantity
+ * in the cart.
+ * @return the index of the incremented item
+ * Note: The index is important to notify the adapter with the position of the incremented item
+ */
+fun ArrayList<CartItem>.incrementQuantity(product: Product) : Int  {
+    var i=0
 
     for (item in listIterator()) {
         if (item.product == product) {
             item.quantity++
+            break
         }
-
+       i++
 
     }
-
+    return  i
 }
 
-    fun ArrayList<CartItem>.decrementQuantity(product: Product) {
+/**
+ * Decrements The quantity.And if the quantity is already available, it removes it
+ * @param product the product that we want to decrement its quantity
+ * in the cart.
+ * @return the index of the decremented item.
+ * Notes : 1-The index is important to notify the adapter with the position of the decremented item
+ * 2- If the item's quantity hit 0, then it removes it and returns -1 to indicate that its no longer available
+ *
+ *
+ */
+    fun ArrayList<CartItem>.decrementQuantity(product: Product) : Int {
+        var i=0
         for (item in listIterator()) {
             if (item.product == product) {
                 item.quantity--
                 if (item.quantity==0){
                     remove(CartItem(product,-1))
-                    break
-                }
-            }
+                    i=-1
 
+                }
+                break
+            }
+            i++
         }
+        return i
     }
+
+/**
+ * Removes the item completely from the cart (ArrayList) regardless of its quantity
+ * Note  : the method @return Nothing since DiffUtil's areItemsTheSame function can handle this deletion
+ */
 fun ArrayList<CartItem>.removeAllOf(product: Product) {
     for (item in listIterator()) {
         if (item.product == product) {
@@ -66,22 +95,41 @@ fun ArrayList<CartItem>.removeAllOf(product: Product) {
     class Cart() {
         var items = ArrayList<CartItem>()
 
-
-        fun addToCart(product: Product) {
-            if (items.cartContains(product)) {
-                items.incrementQuantity(product)
+        /**
+         * @param product : The item we want to add its quantity in the cart.
+         * If the item is not in the cart, then we add it to the cart with quantity 0
+         * @return An integer value representing the index of the added item.
+         */
+        fun addToCart(product: Product) : Int{
+            var index = 0
+            return if (items.cartContains(product)) {
+                index=  items.incrementQuantity(product)
+                index
             } else {
                 items.add(CartItem(product, 1))
+                0
 
             }
 
         }
 
-        fun removeOneFromCart(product: Product) {
+        /**
+         * @param product  :The item that we want to decrement its quantity from the cart
+         * Note : the items.decrementQuantity function will take care of removing that item completely
+         * if its quantity reached 0
+         *
+         */
+        fun removeOneFromCart(product: Product) : Int {
             if (items.cartContains(product)) {
-                items.decrementQuantity(product)
+                return items.decrementQuantity(product)
             }
+            return -1
         }
+
+        /**
+         * Removes the item completely from the cart (ArrayList) regardless of its quantity
+         * Note  : the method @return Nothing since DiffUtil's areItemsTheSame function can handle this deletion
+         */
         fun removeAllFromCart(product: Product){
             items.removeAllOf(product)
         }
@@ -99,11 +147,5 @@ fun ArrayList<CartItem>.removeAllOf(product: Product) {
             return price
         }
 
-        fun makeCopy() :Cart{
-            val newCart = Cart()
-            for (item in items){
-                newCart.items.add(item)
-            }
-            return newCart
-        }
+
     }

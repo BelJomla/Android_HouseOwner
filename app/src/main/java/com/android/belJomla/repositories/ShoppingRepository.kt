@@ -104,7 +104,7 @@ class ShoppingRepository(var categoryCallbacks: CategoryCallBacks,var  productsC
             }
         }
         else if(categID != "" && subCategID ==""){ // Get All Products Of Certain Category
-            firestore.collection(c.PRODUCTS_DB_PATH).whereEqualTo("category",categID).get().addOnSuccessListener { snapshot ->
+            firestore.collection(c.PRODUCTS_DB_PATH)/*.whereEqualTo("category",categID)*/.get().addOnSuccessListener { snapshot ->
                 l.logMessage(this,"getProducts Successful")
 
                 val products = ArrayList<Product?>()

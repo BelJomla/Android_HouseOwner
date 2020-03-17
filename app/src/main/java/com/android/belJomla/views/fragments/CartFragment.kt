@@ -34,22 +34,19 @@ class CartFragment : Fragment() {
         val binding : FragmentCartBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_cart,container,false)
 
         binding.rvCart.adapter = CartAdapter(requireContext(),viewModel)
-        var items = mutableListOf<CartItem>()
-        for (item in viewModel.cart.value?.items?: mutableListOf<CartItem>()){
-            items.add(item)
-        }
-        (binding.rvCart.adapter as CartAdapter).submitList(items.toMutableList())
 
+        (binding.rvCart.adapter as CartAdapter).submitList(viewModel.cart.value?.items?.toMutableList())
         binding.rvCart.layoutManager = LinearLayoutManager(requireContext())
         binding.rvCart.addItemDecoration(MarginItemDecoration(requireContext().resources.getDimension(R.dimen.eight_dp).toInt(),0))
         viewModel.cart.observe(viewLifecycleOwner, Observer { cart ->
-             items = mutableListOf<CartItem>()
-            for (item in cart.items){
-                items.add(item)
+                binding.cart = cart
+            if (viewModel.modifiedCartItemPos != -1) {
+                (binding.rvCart.adapter as CartAdapter).notifyItemChanged(viewModel.modifiedCartItemPos)
             }
-            (binding.rvCart.adapter as CartAdapter).submitList(items.toMutableList())
+            else {
+                (binding.rvCart.adapter as CartAdapter).submitList(cart.items.toMutableList())
+            }
 
-            binding.cart = cart
 
 
             Toast.makeText(requireContext(),"Changed",Toast.LENGTH_SHORT).show()

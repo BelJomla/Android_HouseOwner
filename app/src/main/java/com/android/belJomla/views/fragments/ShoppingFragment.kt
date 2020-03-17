@@ -132,8 +132,9 @@ class ShoppingFragment : Fragment() {
         })
         viewModel.cart.observe(viewLifecycleOwner, Observer {
             l.logMessage(this,"Cart Changed")
-
-            binding.rvShopping.adapter!!.notifyDataSetChanged()
+            if (viewModel.modifiedProductItemPos != -1) {
+                binding.rvShopping.adapter!!.notifyItemChanged(viewModel.modifiedProductItemPos)
+            }
             val numItems = viewModel.cart.value?.items?.size?:0
             if (numItems ==0){
                 binding.appbar.badge.visibility = View.GONE

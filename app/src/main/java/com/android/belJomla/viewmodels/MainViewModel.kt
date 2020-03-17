@@ -51,6 +51,17 @@ class MainViewModel: ViewModel() , VerificationCallbacks , CategoryCallBacks, Pr
     val cart: LiveData<Cart>
         get() = _cart
 
+    // Todo {Remove this if another solution was found}
+    /**
+     * The following 2 vars were added as a work-around for the DiffUtil's oldItem = newItem bug
+     */
+    private var _modifiedCartItemPos : Int = -1
+    val modifiedCartItemPos : Int
+        get() = _modifiedCartItemPos
+    private var _modifiedProductItemPos : Int = -1
+    val modifiedProductItemPos : Int
+        get() = _modifiedProductItemPos
+
 
 
 
@@ -110,18 +121,22 @@ class MainViewModel: ViewModel() , VerificationCallbacks , CategoryCallBacks, Pr
 
     fun addToCart(product: Product){
 
-        _cart.value?.addToCart(product)
-        _cart.value = _cart.value // This is to trigger the observers
+      _modifiedCartItemPos=  _cart.value?.addToCart(product)?:0
+      _modifiedProductItemPos = productList.value?.indexOf(product)?:-1
+      _cart.value = _cart.value // This is to trigger the observers
     }
 
     fun removeAllFromCart(product: Product){
         cart.value?.removeAllFromCart(product)
+        _modifiedCartItemPos = -1
+        _modifiedProductItemPos = productList.value?.indexOf(product)?:-1
         _cart.value = _cart.value // This is to trigger the observers
 
     }
     fun removeOneFromCart(product: Product){
 
-        _cart.value?.removeOneFromCart(product)
+        _modifiedCartItemPos = _cart.value?.removeOneFromCart(product)?:-1
+        _modifiedProductItemPos = productList.value?.indexOf(product)?:-1
         _cart.value = _cart.value // This is to trigger the observers
 
     }
