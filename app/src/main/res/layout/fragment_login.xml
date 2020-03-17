@@ -58,7 +58,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/btn_login_next"
             android:layout_marginTop="16dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/round_primary_backgorund"
             android:textColor="#FFFFFF"
             app:layout_constraintTop_toBottomOf="@+id/et_login_mobile"/>
 

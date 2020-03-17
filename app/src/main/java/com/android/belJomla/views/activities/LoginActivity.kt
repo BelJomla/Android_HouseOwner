@@ -85,10 +85,10 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "New HouseOwnerUser", Toast.LENGTH_SHORT).show()
 
             }
-            else {
-                Toast.makeText(this, "HouseOwnerUser not Authenticated", Toast.LENGTH_SHORT).show()
+           /* else {
+                //Toast.makeText(this, "HouseOwnerUser not Authenticated", Toast.LENGTH_SHORT).show()
 
-            }
+            }*/
         })
 
         viewModel.eventFirestoreUserCreated.observe(this, Observer { isCreatingUserInProgress ->

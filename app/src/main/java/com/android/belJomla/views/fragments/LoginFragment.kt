@@ -40,7 +40,7 @@ class LoginFragment : Fragment() {
 
 
         val viewModel by activityViewModels<AuthenticationViewModel>()
-        viewModel.isLoading.observe(this, Observer { isLoading ->
+        viewModel.isLoading.observe(viewLifecycleOwner, Observer { isLoading ->
             if (isLoading){
                 binding.pbLoading.visibility = View.VISIBLE
                 binding.btnLoginNext.isClickable = false
@@ -92,11 +92,11 @@ class LoginFragment : Fragment() {
                 )
                 viewModel.startLoading()
 
-                Toast.makeText(
+               /* Toast.makeText(
                     context,
                     "Correct! Full Number is : " + phoneNumber,
                     Toast.LENGTH_SHORT
-                ).show()
+                ).show()*/
             }
 
 

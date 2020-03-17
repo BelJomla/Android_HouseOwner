@@ -3,7 +3,9 @@ package com.android.belJomla.models
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.widget.ImageView
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
+import com.android.belJomla.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
@@ -72,7 +74,7 @@ fun loadImage(imageView: ImageView,imgURL : String) {
                 //.circleCrop()
         )
         .load(imgURL)
-        .placeholder(ColorDrawable(Color.BLACK))
+        .placeholder(ColorDrawable(ContextCompat.getColor(imageView.context,R.color.sugar_white)))
         .into(imageView)
 
 

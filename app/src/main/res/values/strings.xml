@@ -89,6 +89,9 @@
     <string name="shopping_cart">Shopping Cart</string>
     <string name="total_colon">Total:</string>
     <string name="including_vat">( Including VAT )</string>
+    <string name="setting_up_you_account">Setting Up You Account</string>
+    <string name="setting_up_the_servers">Setting Up The Servers</string>
+    <string name="you_can_resend_now">You can Resend now</string>
 
 
 </resources>

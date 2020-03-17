@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+    <data>
+        <variable
+                name="phoneNumber"
+                type="String" />
+    </data>
+
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -10,6 +16,7 @@
         android:background="@color/colorPrimary"
 
         tools:context=".views.fragments.VerificationFragment">
+
 
 
     <TextView
@@ -28,7 +35,7 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-            android:text="@string/please_type_the_verification_code_sent_to_966_5xxxxxxxxx"
+            android:text="@{`Please type the verification code sent to `+phoneNumber}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/tv_mini_label"

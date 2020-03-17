@@ -38,7 +38,7 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
                     app:product_image="@{product.imgURLs.get(0)}"
-                    android:src="@drawable/img_placeholder"
+                    tools:src="@drawable/img_placeholder"
                     app:layout_constraintBottom_toTopOf="@+id/tv_product_price"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

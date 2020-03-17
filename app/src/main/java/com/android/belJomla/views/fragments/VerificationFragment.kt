@@ -42,7 +42,7 @@ class VerificationFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding : FragmentVerificationBinding = DataBindingUtil.inflate(layoutInflater,R.layout.fragment_verification,container,false)
         val viewModel by activityViewModels<AuthenticationViewModel>()
-
+        binding.phoneNumber = viewModel.phoneNumber.value
 
 
 
@@ -50,7 +50,7 @@ class VerificationFragment : Fragment() {
 
 
 
-        viewModel.isLoading.observe(this, Observer { isLoading ->
+        viewModel.isLoading.observe(viewLifecycleOwner, Observer { isLoading ->
 
             if (isLoading){
                 binding.pbLoading2.visibility = View.VISIBLE
@@ -111,7 +111,7 @@ class VerificationFragment : Fragment() {
             }
 
             override fun onFinish() {
-                binding.tvCounter.text = "You can Resend now"
+                binding.tvCounter.text = getString(R.string.you_can_resend_now)
                 binding.tvResendSms.visibility = View.VISIBLE
 
 

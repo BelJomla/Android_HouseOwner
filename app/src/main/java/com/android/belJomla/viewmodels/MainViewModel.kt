@@ -79,6 +79,7 @@ class MainViewModel: ViewModel() , VerificationCallbacks , CategoryCallBacks, Pr
         _searchQuery.value = ""
         _user.value = authRepo.currentHouseOwnerUser
         _cart.value = Cart()
+        _isLoading.value = true
 
 
         //getAllData()
@@ -160,28 +161,12 @@ class MainViewModel: ViewModel() , VerificationCallbacks , CategoryCallBacks, Pr
     }
 
     private fun removeHiddenSubcategories(categories: ArrayList<MainCategory?>) : ArrayList<MainCategory?> {
-        //l.logMessage(this,"Removing hiddens from $categories")
 
-
-
-        /*for (i in 0 until categories.size){
-            for (j in 0 until categories[i]?.subCategories!!.size){
-                if (categories[i]?.subCategories?.get(j)?.hidden == true){
-                    l.logMessage(this,"Removing ${categories[i]?.subCategories?.get(j)}")
-
-
-                    l.logErrorMessage(this,"${categories[i]?.subCategories?.remove(categories[i]?.subCategories?.get(j))} After Removal : $categories")
-
-                }
-            }
-        }*/
-        l.logMessage(this,"Before Filter $categories")
         for (i in 0 until categories.size){
             categories[i]?.subCategories = categories[i]?.subCategories?.filter {
                 !it.hidden
             } as ArrayList<Category>
         }
-        l.logMessage(this,"After  Filter $categories")
 
         return  categories
     }
