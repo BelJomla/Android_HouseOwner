@@ -8,6 +8,7 @@ import com.google.firebase.auth.PhoneAuthCredential
 import com.android.belJomla.utils.Constants
 import com.android.belJomla.utils.Constants.USERS_DB_PATH
 import com.android.belJomla.callbacks.VerificationCallbacks
+import com.android.belJomla.models.Location
 import com.google.firebase.firestore.FirebaseFirestore
 
 /**
@@ -211,6 +212,10 @@ class UserRepository(var verifCallbacks: VerificationCallbacks) {
         user.firstName = fname
         user.lastName = lname
         user.email = email
+        user.id = auth.uid!!
+        user.locations = ArrayList()
+        user.locations.add(Location("Subhani Play-COut","A place Were we hangout","KSA","Makkah","Al-Subhani",22.7,33.8))
+        user.locations.add(Location("Subhani2 Play-COut","A place Were we hangout","KSA","Makkah","Al-Subhani",22.7,33.8))
         uidRef.set(user).addOnCompleteListener { userCreationTask ->
             if (userCreationTask.isSuccessful) {
                 getUser()

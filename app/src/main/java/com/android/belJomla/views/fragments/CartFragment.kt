@@ -60,6 +60,9 @@ class CartFragment : Fragment() {
             findNavController().navigateUp()
 
         }
+        binding.btnNext.setOnClickListener {
+            findNavController().navigate(R.id.action_cartFragment_to_cart2Fragment)
+        }
 
 
         return binding.root

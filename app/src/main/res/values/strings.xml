@@ -30,7 +30,12 @@
     <string name="resend_sms">Resend SMS</string>
     <string name="wrong_verif_code">Wrong Verification Code</string>
     <string name="invalid_code">Invalid Code</string>
-    <string name="too_many_requests">You have sent too many requests... Please contanct support</string>
+    <string name="thank_you_info">Your order with price %.2f SAR has been saved and will reach within 48 hours</string>
+    <string name="thank_you_app_name">Thank you for using %s</string>
+    <string name="x_pcs">%d pcs</string>
+    <string name="sr_x">SR %.2f</string>
+    <string name="order_num_x">Order: %s</string>
+    <string name="too_many_requests">You have sent too many requests… Please contanct support</string>
     <string name="sign_up">Sign Up</string>
     <string name="welcome">Welcome</string>
     <string name="first_name">First Name</string>
@@ -69,7 +74,7 @@
     <string name="enter_valid_email">Please enter a valid email</string>
     <string name="search_products">Search Products</string>
     <string name="dhahran_king_fahd_university">Dhahran, King Fahd University ....</string>
-    <string name="change">(Change)</string>
+    <string name="change_braces">(Change)</string>
     <string name="category">Category</string>
     <string name="frozen">Frozen</string>
     <string name="milk_and_cheese"><![CDATA[Milk & Cheese]]></string>
@@ -92,6 +97,21 @@
     <string name="setting_up_you_account">Setting Up You Account</string>
     <string name="setting_up_the_servers">Setting Up The Servers</string>
     <string name="you_can_resend_now">You can Resend now</string>
+    <string name="checkout">Checkout</string>
+    <string name="cash_on_delivery">Cash on Delivery</string>
+    <string name="wallet">Wallet</string>
+    <string name="credit_card">Credit Card</string>
+    <string name="delivery_address">Delivery Address</string>
+    <string name="payment">Payment</string>
+    <string name="change">Change</string>
+    <string name="cancel_order">Cancel Order</string>
+    <string name="edit">Edit</string>
+    <string name="total">Total</string>
+    <string name="orders">Orders</string>
+    <string name="delete_order">Deleting Order</string>
+    <string name="are_you_sure_delete">Are you sure you want to delete this order?</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
 
 
 </resources>

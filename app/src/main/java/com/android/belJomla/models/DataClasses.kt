@@ -10,7 +10,16 @@ import java.util.*
      var neighbor:String= ""
      var lat : Double = -0.0
      var long : Double = -0.0
-    constructor( name :String, description : String, country: String, city:String, neighbor:String, lat : Double ,  long : Double): this(){}
+    constructor( name :String, description : String, country: String, city:String, neighbor:String, lat : Double ,  long : Double): this(){
+        this.name = name
+        this.description = description
+        this.country = country
+        this.city = city
+        this.neighbor = neighbor
+        this.lat = lat
+        this.long = long
+
+    }
 
 }
 

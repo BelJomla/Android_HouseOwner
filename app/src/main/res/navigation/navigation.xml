@@ -33,7 +33,11 @@
             android:name="com.android.belJomla.views.fragments.CartFragment"
             android:label="CartFragment"
             tools:layout="@layout/fragment_cart"
-            />
+            >
+        <action
+                android:id="@+id/action_cartFragment_to_cart2Fragment"
+                app:destination="@id/cart2Fragment" />
+    </fragment>
     <fragment
             android:id="@+id/addressesFragment"
             android:name="com.android.belJomla.views.fragments.AddressesFragment"
@@ -49,4 +53,35 @@
             android:name="com.android.belJomla.views.fragments.BalanceFragment"
             android:label="fragment_balance"
             tools:layout="@layout/fragment_balance" />
+    <fragment
+            android:id="@+id/cart2Fragment"
+            android:name="com.android.belJomla.views.fragments.Cart2Fragment"
+            android:label="Cart2Fragment"
+            tools:layout="@layout/fragment_cart2"
+            >
+        <action
+                android:id="@+id/action_cart2Fragment_to_thankYouFragment"
+                app:destination="@id/thankYouFragment"
+                app:popUpTo="@+id/cartFragment"
+                app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+            android:id="@+id/thankYouFragment"
+            android:name="com.android.belJomla.views.fragments.ThankYouFragment"
+            android:label="ThankYouFragment"
+            tools:layout="@layout/fragment_thank_you"
+            >
+        <action
+                android:id="@+id/action_thankYouFragment_to_fragment_shopping"
+                app:destination="@id/fragment_shopping"
+                app:launchSingleTop="true"
+                app:popUpTo="@+id/cartFragment"
+                app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+            android:id="@+id/ordersFragment"
+            android:name="com.android.belJomla.views.fragments.OrdersFragment"
+            android:label="OrdersFragment"
+            tools:layout="@layout/fragment_orders"
+            />
 </navigation>

@@ -8,12 +8,12 @@
             android:icon="@drawable/store"
             android:title="@string/shopping"/>
     <item
-            android:id="@+id/fragment_carts"
+            android:id="@+id/cartFragment"
             android:icon="@drawable/cart"
             android:title="@string/carts"/>
 
     <item
-            android:id="@+id/fragment_chat"
+            android:id="@+id/ordersFragment"
             android:icon="@drawable/message_text"
             android:title="@string/chat"/>
     <item

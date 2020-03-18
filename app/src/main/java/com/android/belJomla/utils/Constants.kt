@@ -4,8 +4,11 @@ object Constants {
 
     const val PRODUCTS_DB_PATH: String = "products"
     const val CATEGORIES_DB_PATH: String = "categories"
+    const val ORDERS_DB_PATH : String = "orders"
+
     const val LOCALE_ARABIC = "ar"
     const val LOCALE_ENGLISH = "en"
+
     const val HOUSE_OWNER_USER_TYPE: Int = 0
     const val CATEGORY_SELECTED_VIEW_TYPE: Int = 2
     const val CATEGORY_NOT_SELECTED_VIEW_TYPE: Int = 2

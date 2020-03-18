@@ -2,16 +2,14 @@ package com.android.belJomla.repositories
 
 import android.util.Log
 import com.android.belJomla.callbacks.CategoryCallBacks
+import com.android.belJomla.callbacks.OrdersCallBacks
 import com.android.belJomla.callbacks.ProductsCallbacks
-import com.android.belJomla.models.Category
-import com.android.belJomla.models.HouseOwnerUser
-import com.android.belJomla.models.MainCategory
-import com.android.belJomla.models.Product
+import com.android.belJomla.models.*
 import com.android.belJomla.utils.Constants as c
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthSettings
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
+import com.google.firebase.firestore.Query
 import com.android.belJomla.utils.LoggerUtils as l
 
 
@@ -19,7 +17,7 @@ import com.android.belJomla.utils.LoggerUtils as l
  * This repository is responsible of all shopping related aspects. Starting from
  * fetching the categories up to managing orders {And maybe history}
  */
-class ShoppingRepository(var categoryCallbacks: CategoryCallBacks,var  productsCallbacks  : ProductsCallbacks) {
+class ShoppingRepository(var categoryCallbacks: CategoryCallBacks,var  productsCallbacks  : ProductsCallbacks,var ordersCallBacks: OrdersCallBacks) {
 
     companion object {
         lateinit var instance: ShoppingRepository
@@ -41,6 +39,7 @@ class ShoppingRepository(var categoryCallbacks: CategoryCallBacks,var  productsC
         //addDummyProducts()
         //addDummyCategories()
         getCategories()
+        startOrdersListener()
         //getProducts()
         //startCategoriesListeners()
     }
@@ -395,6 +394,56 @@ class ShoppingRepository(var categoryCallbacks: CategoryCallBacks,var  productsC
                     l.logMessage(this, "Added Category: $product ")
                 }
         }
+
+    }
+
+    fun postOrder(generatedOrder: Order) {
+        val ordersRef = firestore.collection(c.ORDERS_DB_PATH)
+        val id = ordersRef.document().id
+        generatedOrder.orderID = id
+        ordersRef.document(id).set(generatedOrder).addOnSuccessListener {
+            l.logMessage(this,"product addition success")
+            ordersCallBacks.onOrderPostSuccessful(generatedOrder)
+        }.addOnFailureListener{
+            l.logErrorMessage(this,"product addition failure")
+            ordersCallBacks.onOrderPostFailed()
+        }
+
+    }
+
+    fun getOrders() {
+        val ordersRef = firestore.collection(c.ORDERS_DB_PATH)
+        ordersRef.whereEqualTo("houseOwnerID",auth.uid).whereIn("orderState",
+            listOf(Order.STATE_NEW,Order.STATE_PENDING,Order.STATE_IN_PROGRESS)).orderBy("date", Query.Direction.DESCENDING).get().addOnSuccessListener {
+            l.logMessage(this,"Fetched Order Successfully ${it.toObjects(Order::class.java).size}")
+            ordersCallBacks.onOrdersFetched(it.toObjects(Order::class.java) as ArrayList<Order?>)
+        }
+    }
+    private fun startOrdersListener(){
+        val ordersRef = firestore.collection(c.ORDERS_DB_PATH)
+        ordersRef.orderBy("date", Query.Direction.DESCENDING)
+            .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+
+
+            val orders = querySnapshot?.toObjects(Order::class.java)
+            ordersCallBacks.onOrdersFetched(orders as ArrayList<Order?>)
+        }
+
+
+
+    }
+
+    fun removeOrder(order : Order){
+        val ordersRef = firestore.collection(c.ORDERS_DB_PATH)
+        l.logMessage(this, "Deleting Dorder ${order.orderID}")
+        ordersRef.document(order.orderID).delete().addOnSuccessListener {
+            l.logMessage(this,"Order Deleted Successfully")
+            ordersCallBacks.onDeleteOrderSucceeded(order)
+        }.addOnFailureListener{
+            l.logErrorMessage(this,"Failed To Delete Order")
+            ordersCallBacks.onDeleteOrderFailed()
+        }
+
 
     }
 

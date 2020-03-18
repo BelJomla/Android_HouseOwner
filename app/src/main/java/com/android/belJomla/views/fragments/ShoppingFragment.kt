@@ -123,9 +123,9 @@ class ShoppingFragment : Fragment() {
             binding.rvSubCateg.adapter!!.notifyDataSetChanged()
            // viewModel.startLoading()
            // Handler().postDelayed({viewModel.getSomeData()},100)
-
-
             viewModel.getProducts()
+
+
         })
         viewModel.productList.observe(viewLifecycleOwner, Observer {
             binding.rvShopping.adapter!!.notifyDataSetChanged()
