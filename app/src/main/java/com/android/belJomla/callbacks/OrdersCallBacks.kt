@@ -4,9 +4,12 @@ import com.android.belJomla.models.Order
 
 interface OrdersCallBacks {
 
-    fun onOrderPostSuccessful(postedOrder : Order)
+    /**
+     * This is to update the generated order id when its generated.
+     * I made it to solve a bug that now I forget
+     */
+    fun onOrderIDSet(orderID  :String)
     fun onOrderPostFailed()
     fun onOrdersFetched(fetchedOrders : ArrayList<Order?>)
-    fun onDeleteOrderSucceeded(order: Order)
     fun onDeleteOrderFailed()
 }

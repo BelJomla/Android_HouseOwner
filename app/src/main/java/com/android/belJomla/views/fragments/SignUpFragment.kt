@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -30,8 +31,12 @@ class SignUpFragment : Fragment() {
             val fname = binding.etFname.text.toString()
             val lname = binding.etLname.text.toString()
 
-
-            viewModel.createUserInFirestore(fname,lname)
+            if (fname.isNotEmpty() && lname.isNotEmpty()) {
+                viewModel.createUserInFirestore(fname, lname)
+            }
+            else {
+                Toast.makeText(requireContext(),requireContext().getString(R.string.please_enter_req_fields),Toast.LENGTH_SHORT).show()
+            }
         }
 
         viewModel.isLoading.observe(viewLifecycleOwner, Observer {isLoading ->
@@ -39,12 +44,10 @@ class SignUpFragment : Fragment() {
                 binding.pbLoading.visibility = View.VISIBLE
                 binding.btnSignup.isClickable = false
             }
-            else {
-                binding.pbLoading.visibility = View.GONE
-                binding.btnSignup.isClickable = true
-            }
+
 
         })
+
 
 
         return binding.root

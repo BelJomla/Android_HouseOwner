@@ -45,9 +45,18 @@ class LoginActivity : AppCompatActivity() {
 
         }
 
+        initObservers(viewModel)
+
+
+    }
+
+    private fun initObservers(viewModel: AuthenticationViewModel) {
         viewModel.eventCodeSent.observe(this, Observer { hasSentCode ->
             if (hasSentCode) {
-                fm.popBackStack(Constants.VERIFICATION_FRAGMENT_TAG, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                fm.popBackStack(
+                    Constants.VERIFICATION_FRAGMENT_TAG,
+                    FragmentManager.POP_BACK_STACK_INCLUSIVE
+                )
                 fm.beginTransaction().replace(
                     R.id.login_fragment_container,
                     VerificationFragment.newInstance()
@@ -59,49 +68,41 @@ class LoginActivity : AppCompatActivity() {
 
 
 
-        viewModel.eventVerificationFailed.observe(this, Observer { hasFailed ->
-            if (hasFailed) {
-                Toast.makeText(this, "Verification Failed", Toast.LENGTH_SHORT).show()
-                viewModel.onVerificationComplete()
-            }
-        })
-        viewModel.eventVerificationSuccess.observe(this, Observer { hasSucceeded ->
-            if (hasSucceeded) {
-                Toast.makeText(this, "Verification Success", Toast.LENGTH_SHORT).show()
-                viewModel.onVerificationComplete()
-            }
-        })
+
         viewModel.houseOwnerUser.observe(this, Observer { user ->
             if (user.isAuthenticated && !user.isNew) {
                 goToMainActivity()
 
-            }
-            else if (user.isAuthenticated && user.isNew) {
+            } else if (user.isAuthenticated && user.isNew) {
                 fm.beginTransaction().replace(
                     R.id.login_fragment_container,
                     SignUpFragment.newInstance()
                 ).addToBackStack(Constants.SIGNUP_FRAGMENT_TAG)
                     .commit()
-                Toast.makeText(this, "New HouseOwnerUser", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, "New HouseOwnerUser", Toast.LENGTH_SHORT).show()
 
             }
-           /* else {
+            /* else {
                 //Toast.makeText(this, "HouseOwnerUser not Authenticated", Toast.LENGTH_SHORT).show()
 
             }*/
         })
 
-        viewModel.eventFirestoreUserCreated.observe(this, Observer { isCreatingUserInProgress ->
+       /* viewModel.eventFirestoreUserCreated.observe(this, Observer { isCreatingUserInProgress ->
             // If the app is not in the signup screen !isCreatingUserInProgress and the houseOwnerUser is authenticated and is new
-            if (!isCreatingUserInProgress && viewModel.houseOwnerUser.value != null ){
-                val houseOwnerUser : HouseOwnerUser = viewModel.houseOwnerUser.value!!
+            if (!isCreatingUserInProgress && viewModel.houseOwnerUser.value != null) {
+                val houseOwnerUser: HouseOwnerUser = viewModel.houseOwnerUser.value!!
                 if (houseOwnerUser.isAuthenticated) {
                     goToMainActivity()
                 }
             }
+        })*/
+        viewModel.eventFirestoreUserCreated.observe(this, Observer {eventUserCreated ->
+            if (eventUserCreated){
+                goToMainActivity()
+                viewModel.onEventUserInFireStoreCreatedHandled()
+            }
         })
-
-
     }
 
     private fun goToMainActivity() {

@@ -52,7 +52,7 @@
                     android:layout_marginTop="32dp"
 
                     android:fontFamily="@font/segoeuib"
-                    android:text="@{`SR `+product.sellingPrice}"
+                    android:text="@{@string/sr_x(product.sellingPrice)}"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -71,7 +71,7 @@
                     android:lines="2"
 
                     android:maxLines="2"
-                    android:text="@{product.name }"
+                    app:localized-text="@{product.name}"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -90,7 +90,8 @@
                     android:fontFamily="@font/segoeuisl"
                     android:lines="1"
                     android:maxLines="1"
-                    android:text="@{product.quantativeSize + ` ` + product.qualitiveSize }"
+                    app:localized-text="@{product.quantativeSize}"
+
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toTopOf="@+id/btn_product"
@@ -99,6 +100,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_product_desc"
                     tools:text="400 G" />
+           <!-- android:text="@{product.quantativeSize + ` ` + product.qualitiveSize }"-->
+
 
             <FrameLayout
                     android:id="@+id/btn_product"
@@ -119,10 +122,11 @@
                             android:layout_height="20dp"
                             android:layout_marginTop="8dp"
                             android:layout_marginBottom="8dp"
+                            android:layout_marginStart="4dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/ic__cart_white_48dp"
+                            app:srcCompat="@drawable/ic_add_shopping_cart_white_24dp"
                             tools:visibility="gone" />
 
                     <TextView

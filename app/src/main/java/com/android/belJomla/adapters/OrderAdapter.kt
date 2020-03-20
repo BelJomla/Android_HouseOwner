@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android.belJomla.R
 import com.android.belJomla.databinding.OrderItemItemBinding
@@ -14,8 +16,13 @@ import com.android.belJomla.databinding.OrderListItemBinding
 import com.android.belJomla.models.Cart
 import com.android.belJomla.models.Order
 import com.android.belJomla.viewmodels.MainViewModel
+import com.android.belJomla.utils.LoggerUtils as l
 
-class OrderAdapter(var context:Context,/*var orders : ArrayList<Order?>,*/ val viewModel:MainViewModel) : RecyclerView.Adapter<OrderAdapter.OrderViewHolder>() {
+
+
+
+
+class OrderAdapter(var context:Context, val viewModel:MainViewModel) : ListAdapter<Order?,OrderAdapter.OrderViewHolder>(OrderDiffCallBack()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {
 
         return OrderViewHolder(DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.order_list_item,parent
@@ -23,12 +30,38 @@ class OrderAdapter(var context:Context,/*var orders : ArrayList<Order?>,*/ val v
 
     }
 
-    override fun getItemCount(): Int {
+/*    override fun getItemCount(): Int {
         return viewModel.orders.value?.size?:0
+    }*/
+class OrderDiffCallBack : DiffUtil.ItemCallback<Order?>(){
+    override fun areItemsTheSame(oldItem: Order, newItem: Order): Boolean {
+        l.logErrorMessage(this,"areItemsTheSame ${oldItem.orderID == newItem.orderID}")
+        return  oldItem.orderID == newItem.orderID
     }
 
+    override fun areContentsTheSame(oldItem: Order, newItem: Order): Boolean {
+        l.logErrorMessage(this,"areContentsTheSame ${(oldItem.cart.items.size == newItem.cart?.items?.size) && oldItem?.totalPrice == newItem?.totalPrice}")
+
+        val itemEqual = oldItem == newItem
+        val totalPriceEqual = oldItem.totalPrice ==newItem.totalPrice
+        val discountPriceEqual = oldItem.discountPrice ==newItem.discountPrice
+        val finalPriceEqual = oldItem.finalPrice == newItem.finalPrice
+        val orderStateEqual = oldItem.orderState ==newItem.orderState
+        val locationNameEqual = oldItem.deliveryLocation.name ==newItem.deliveryLocation.name
+        val numOfProductsEqual = oldItem.cart.items.size == newItem.cart.items.size
+        val couponEqual = oldItem.coupon == newItem.coupon
+        val deliveryPeriodEqual = oldItem.deliveryPeriod == newItem.deliveryPeriod
+
+        return itemEqual && totalPriceEqual && discountPriceEqual &&
+                finalPriceEqual && orderStateEqual && locationNameEqual &&
+                numOfProductsEqual  && couponEqual && deliveryPeriodEqual
+
+    }
+
+}
+
     override fun onBindViewHolder(holder: OrderViewHolder, position: Int) {
-        val order = viewModel.orders.value!![holder.adapterPosition]
+        val order = getItem(holder.adapterPosition)//viewModel.orders.value!![holder.adapterPosition]
         holder.binding.order = order
 
         when {
@@ -69,6 +102,12 @@ class OrderAdapter(var context:Context,/*var orders : ArrayList<Order?>,*/ val v
 
 
     }
+
+    override fun submitList(list: MutableList<Order?>?) {
+        l.logMessage(this, "submitList")
+        super.submitList(list)
+    }
+
 
     private fun setInProgressStateVisibilities(binding: OrderListItemBinding) {
         binding.ivBtnCall.visibility = View.VISIBLE

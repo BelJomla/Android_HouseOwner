@@ -1,6 +1,5 @@
 package com.android.belJomla.viewmodels
 
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,6 +10,7 @@ import com.android.belJomla.callbacks.VerificationCallbacks
 import com.android.belJomla.models.*
 import com.android.belJomla.repositories.UserRepository
 import com.android.belJomla.repositories.ShoppingRepository
+import com.google.firebase.FirebaseException
 import com.android.belJomla.utils.LoggerUtils as l
 
 class MainViewModel: ViewModel() , VerificationCallbacks , CategoryCallBacks, ProductsCallbacks ,
@@ -58,23 +58,23 @@ class MainViewModel: ViewModel() , VerificationCallbacks , CategoryCallBacks, Pr
     val cart: LiveData<Cart>
         get() = _cart
 
-    private val _eventOrderAdded = MutableLiveData<Boolean>()
+ /*   private val _eventOrderAdded = MutableLiveData<Boolean>()
     val eventOrderAdded: LiveData<Boolean>
         get() = _eventOrderAdded
-
+*/
     // Todo {Remove this if another solution was found}
     /**
      * The following 2 vars were added as a work-around for the DiffUtil's oldItem = newItem bug
      */
-    private var _modifiedCartItemPos : Int = -1
+    /*private var _modifiedCartItemPos : Int = -1
     val modifiedCartItemPos : Int
-        get() = _modifiedCartItemPos
+        get() = _modifiedCartItemPos*/
     private var _modifiedProductItemPos : Int = -1
     val modifiedProductItemPos : Int
         get() = _modifiedProductItemPos
-    private var _deletdOrderItemPos : Int = -1
+    /*private var _deletdOrderItemPos : Int = -1
     val deletdOrderItemPos : Int
-        get() = _deletdOrderItemPos
+        get() = _deletdOrderItemPos*/
 
 
     /**
@@ -83,10 +83,20 @@ class MainViewModel: ViewModel() , VerificationCallbacks , CategoryCallBacks, Pr
      */
     private var lastQueryCategories = arrayOf("","")
 
+    /**
+     * The following var is the generated order by the user , It gets created the he clicks the checkout button
+     * It is important if 2 users entered the app from different devices and while one of the was in the
+     * checkout screen, the other has added an order, without this var, the other app will consider his order added too.
+     * Which is wrong because it did not.
+     */
+     var generatedOrder : Order
+
 
 
 
     init {
+
+        l.logMessage(this,"init")
         _categories.value = ArrayList()
         _category.value = MainCategory()
         _subCategory.value = Category()
@@ -95,7 +105,8 @@ class MainViewModel: ViewModel() , VerificationCallbacks , CategoryCallBacks, Pr
         _cart.value = Cart()
         _orders.value = ArrayList()
         _isLoading.value = true
-        _eventOrderAdded.value = false
+        generatedOrder = Order()
+        //_eventOrderAdded.value = false
 
         getOrders()
         //getAllData()
@@ -106,15 +117,27 @@ class MainViewModel: ViewModel() , VerificationCallbacks , CategoryCallBacks, Pr
     }
 
     override fun onUserInFireStoreCreatedCallback() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onVerificationFailed(exception: FirebaseException?) {
+
     }
     private fun clearProducts(){
         productList.value?.clear()
         _productList.value = _productList.value // Trigger the observer
     }
     fun getProducts() {
-        val categoryID = category.value?.id?:""
-        val subCategoryID = subCategory.value?.id?:""
+        var categoryID = category.value?.id?:""
+        var subCategoryID = subCategory.value?.id?:""
+
+
+        /**
+         * If it was the All category, then fetch them all
+         */
+        if (categoryID =="0"){
+            categoryID = ""
+            subCategoryID = ""
+        }
 
         if (categories.value?.size?:0 >0 && !isSameAsLastQuery()) {
             startLoading()
@@ -128,6 +151,7 @@ class MainViewModel: ViewModel() , VerificationCallbacks , CategoryCallBacks, Pr
     }
 
     private fun isSameAsLastQuery(): Boolean {
+        l.logMessage(this,"isSameAsLastQuery ${category.value?.id == lastQueryCategories[0] && subCategory.value?.id == lastQueryCategories[1]} ")
             return category.value?.id == lastQueryCategories[0] && subCategory.value?.id == lastQueryCategories[1]
     }
 
@@ -149,31 +173,46 @@ class MainViewModel: ViewModel() , VerificationCallbacks , CategoryCallBacks, Pr
 
     fun addToCart(product: Product){
 
-      _modifiedCartItemPos=  _cart.value?.addToCart(product)?:0
+     /*_modifiedCartItemPos= */ _cart.value?.addToCart(product)
       _modifiedProductItemPos = productList.value?.indexOf(product)?:-1
       _cart.value = _cart.value // This is to trigger the observers
     }
 
     fun removeAllFromCart(product: Product){
         cart.value?.removeAllFromCart(product)
-        _modifiedCartItemPos = -1
+      //  _modifiedCartItemPos = -1
         _modifiedProductItemPos = productList.value?.indexOf(product)?:-1
         _cart.value = _cart.value // This is to trigger the observers
 
     }
     fun removeOneFromCart(product: Product){
 
-        _modifiedCartItemPos = _cart.value?.removeOneFromCart(product)?:-1
+       /*_modifiedCartItemPos = */_cart.value?.removeOneFromCart(product)
         _modifiedProductItemPos = productList.value?.indexOf(product)?:-1
         _cart.value = _cart.value // This is to trigger the observers
 
     }
 
     override fun onCategoriesFetched(categories: ArrayList<MainCategory?>) {
-        _categories.value = removeHiddenSubcategories(categories)
-        _category.value = categories[0]
-        _subCategory.value = _category.value!!.subCategories[0]
+       l.logMessage(this,"onCategoriesFetched isEmpty : ${categories.isEmpty()} ")
+        if (categories.isNotEmpty()) {
+           _categories.value = removeHiddenSubcategories(categories)
+           _category.value = categories[0]
+           if (_category.value?.hasSubCategories() == true) {
+               _subCategory.value = _category.value!!.subCategories[0]
+           }
+            else {
+               val allSubCategory = Category()
+               allSubCategory.id = "${categories[0]?.id}_1"
+               _subCategory.value = allSubCategory
+
+           }       }
         stopLoading()
+    }
+
+    override fun onCategoriesChangeDetected(categories: ArrayList<MainCategory?>) {
+        _categories.value = removeHiddenSubcategories(categories)
+
     }
 
     private fun removeHiddenSubcategories(categories: ArrayList<MainCategory?>) : ArrayList<MainCategory?> {
@@ -195,12 +234,12 @@ class MainViewModel: ViewModel() , VerificationCallbacks , CategoryCallBacks, Pr
     override fun onProductsFetched(products: ArrayList<Product?>) {
         l.logMessage(this,"onProductsFetched : products => $products")
         _productList.value = products
-        updateLastQueriedCategory(category.value?.id?:"",subCategory.value?.id?:"")
+        updateLastQueriedCategory(category.value?.id?:"none", subCategory.value?.id?:"none")
         stopLoading()
     }
 
-    override fun onProductsFechtingFailed() {
-        l.logMessage(this,"onProductsFechtingFailed")
+    override fun onProductsFetchingFailed() {
+        l.logMessage(this,"onProductsFetchingFailed")
         _productList.value = ArrayList()
         stopLoading()
     }
@@ -219,10 +258,12 @@ class MainViewModel: ViewModel() , VerificationCallbacks , CategoryCallBacks, Pr
      * As well as the entered location and payment type and amount to generate an order
      * Note: This method does not post the order. It just generates it
      */
-    private fun generateOrder(selectedLocation: Location, paymentMethod : Int , prepaidAmount : Double = 0.0) : Order{
+    private fun generateOrder(selectedLocation: Location, paymentMethod : Int , prepaidAmount : Double = 0.0) {
 
         val order = Order()
-        //order.orderID Will Be Set In The Repository
+        /**order.orderID Will Be Set In The Repository Then Updated Through
+         * The Interface Callback  : onOrderIDSet
+         */
         order.houseOwnerID = _user.value!!.id
         order.cart = _cart.value!!
         order.totalPrice = _cart.value!!.calculateCartPrice()
@@ -232,47 +273,47 @@ class MainViewModel: ViewModel() , VerificationCallbacks , CategoryCallBacks, Pr
         order.country = selectedLocation.country
         order.city = selectedLocation.city
         order.deliveryLocation = selectedLocation
-        order.orderState = Order.STATE_PENDING
+        order.orderState = Order.STATE_NEW
 
-        return order
+        generatedOrder = order
+
     }
+
+    override fun onOrderIDSet(orderID: String) {
+        generatedOrder.orderID = orderID
+    }
+
     fun postOrder(selectedLocation: Location, paymentMethod : Int , prepaidAmount : Double = 0.0){
-        val generatedOrder  = generateOrder(selectedLocation, paymentMethod , prepaidAmount )
+        generateOrder(selectedLocation, paymentMethod , prepaidAmount )
         startLoading()
         shoppingRepo.postOrder(generatedOrder)
 
     }
-
-    override fun onOrderPostSuccessful(postedOrder: Order) {
-
-        _deletdOrderItemPos = -1
-        _eventOrderAdded.value = true
-        orders.value?.add(postedOrder)
-        _orders.value = _orders.value
-        l.logMessage(this,"Order $postedOrder Posted")
+    fun isOrderPosted(order:Order):Boolean{
+        return orders.value?.contains(order)?:false
     }
+
+
+
     override fun onOrderPostFailed() {
         stopLoading()
-        _deletdOrderItemPos = -1
+     //   _deletdOrderItemPos = -1
         l.logErrorMessage(this," Posting Order Failed")
     }
 
-    override fun onOrdersFetched(fetchedOrders: ArrayList<Order?>) {
-        //stopLoading()
-        _deletdOrderItemPos = -1
+    override fun onOrdersFetched(fetchedOrders: ArrayList<Order?>){
+        stopLoading()
+     //   _deletdOrderItemPos = -1
+       // _eventOrderAdded.value = fetchedOrders.size == (_orders.value?.size?:0)+1
         _orders.value = fetchedOrders
     }
 
     override fun onDeleteOrderFailed() {
         stopLoading()
-        _deletdOrderItemPos = -1
+      //  _deletdOrderItemPos = -1
     }
 
-    override fun onDeleteOrderSucceeded(order: Order) {
-        stopLoading()
-        _deletdOrderItemPos = orders.value?.indexOf(order)?:-1
-        orders.value?.remove(order)
-    }
+
 
     private fun getOrders() {
         shoppingRepo.getOrders()
@@ -281,8 +322,23 @@ class MainViewModel: ViewModel() , VerificationCallbacks , CategoryCallBacks, Pr
         startLoading()
         shoppingRepo.removeOrder(order)
     }
-    fun onEventOrderAddedHandled(){
-        _eventOrderAdded.value = false
-        stopLoading()
+
+
+
+    private fun removeCategoriesListener() = shoppingRepo.removeCategoriesListener()
+    private fun removeProductsListener() = shoppingRepo.removeProductsListener()
+    private fun removeOrdersListener() = shoppingRepo.removeOrdersListener()
+
+    private fun removeAllListeners(){
+        removeCategoriesListener()
+        removeProductsListener()
+        removeOrdersListener()
     }
+
+    override fun onCleared() {
+        l.logMessage(this, "cleared")
+        removeAllListeners()
+        super.onCleared()
+    }
+
 }

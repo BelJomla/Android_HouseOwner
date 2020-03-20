@@ -19,6 +19,10 @@ class CartItem() {
         return product.hashCode()
     }
 
+    fun clone() :CartItem {
+        return CartItem(product.clone(),quantity)
+    }
+
 
 }
 
@@ -145,6 +149,15 @@ fun ArrayList<CartItem>.removeAllOf(product: Product) {
                 price += (cartItem.product.sellingPrice*cartItem.quantity)
             }
             return price
+        }
+
+        fun clone():Cart{
+            val clonedCart = Cart()
+            for (cartItem in items){
+                clonedCart.items.add(cartItem.clone())
+            }
+            //clonedCart.items = items.toMutableList() as ArrayList<CartItem>
+            return  clonedCart
         }
 
 

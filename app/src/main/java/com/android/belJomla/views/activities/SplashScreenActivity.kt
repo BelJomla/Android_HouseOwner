@@ -7,6 +7,7 @@ import android.os.Handler
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.android.belJomla.R
+import com.android.belJomla.utils.LoggerUtils as l
 import com.android.belJomla.viewmodels.MainViewModel
 
 
@@ -39,9 +40,13 @@ class SplashScreenActivity : AppCompatActivity() {
     }
 
     private fun goToLoginActivity() {
+        l.logMessage(this,"Going to LoginActivity")
         var loginIntent = Intent(this,LoginActivity::class.java)
         loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(loginIntent)
+        viewModel.categories.removeObservers(this)
         finish()
+
     }
+
 }

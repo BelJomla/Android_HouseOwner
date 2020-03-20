@@ -5,11 +5,10 @@ import com.android.belJomla.callbacks.CategoryCallBacks
 import com.android.belJomla.callbacks.OrdersCallBacks
 import com.android.belJomla.callbacks.ProductsCallbacks
 import com.android.belJomla.models.*
+import com.android.belJomla.utils.DummyDataUtils
 import com.android.belJomla.utils.Constants as c
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.FirebaseFirestoreSettings
-import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.*
 import com.android.belJomla.utils.LoggerUtils as l
 
 
@@ -26,7 +25,7 @@ class ShoppingRepository(var categoryCallbacks: CategoryCallBacks,var  productsC
 
     val TAG = ShoppingRepository::class.java.simpleName
     val settings = FirebaseFirestoreSettings.Builder()
-        .setPersistenceEnabled(true)
+        .setPersistenceEnabled(false)
         .build()
 
 
@@ -34,12 +33,21 @@ class ShoppingRepository(var categoryCallbacks: CategoryCallBacks,var  productsC
     private val firestore = FirebaseFirestore.getInstance()
     var currentHouseOwnerUser: HouseOwnerUser? = null
 
-    init {
+    private var categoriesListener :ListenerRegistration? = null
+    private var productsListener :ListenerRegistration? = null
+    private var ordersListener :ListenerRegistration? = null
 
-        //addDummyProducts()
-        //addDummyCategories()
-        getCategories()
+    init {
+        l.logMessage(this,"init ")
+        addDummyProducts()
+        //addDummyCategories() TODO DO NOT OPEN THIS COMMENT
+        //getCategories()
+
+        startCategoriesListener()
+        startProductListener()
         startOrdersListener()
+
+
         //getProducts()
         //startCategoriesListeners()
     }
@@ -83,39 +91,41 @@ class ShoppingRepository(var categoryCallbacks: CategoryCallBacks,var  productsC
 
     }
 
-    private fun startCategoriesListeners() {
-    }
      fun getProducts(categID : String = "",subCategID : String = ""){
-         l.logErrorMessage(this,"categID is $categID and subID is $subCategID")
-        if (categID == "" && subCategID =="") { // Get All Products
+         l.logErrorMessage(this,"getProducts categID is $categID and subID is $subCategID")
+
+         removeProductsListener()
+
+
+         if (categID == "" && subCategID =="") { // Get All Products
             firestore.collection(c.PRODUCTS_DB_PATH).get().addOnSuccessListener { snapshot ->
                 l.logMessage(this,"getProducts Successful")
                 val products = ArrayList<Product?>()
                 for (document in snapshot.documents) {
                     products.add(document.toObject(Product::class.java))
                 }
-                productsCallbacks.onProductsFetched(products)
+               // productsCallbacks.onProductsFetched(products)
 
 
             }.addOnFailureListener{
                 l.logErrorMessage(this,"Fetching Failed : ${it.message}")
-                productsCallbacks.onProductsFechtingFailed()
+                productsCallbacks.onProductsFetchingFailed()
             }
         }
         else if(categID != "" && subCategID ==""){ // Get All Products Of Certain Category
-            firestore.collection(c.PRODUCTS_DB_PATH)/*.whereEqualTo("category",categID)*/.get().addOnSuccessListener { snapshot ->
+            firestore.collection(c.PRODUCTS_DB_PATH).whereEqualTo("category",categID).get().addOnSuccessListener { snapshot ->
                 l.logMessage(this,"getProducts Successful")
 
                 val products = ArrayList<Product?>()
                 for (document in snapshot.documents) {
                     products.add(document.toObject(Product::class.java))
                 }
-                productsCallbacks.onProductsFetched(products)
+                //productsCallbacks.onProductsFetched(products)
 
 
             }.addOnFailureListener{
                 l.logErrorMessage(this,"Fetching Failed : ${it.message}")
-                productsCallbacks.onProductsFechtingFailed()
+                productsCallbacks.onProductsFetchingFailed()
             }
         }
         else if (categID != "" && subCategID != ""){ // Get a Sub-Category Of a Certain Category
@@ -126,14 +136,15 @@ class ShoppingRepository(var categoryCallbacks: CategoryCallBacks,var  productsC
                 for (document in snapshot.documents) {
                     products.add(document.toObject(Product::class.java))
                 }
-                productsCallbacks.onProductsFetched(products)
+               // productsCallbacks.onProductsFetched(products)
 
 
             }.addOnFailureListener{
                 l.logErrorMessage(this,"Fetching Failed : ${it.message}")
-                productsCallbacks.onProductsFechtingFailed()
+                productsCallbacks.onProductsFetchingFailed()
             }
         }
+         startProductListener(categID,subCategID)
     }
 
     private fun addDummyCategories() {
@@ -198,192 +209,8 @@ class ShoppingRepository(var categoryCallbacks: CategoryCallBacks,var  productsC
     }
 
     private fun addDummyProducts() {
-        val data = ArrayList<Product>()
-        val commonUrls = ArrayList<String>()
 
-
-        commonUrls.add("https://picsum.photos/300/300")
-        l.logErrorMessage(this, "catMap : " + com.android.belJomla.utils.Constants.categMap)
-
-
-
-        data.add(
-            Product(
-                "1", "Product1 ", commonUrls, "1",
-                "1_2", 22.0, "20 mg", "Small"
-            )
-        )
-
-        data.add(
-            Product(
-                "2", "Product2 With a name that is pretty long.", commonUrls, "1",
-                "1_2", 22.0, "23 oz", "Small"
-            )
-        )
-
-        data.add(
-            Product(
-                "3", "Product3", commonUrls, "1",
-                "1_2", 28.0, "21 mg", "Small"
-            )
-        )
-
-        data.add(
-            Product(
-                "4", "Product4", commonUrls, "1",
-                "1_2", 2.0, "2.2 mg", "Small"
-            )
-        )
-
-
-        data.add(
-            Product(
-                "1", "Product1 ", commonUrls, "1",
-                "1_3", 22.0, "20 mg", "Small"
-            )
-        )
-
-        data.add(
-            Product(
-                "2", "Product2 With a name that is pretty long.", commonUrls, "1",
-                "1_3", 22.0, "23 oz", "Small"
-            )
-        )
-
-
-        data.add(
-            Product(
-                "3", "Product3", commonUrls, "1",
-                "1_4", 28.0, "21 mg", "Small"
-            )
-        )
-
-        data.add(
-            Product(
-                "4", "Product4", commonUrls, "1",
-                "1_5", 2.0, "2.2 mg", "Small"
-            )
-        )
-
-
-        data.add(
-            Product(
-                "5", "Product5", commonUrls, "2",
-                "2_2", 222.0, "200 mg", "Small"
-            )
-        )
-
-
-        data.add(
-            Product(
-                "6", "Product6", commonUrls, "2",
-                "2_2", 342.0, "155 mg", "Small"
-            )
-        )
-
-        data.add(
-            Product(
-                "7", "Product7", commonUrls, "2",
-                "2_3", 12.0, "32 mg", "Small"
-            )
-        )
-
-        data.add(
-            Product(
-                "8", "Product8", commonUrls, "2",
-                "2_3", 43.0, "24 mg", "Small"
-            )
-        )
-
-
-        data.add(
-            Product(
-                "5", "Product5", commonUrls, "2",
-                "2_4", 222.0, "200 mg", "Small"
-            )
-        )
-
-
-        data.add(
-            Product(
-                "6", "Product6", commonUrls, "2",
-                "2_5", 342.0, "155 mg", "Small"
-            )
-        )
-
-
-        data.add(
-            Product(
-                "7", "Product7", commonUrls, "2",
-                "2_5", 12.0, "32 mg", "Small"
-            )
-        )
-
-        data.add(
-            Product(
-                "8", "Product8", commonUrls, "2",
-                "2_5", 43.0, "24 mg", "Small"
-            )
-        )
-
-
-        data.add(
-            Product(
-                "9", "Product9", commonUrls, "3",
-                "3_2", 66.0, "87 mg", "Small"
-            )
-        )
-
-        data.add(
-            Product(
-                "10", "Product10", commonUrls, "3",
-                "3_3", 1.0, "32g", "Small"
-            )
-        )
-
-        data.add(
-            Product(
-                "11", "Product11", commonUrls, "3",
-                "3_3", 12.4, "43 mg", "Small"
-            )
-        )
-
-        data.add(
-            Product(
-                "12", "Product12", commonUrls, "3",
-                "3_3", 22.99, "29 mg", "Small"
-            )
-        )
-
-
-        data.add(
-            Product(
-                "9", "Product9", commonUrls, "3",
-                "3_4", 66.0, "87 mg", "Small"
-            )
-        )
-
-        data.add(
-            Product(
-                "10", "Product10", commonUrls, "3",
-                "3_4", 1.0, "32g", "Small"
-            )
-        )
-
-
-        data.add(
-            Product(
-                "11", "Product11", commonUrls, "3",
-                "3_5", 12.4, "43 mg", "Small"
-            )
-        )
-
-        data.add(
-            Product(
-                "12", "Product12", commonUrls, "3",
-                "3_5", 22.99, "29 mg", "Small"
-            )
-        )
+        val data = DummyDataUtils.getLocalizedDummyProducts()
 
         l.logMessage(this, "Creation complete... supposed to add now")
         for (product in data) {
@@ -401,12 +228,13 @@ class ShoppingRepository(var categoryCallbacks: CategoryCallBacks,var  productsC
         val ordersRef = firestore.collection(c.ORDERS_DB_PATH)
         val id = ordersRef.document().id
         generatedOrder.orderID = id
+        ordersCallBacks.onOrderIDSet(generatedOrder.orderID)
         ordersRef.document(id).set(generatedOrder).addOnSuccessListener {
             l.logMessage(this,"product addition success")
-            ordersCallBacks.onOrderPostSuccessful(generatedOrder)
+            //ordersCallBacks.onOrderPostSuccessful(generatedOrder)
         }.addOnFailureListener{
             l.logErrorMessage(this,"product addition failure")
-            ordersCallBacks.onOrderPostFailed()
+           // ordersCallBacks.onOrderPostFailed()
         }
 
     }
@@ -416,14 +244,26 @@ class ShoppingRepository(var categoryCallbacks: CategoryCallBacks,var  productsC
         ordersRef.whereEqualTo("houseOwnerID",auth.uid).whereIn("orderState",
             listOf(Order.STATE_NEW,Order.STATE_PENDING,Order.STATE_IN_PROGRESS)).orderBy("date", Query.Direction.DESCENDING).get().addOnSuccessListener {
             l.logMessage(this,"Fetched Order Successfully ${it.toObjects(Order::class.java).size}")
-            ordersCallBacks.onOrdersFetched(it.toObjects(Order::class.java) as ArrayList<Order?>)
+            //ordersCallBacks.onOrdersFetched(it.toObjects(Order::class.java) as ArrayList<Order?>)
         }
     }
     private fun startOrdersListener(){
+        l.logMessage(this,"startOrdersListener auth uid is ${auth.uid}")
         val ordersRef = firestore.collection(c.ORDERS_DB_PATH)
-        ordersRef.orderBy("date", Query.Direction.DESCENDING)
-            .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+        ordersListener = ordersRef.whereEqualTo("houseOwnerID",auth.uid)
+            .whereIn("orderState", listOf(Order.STATE_NEW,Order.STATE_PENDING,Order.STATE_IN_PROGRESS))
+            .orderBy("date", Query.Direction.DESCENDING)
+            .addSnapshotListener { querySnapshot, e ->
 
+            l.logMessage(this,"Order Listener triggered")
+            if (e != null){
+                l.logErrorMessage(this,"Listen Failed $e")
+                ordersCallBacks.onDeleteOrderFailed()
+                l.logMessage(this,"Order Listener Error")
+
+                return@addSnapshotListener
+            }
+            l.logMessage(this,"Order Listener No Error")
 
             val orders = querySnapshot?.toObjects(Order::class.java)
             ordersCallBacks.onOrdersFetched(orders as ArrayList<Order?>)
@@ -432,19 +272,77 @@ class ShoppingRepository(var categoryCallbacks: CategoryCallBacks,var  productsC
 
 
     }
+    private fun startProductListener(categID : String = "", subCategID : String = ""){
+        l.logErrorMessage(this,"startProductListener categID is $categID and subID is $subCategID")
+
+        var productsRef : Query? = null
+        if (categID == "" && subCategID =="") { // Get All Products
+
+            productsRef = firestore.collection(c.PRODUCTS_DB_PATH)
+        }
+        else if(categID != "" && subCategID ==""){ // Get All Products Of Certain Category
+            productsRef=  firestore.collection(c.PRODUCTS_DB_PATH).whereEqualTo("category",categID)
+        }
+        else if (categID != "" && subCategID != "") { // Get a Sub-Category Of a Certain Category
+            productsRef = firestore.collection(c.PRODUCTS_DB_PATH).whereEqualTo("category", categID)
+                .whereEqualTo("subCategory", subCategID)
+        }
+        productsListener = productsRef!!.addSnapshotListener { querySnapshot, e ->
+                if (e != null){
+                    l.logErrorMessage(this,"Listen Failed $e")
+                    productsCallbacks.onProductsFetchingFailed()
+                    return@addSnapshotListener
+                }
+
+                val products = querySnapshot?.toObjects(Product::class.java)
+
+                    productsCallbacks.onProductsFetched(products as ArrayList<Product?>)
+
+            }
+
+
+    }
+
+
+    private fun startCategoriesListener(){
+        val categsRef = firestore.collection(c.CATEGORIES_DB_PATH)
+        categoriesListener = categsRef.whereEqualTo("hidden",false).addSnapshotListener { querySnapshot, e ->
+            if (e != null){
+                l.logErrorMessage(this,"Listen Failed $e")
+                categoryCallbacks.onCategoriesFetchedFailed()
+                return@addSnapshotListener
+            }
+
+            val categories = querySnapshot?.toObjects(MainCategory::class.java)
+
+            categoryCallbacks.onCategoriesFetched(categories as ArrayList<MainCategory?>)
+        }
+    }
 
     fun removeOrder(order : Order){
         val ordersRef = firestore.collection(c.ORDERS_DB_PATH)
         l.logMessage(this, "Deleting Dorder ${order.orderID}")
         ordersRef.document(order.orderID).delete().addOnSuccessListener {
             l.logMessage(this,"Order Deleted Successfully")
-            ordersCallBacks.onDeleteOrderSucceeded(order)
+            //ordersCallBacks.onDeleteOrderSucceeded(order)
         }.addOnFailureListener{
             l.logErrorMessage(this,"Failed To Delete Order")
             ordersCallBacks.onDeleteOrderFailed()
         }
 
 
+    }
+
+     fun removeCategoriesListener() = categoriesListener?.remove()
+     fun removeProductsListener() {
+         l.logMessage(this,"Removing $productsListener")
+         productsListener?.remove()}
+     fun removeOrdersListener() = ordersListener?.remove()
+
+    fun removeAllListeners(){
+        removeCategoriesListener()
+        removeProductsListener()
+        removeOrdersListener()
     }
 
 }

@@ -4,16 +4,8 @@
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation"
             app:startDestination="@id/fragment_shopping">
 
-    <fragment android:id="@+id/fragment_carts"
-              android:name="com.android.belJomla.views.fragments.Carts"
-              android:label="@string/carts"
-              tools:layout="@layout/fragment_carts">
-        <action android:id="@+id/action_fragment_carts_to_fragment_shopping" app:destination="@id/fragment_shopping"/>
-    </fragment>
-    <fragment android:id="@+id/fragment_chat"
 
-              android:name="com.android.belJomla.views.fragments.ChatFragment" android:label="@string/chat"
-              tools:layout="@layout/fragment_chat"/>
+
     <fragment android:id="@+id/fragment_profile"
               android:name="com.android.belJomla.views.fragments.ProfileFragment"
               android:label="@string/profile" tools:layout="@layout/fragment_profile"/>
@@ -35,8 +27,8 @@
             tools:layout="@layout/fragment_cart"
             >
         <action
-                android:id="@+id/action_cartFragment_to_cart2Fragment"
-                app:destination="@id/cart2Fragment" />
+                android:id="@+id/action_cartFragment_to_checkoutFragment"
+                app:destination="@id/checkoutFragment" />
     </fragment>
     <fragment
             android:id="@+id/addressesFragment"
@@ -54,13 +46,13 @@
             android:label="fragment_balance"
             tools:layout="@layout/fragment_balance" />
     <fragment
-            android:id="@+id/cart2Fragment"
-            android:name="com.android.belJomla.views.fragments.Cart2Fragment"
-            android:label="Cart2Fragment"
-            tools:layout="@layout/fragment_cart2"
+            android:id="@+id/checkoutFragment"
+            android:name="com.android.belJomla.views.fragments.CheckoutFragment"
+            android:label="CheckoutFragment"
+            tools:layout="@layout/fragment_checkout"
             >
         <action
-                android:id="@+id/action_cart2Fragment_to_thankYouFragment"
+                android:id="@+id/action_checkoutFragment_to_thankYouFragment"
                 app:destination="@id/thankYouFragment"
                 app:popUpTo="@+id/cartFragment"
                 app:popUpToInclusive="true" />

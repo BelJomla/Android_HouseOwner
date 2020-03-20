@@ -17,21 +17,24 @@ import com.android.belJomla.viewmodels.MainViewModel
 class CartAdapter(var context:Context ,  var viewModel: MainViewModel) :ListAdapter<CartItem,CartAdapter.CartViewHolder>(
     DiffCallBacks()){
 
-
-
-    companion object {val DIFF_CALLBACK =   object : DiffUtil.ItemCallback<CartItem>(){
+    class DiffCallBacks : DiffUtil.ItemCallback<CartItem>()
+    {
         override fun areItemsTheSame(oldItem: CartItem, newItem: CartItem): Boolean {
             l.logErrorMessage(this,"items the same ${oldItem.product.id == newItem.product.id}")
             return oldItem.product.id == newItem.product.id
         }
 
         override fun areContentsTheSame(oldItem: CartItem, newItem: CartItem): Boolean {
+            l.logErrorMessage(this,"old quantity ${oldItem.quantity} New quantity${newItem.quantity} ")
+
             l.logErrorMessage(this,"contents the same ${oldItem.quantity == newItem.quantity} and ${oldItem.product.id == newItem.product.id}")
 
             return (oldItem.quantity == newItem.quantity) && oldItem.product.id == newItem.product.id
         }
 
-    }}
+    }
+
+
 
 
 
@@ -56,8 +59,7 @@ class CartAdapter(var context:Context ,  var viewModel: MainViewModel) :ListAdap
 
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
-        l.logErrorMessage(this,"rebinding item pos =$position adapterPos=${holder.adapterPosition}")
-        val cartItem = viewModel.cart.value?.items?.elementAt(holder.adapterPosition)!!
+        val cartItem = getItem(holder.adapterPosition)//viewModel.cart.value?.items?.elementAt(holder.adapterPosition)!!
         holder.binding.cartItem = cartItem
         holder.binding.ivAdd.setOnClickListener {
             viewModel.addToCart(cartItem.product)
@@ -84,18 +86,6 @@ class CartAdapter(var context:Context ,  var viewModel: MainViewModel) :ListAdap
      inner class  CartViewHolder(var binding: CartProductListItemBinding) : RecyclerView.ViewHolder(binding.root)
 
 }
-class DiffCallBacks : DiffUtil.ItemCallback<CartItem>() {
-    override fun areItemsTheSame(oldItem: CartItem, newItem: CartItem): Boolean {
-        l.logErrorMessage(this,"items the same ${oldItem.product.id == newItem.product.id}")
-        return oldItem.product.id == newItem.product.id
-    }
 
-    override fun areContentsTheSame(oldItem: CartItem, newItem: CartItem): Boolean {
-        l.logErrorMessage(this,"old quantity ${oldItem.quantity} New quantity${newItem.quantity} ")
 
-        l.logErrorMessage(this,"contents the same ${oldItem.quantity == newItem.quantity} and ${oldItem.product.id == newItem.product.id}")
 
-        return (oldItem.quantity == newItem.quantity) && oldItem.product.id == newItem.product.id
-    }
-
-}

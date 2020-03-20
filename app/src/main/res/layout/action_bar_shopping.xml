@@ -43,7 +43,8 @@
                 android:ellipsize="end"
                 android:fontFamily="@font/seguisb"
                 android:maxLines="1"
-                android:text="@{user.locations.get(0).country+`, `+ user.locations.get(0).city + `-`+ user.locations.get(0).name}"
+
+                app:bind-location="@{user.locations}"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -51,7 +52,7 @@
                 app:layout_constraintStart_toEndOf="@+id/iv_location"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@string/dhahran_king_fahd_university" />
-
+       <!-- android:text="@{user.locations.get(0).country+`, `+ user.locations.get(0).city + `-`+ user.locations.get(0).name}"-->
         <TextView
                 android:id="@+id/tv_change_loc"
                 android:layout_width="wrap_content"

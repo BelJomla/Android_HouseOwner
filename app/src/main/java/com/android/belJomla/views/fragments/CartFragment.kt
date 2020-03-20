@@ -11,7 +11,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 
 
@@ -19,7 +18,6 @@ import com.android.belJomla.R
 import com.android.belJomla.adapters.CartAdapter
 import com.android.belJomla.databinding.FragmentCartBinding
 import com.android.belJomla.decorators.MarginItemDecoration
-import com.android.belJomla.models.CartItem
 import com.android.belJomla.viewmodels.MainViewModel
 
 
@@ -35,19 +33,20 @@ class CartFragment : Fragment() {
 
         binding.rvCart.adapter = CartAdapter(requireContext(),viewModel)
 
-        (binding.rvCart.adapter as CartAdapter).submitList(viewModel.cart.value?.items?.toMutableList())
+       // (binding.rvCart.adapter as CartAdapter).submitList(viewModel.cart.value?.items?.toMutableList())
         binding.rvCart.layoutManager = LinearLayoutManager(requireContext())
         binding.rvCart.addItemDecoration(MarginItemDecoration(requireContext().resources.getDimension(R.dimen.eight_dp).toInt(),0))
         viewModel.cart.observe(viewLifecycleOwner, Observer { cart ->
-                binding.cart = cart
+           /*     binding.cart = cart
             if (viewModel.modifiedCartItemPos != -1) {
                 (binding.rvCart.adapter as CartAdapter).notifyItemChanged(viewModel.modifiedCartItemPos)
             }
             else {
                 (binding.rvCart.adapter as CartAdapter).submitList(cart.items.toMutableList())
-            }
-
-
+            }*/
+            binding.cart = cart
+            val clonedCart = cart.clone()
+            (binding.rvCart.adapter as CartAdapter).submitList(clonedCart.items)
 
             Toast.makeText(requireContext(),"Changed",Toast.LENGTH_SHORT).show()
             //(binding.rvCart.adapter as CartAdapter).submitList(null)
@@ -61,7 +60,7 @@ class CartFragment : Fragment() {
 
         }
         binding.btnNext.setOnClickListener {
-            findNavController().navigate(R.id.action_cartFragment_to_cart2Fragment)
+            findNavController().navigate(R.id.action_cartFragment_to_checkoutFragment)
         }
 
 

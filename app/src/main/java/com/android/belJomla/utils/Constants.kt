@@ -2,9 +2,10 @@ package com.android.belJomla.utils
 
 object Constants {
 
-    const val PRODUCTS_DB_PATH: String = "products"
+    const val VERIFICATION_SMS_RESEND_SECONDS :Long = 60
+    const val PRODUCTS_DB_PATH: String = "localized_products"
     const val CATEGORIES_DB_PATH: String = "categories"
-    const val ORDERS_DB_PATH : String = "orders"
+    const val ORDERS_DB_PATH : String = "localized_orders"
 
     const val LOCALE_ARABIC = "ar"
     const val LOCALE_ENGLISH = "en"

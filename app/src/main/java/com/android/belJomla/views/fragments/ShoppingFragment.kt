@@ -41,26 +41,24 @@ class ShoppingFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding : FragmentShoppingBinding = DataBindingUtil.inflate(layoutInflater,R.layout.fragment_shopping, container, false)
 
-        //val mActionBar = findViewById<AppBarLayout>(R.id.appbar)
-        val navController = findNavController(activity as Activity,R.id.nav_host_fragment)
-        //NavigationUI.setupActionBarWithNavController(activity as AppCompatActivity,navController)
-
-
         setupRecyclerViews(binding)
-
         setupObservers(binding)
-
+        setOnClickListeners(binding)
 
         binding.user = viewModel.houseOwnerUser.value
+
+
+
+        return binding.root
+    }
+
+    private fun setOnClickListeners(binding: FragmentShoppingBinding) {
         binding.appbar.iv_search.setOnClickListener {
-            binding.nestedScrollView.smoothScrollTo(0,0)
+            binding.nestedScrollView.smoothScrollTo(0, 0)
         }
         binding.appbar.iv_cart.setOnClickListener {
             it.findNavController().navigate(R.id.action_fragment_shopping_to_cartFragment2)
         }
-
-
-        return binding.root
     }
 
 
@@ -77,13 +75,15 @@ class ShoppingFragment : Fragment() {
             if (isLoading){
                 binding.pbLoading.visibility = View.VISIBLE
                 //requireView().setAllEnabled(false)
-                binding.rvMainCateg.isEnabled = true
-                binding.rvSubCateg.isEnabled = true
+                binding.rvMainCateg.isEnabled = false
+                binding.rvSubCateg.isEnabled = false
 
             }
             else {
                 binding.pbLoading.visibility = View.GONE
-                requireView().setAllEnabled(true)
+                //requireView().setAllEnabled(true)
+                binding.rvMainCateg.isEnabled = true
+                binding.rvSubCateg.isEnabled = true
             }
 
 
@@ -101,18 +101,26 @@ class ShoppingFragment : Fragment() {
 
            }
 
-
+            /**
+             * TODO Change Category Adapter to ListAdapter With DiffUtils to handle Category Changes
+             */
             binding.rvMainCateg.adapter!!.notifyDataSetChanged()
             binding.rvSubCateg.adapter!!.notifyDataSetChanged()
+            binding.nestedScrollView.smoothScrollTo(0,0)
         })
 
         viewModel.category.observe(viewLifecycleOwner, Observer {
             l.logMessage(this,"Category switched to ${it.name}")
             binding.rvMainCateg.adapter!!.notifyDataSetChanged()
             binding.rvSubCateg.adapter!!.notifyDataSetChanged()
-            //viewModel.startLoading()
-           // Handler().postDelayed({viewModel.getSomeData()},100)
-            //viewModel.getProducts()
+
+            if (it.hasSubCategories()){
+                binding.tvLblSubCateg.visibility = View.VISIBLE
+            }
+            else {
+                binding.tvLblSubCateg.visibility = View.GONE
+            }
+
             /**
              * We dont call getProducts here becuase the sub-category will change and the
              * observer of the sub-category will call getProducts
@@ -120,15 +128,25 @@ class ShoppingFragment : Fragment() {
         })
         viewModel.subCategory.observe(viewLifecycleOwner, Observer {
             l.logMessage(this,"Sub-Category switched to ${it.name}")
-            binding.rvSubCateg.adapter!!.notifyDataSetChanged()
+            val position = viewModel.category.value?.subCategories?.indexOf(it)?:-1
+            if (position!=-1) {
+                binding.rvSubCateg.adapter!!.notifyItemChanged(position)
+            }
+            else {
+                binding.rvSubCateg.adapter!!.notifyDataSetChanged()
+            }
            // viewModel.startLoading()
            // Handler().postDelayed({viewModel.getSomeData()},100)
             viewModel.getProducts()
 
 
         })
+
+
         viewModel.productList.observe(viewLifecycleOwner, Observer {
-            binding.rvShopping.adapter!!.notifyDataSetChanged()
+
+            //binding.rvShopping.adapter!!.notifyDataSetChanged()
+            (binding.rvShopping.adapter as ProductsAdapter).submitList(it?.toMutableList()?: ArrayList())
         })
         viewModel.cart.observe(viewLifecycleOwner, Observer {
             l.logMessage(this,"Cart Changed")
@@ -157,6 +175,7 @@ class ShoppingFragment : Fragment() {
         binding.rvShopping.adapter = ProductsAdapter(requireContext(),viewModel)
         binding.rvShopping.layoutManager = GridLayoutManager(context, 2)
         binding.rvShopping.addItemDecoration(productDecorater)
+        binding.rvShopping.itemAnimator = null
 
 
         binding.rvMainCateg.adapter =

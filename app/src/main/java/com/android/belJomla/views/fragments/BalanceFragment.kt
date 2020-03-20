@@ -25,10 +25,11 @@ class BalanceFragment : Fragment() {
         // Inflate the layout for this fragment
 
         val view = inflater.inflate(R.layout.fragment_balance, container, false)
-        val navController = findNavController()
+
+
         val btnBack = view.findViewById<ImageView>(R.id.iv_back)
         btnBack.setOnClickListener {
-            navController.navigateUp()
+            findNavController().navigateUp()
         }
 
         return view    }

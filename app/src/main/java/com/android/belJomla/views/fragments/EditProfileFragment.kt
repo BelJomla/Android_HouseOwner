@@ -26,36 +26,52 @@ class EditProfileFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding : FragmentEditProfileBinding  = DataBindingUtil.inflate(inflater,R.layout.fragment_edit_profile,container,false)
 
-        viewModel.houseOwnerUser.observe(this, Observer { user ->
-            binding.houseOwnerUser = user
+        initObservers(binding)
+        setOnClickListeners(binding)
 
-        })
-        viewModel.isLoading.observe(this, Observer { isLoading ->
-            if (isLoading){
-                startLoadingView(binding)
-            }
-            else {
-                stopLoadingView(binding)
+        return binding.root
+    }
 
-            }
-        })
-
-
-
-        binding.btnProfleSave.setOnClickListener{
+    private fun setOnClickListeners(binding: FragmentEditProfileBinding) {
+        binding.btnProfleSave.setOnClickListener {
             val fname = binding.etProfileFname.text.toString()
             val lname = binding.etProfileLname.text.toString()
             val email = binding.etProfileEmail.text.toString()
             when {
-                fname.isEmpty() -> Toast.makeText(context,getString(R.string.name_should_not_be_empty),Toast.LENGTH_SHORT).show()
-                lname.isEmpty() -> Toast.makeText(context,getString(R.string.name_should_not_be_empty),Toast.LENGTH_SHORT).show()
-                email.isNotEmpty() && email.isNotEmail() -> Toast.makeText(context,getString(R.string.enter_valid_email),Toast.LENGTH_SHORT).show()
-                else -> viewModel.updateProfile(fname,lname,email)
+                fname.isEmpty() -> Toast.makeText(
+                    context,
+                    getString(R.string.name_should_not_be_empty),
+                    Toast.LENGTH_SHORT
+                ).show()
+                lname.isEmpty() -> Toast.makeText(
+                    context,
+                    getString(R.string.name_should_not_be_empty),
+                    Toast.LENGTH_SHORT
+                ).show()
+                email.isNotEmpty() && email.isNotEmail() -> Toast.makeText(
+                    context,
+                    getString(R.string.enter_valid_email),
+                    Toast.LENGTH_SHORT
+                ).show()
+                else -> viewModel.updateProfile(fname, lname, email)
             }
 
         }
+    }
 
-        return binding.root
+    private fun initObservers(binding: FragmentEditProfileBinding) {
+        viewModel.houseOwnerUser.observe(viewLifecycleOwner, Observer { user ->
+            binding.houseOwnerUser = user
+
+        })
+        viewModel.isLoading.observe(viewLifecycleOwner, Observer { isLoading ->
+            if (isLoading) {
+                startLoadingView(binding)
+            } else {
+                stopLoadingView(binding)
+
+            }
+        })
     }
 
     private fun stopLoadingView(binding: FragmentEditProfileBinding) {
@@ -78,11 +94,11 @@ class EditProfileFragment : Fragment() {
         fun getInstance() = EditProfileFragment()
     }
 
+    private fun String.isNotEmail(): Boolean {
+        val pattern = "^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))"
+        return !matches(Regex(pattern))
 
+    }
 }
 
-private fun String.isNotEmail(): Boolean {
-    val pattern = "^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))"
-    return !matches(Regex(pattern))
 
-}

@@ -18,23 +18,28 @@ class SettingsFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.settings, rootKey)
 
-        viewModel.houseOwnerUser.observe(this, Observer {
-
-        })
 
         val btnSignOut = findPreference<Preference>(getString(R.string.settings_signout))
 
+
+
+        setOnClickListeners(btnSignOut)
+
+
+
+    }
+
+    private fun setOnClickListeners(btnSignOut: Preference?) {
         btnSignOut!!.setOnPreferenceClickListener {
             FirebaseAuth.getInstance().signOut()
-            val signOutIntent = Intent(context,
-                LoginActivity::class.java)
+            val signOutIntent = Intent(
+                context,
+                LoginActivity::class.java
+            )
             signOutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(signOutIntent)
             requireActivity().finish()
             true
         }
-
-
-
     }
 }

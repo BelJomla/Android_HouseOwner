@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+        <string name="app_name">Bel Jomla</string>
+
+
+        <string name="carts">العربات</string>
+        <string name="chat">المحادثات</string>
+        <string name="profile">الملف الشخصي</string>
+        <string name="shopping">تسوق</string>
+        <string name="locations">العناوين</string>
+        <string name="history">التاريخ</string>
+        <string name="settings">الإعدادات</string>
+        <string name="feedback">تغذية راجعة</string>
+        <string name="name_placeholder">عبدالله برناوي</string>
+        <string name="title_activity_main2">MainActivity2</string>
+        <string name="title_home">الصفحة الرئيسة</string>
+        <string name="title_dashboard">Dashboard</string>
+        <string name="title_notifications">التنبيهات</string>
+        <string name="verification_code">رمز التحقق</string>
+
+        <!-- TODO: Remove or change this placeholder text -->
+        <string name="hello_blank_fragment">Hello blank fragment</string>
+        <string name="enter_your_mobile">ادخل رقم جوالك</string>
+        <string name="_966">+966</string>
+        <string name="_5xxxxxxxx">5xxxxxxxx</string>
+        <string name="next">التالي</string>
+        <string name="saudi_arabia_966">السعودية (+966)</string>
+        <string name="please_type_the_verification_code_sent_to_x">الرجاء إدخال رمز التحقق المرسل إلى %s</string>
+        <string name="_4325">4325</string>
+        <string name="did_not_receive_sms_in_42s">لم تصلك الرسالة خلال %s ثانية؟</string>
+        <string name="resend_sms">إعادة إرسال الرمز</string>
+        <string name="wrong_verif_code">رمز التحقق خاطئ</string>
+        <string name="invalid_code">رمز خاطئ</string>
+        <string name="thank_you_info">لقد تم حفظ طلبك بسعر %.2f وسيصلك ان شاء الله خلال 48 ساعة</string>
+        <string name="thank_you_app_name">شكرا لاستعمالكم %s</string>
+        <string name="x_pcs">%d قطعة</string>
+        <string name="sr_x">%.2f ر.س</string>
+        <string name="no_decimal_sr_x">%.0f ر.س</string>
+        <string name="sar_x">%.2f ر.س</string>
+        <string name="order_num_x">الطلب: %s</string>
+        <string name="too_many_requests">لقد ارسلت الكثير من الطلبات… حاول مجددا بعد 24 ساعة</string>
+        <string name="sign_up">التسجيل</string>
+        <string name="welcome">مرجبا</string>
+        <string name="first_name">الاسم الأول</string>
+        <string name="your_first_name_here">اسمك الأول هنا</string>
+        <string name="last_name">الاسم الأخير</string>
+        <string name="your_last_name">اسمك الأخير هنا</string>
+        <string name="your_number_here">رقمك هنا</string>
+        <string name="sign_out">تسجيل الخروج</string>
+        <string name="edit_profile">تعديل الملف الشخصي</string>
+        <string name="language">اللغة</string>
+        <string name="notification">التنبيهات</string>
+        <string name="about">معلومات</string>
+        <string name="terms_conds">الشروط والأحكام</string>
+        <string name="about_us">عن التطبيق</string>
+        <string name="get_free_credits">أحصل على نقاط مجانية!</string>
+        <string name="title_activity_settings">الإعدادات</string>
+
+
+        <string name="email">البريد الإلكتروني</string>
+        <string name="demo_mail">Demo@mail.com</string>
+        <string name="save">حفظ</string>
+        <string name="name_should_not_be_empty">الإسم لايمكن أن يكون خاليا</string>
+        <string name="enter_valid_email">الرجاء ادخال بريد صحيح</string>
+        <string name="search_products">ابحث عن منتج</string>
+        <string name="dhahran_king_fahd_university">Dhahran, King Fahd University ....</string>
+        <string name="change_braces">(تغيير)</string>
+        <string name="category">الفئة</string>
+        <string name="frozen">Frozen</string>
+        <string name="milk_and_cheese"><![CDATA[Milk & Cheese]]></string>
+        <string name="sub_category">الصنف</string>
+        <string name="add_to_cart">أضف للعربة</string>
+        <string name="remove">إزالة</string>
+        <string name="_10">10</string>
+        <string name="balance">الرصيد</string>
+        <string name="points">النقاط</string>
+        <string name="my_addresses">عناويني</string>
+        <string name="manage_your_locations">إدارة العناوين</string>
+        <string name="orders_history">تاريخ الطلبات</string>
+        <string name="view_all_orders">عرض جميع الطلبات</string>
+        <string name="points_soon">ميزة النقاط سوف تضاف قريبا ان شاء الله</string>
+        <string name="my_locations">عناويني</string>
+        <string name="choose_delivery_address">اختر عنوان توصيل</string>
+        <string name="shopping_cart">عربة التسوق</string>
+        <string name="total_colon">الإجمالي</string>
+        <string name="including_vat">( شامل الضريبة )</string>
+        <string name="setting_up_you_account">يتم إعداد حسابك</string>
+        <string name="setting_up_the_servers">يتم الإتصال بالخوادم</string>
+        <string name="you_can_resend_now">تستطيع إعادة الإرسال الآن</string>
+        <string name="checkout">ادفع</string>
+        <string name="cash_on_delivery">كاش عند التوصيل</string>
+        <string name="wallet">المحفظة</string>
+        <string name="credit_card">بطاقة ائتمان</string>
+        <string name="delivery_address">عنوان التوصيل</string>
+        <string name="payment">طريقة الدفع</string>
+        <string name="change">تغيير</string>
+        <string name="cancel_order">إلغاء الطلب</string>
+        <string name="edit">تعديل</string>
+        <string name="total">الإجمالي</string>
+        <string name="orders">الطلبات</string>
+        <string name="delete_order">حذف الطلب</string>
+        <string name="are_you_sure_delete">هل انت متاكد انك تريد حذف الطلب؟</string>
+        <string name="yes">نعم</string>
+        <string name="cancel">إلغاء</string>
+        <string name="no_location_added">لا يوجد عنوان مضاف</string>
+        <string name="please_enter_req_fields">الرجاء إدخال جميع الحقول</string>
+        <string name="verfication_failed">فشل التحقق</string>
+        <string name="complete_tasks_earn_points">اكمل مام بسيطة لكسب النقاط!</string>
+        <string name="notification_turned_of">تم ايقاف التنبيهات</string>
+        <string name="notification_turned_on">تم تفعيل التنبيهات</string>
+        <string name="arabic_might_not_work_well">قد لا تعمل اللغة العربية بشكل مثالي</string>
+        <string name="account_colon">الحساب:</string>
+        <string name="general_settings">إعدادات عامة</string>
+        <string name="help">المساعدة</string>
+        <string name="report_technical_issues_or_suggest_new_features">بلغ عن مشاكل تقنية او اقترح إضافات جديدة</string>
+        <string name="send_feedback">ارسل تغذية راجعة</string>
+        <string name="reach_out_to_us_if_you_have_any_issue">تواصل معنا اذا كانت لديك أي مشكلة</string>
+        <string name="contact_us">تواصل معنا</string>
+
+
+
+</resources>
+

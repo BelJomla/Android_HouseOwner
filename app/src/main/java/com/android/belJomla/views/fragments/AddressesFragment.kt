@@ -38,9 +38,11 @@ class AddressesFragment : Fragment() {
             navController.navigateUp()
         }
 
-        binding.rvAddresses.adapter = AddressAdapter(requireContext())
-        binding.rvAddresses.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvAddresses.addItemDecoration(MarginItemDecoration(resources.getDimension(R.dimen.sixteen_dp).toInt()))
+        binding.rvAddresses.apply {
+            adapter = AddressAdapter(requireContext())
+            layoutManager = LinearLayoutManager(requireContext())
+            addItemDecoration(MarginItemDecoration(resources.getDimension(R.dimen.sixteen_dp).toInt()))
+        }
 
         return binding.root
     }

@@ -5,13 +5,15 @@ import androidx.lifecycle.*
 import com.android.belJomla.callbacks.VerificationCallbacks
 import com.android.belJomla.repositories.UserRepository
 import com.android.belJomla.models.HouseOwnerUser
+import com.android.belJomla.utils.LoggerUtils as l
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
+import java.lang.Exception
 
- class AuthenticationViewModel :ViewModel(),
+class AuthenticationViewModel :ViewModel(),
      VerificationCallbacks {
 
 
@@ -44,6 +46,14 @@ import com.google.firebase.auth.PhoneAuthProvider
     val eventVerificationFailed : LiveData<Boolean>
         get() = _eventVerificationFailed
 
+     private val _eventVerificationFailedTooManyRequests =  MutableLiveData<Boolean>()
+     val eventVerificationFailedTooManyRequests : LiveData<Boolean>
+         get() = _eventVerificationFailedTooManyRequests
+
+     private val _eventVerificationInvalidCredentials =  MutableLiveData<Boolean>()
+     val eventVerificationInvalidCredentials : LiveData<Boolean>
+         get() = _eventVerificationInvalidCredentials
+
     private val _eventVerificationSuccess =  MutableLiveData<Boolean>()
     val eventVerificationSuccess : LiveData<Boolean>
         get() = _eventVerificationSuccess
@@ -70,6 +80,8 @@ import com.google.firebase.auth.PhoneAuthProvider
         _eventCodeResent.value = false
         codeSentOnce = false
         _eventVerificationFailed.value = false
+        _eventVerificationInvalidCredentials.value = false
+        _eventVerificationFailedTooManyRequests.value = false
         _eventVerificationSuccess.value = false
         _eventFirestoreUserCreated.value = false
         _callbacks.value = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -91,20 +103,23 @@ import com.google.firebase.auth.PhoneAuthProvider
             override fun onVerificationFailed(e: FirebaseException) {
                 // This callback is invoked in an invalid request for verification is made,
                 // for instance if the the phone number format is not valid.
-                Log.w(TAG, "onVerificationFailed", e)
-                _eventVerificationFailed.value = true
+                Log.e(TAG, "onVerificationFailed", e)
+
 
                 when (e) {
                     is FirebaseAuthInvalidCredentialsException -> {
                         // Invalid request
                         // ...
+                        _eventVerificationInvalidCredentials.value = true
                     }
                     is FirebaseTooManyRequestsException -> {
                         // The SMS quota for the project has been exceeded
                         // ...
+
+                        _eventVerificationFailedTooManyRequests.value = true
                     }
                     else -> {
-
+                        _eventVerificationFailed.value = true
                     }
                 }
                 stopLoading()
@@ -138,9 +153,12 @@ import com.google.firebase.auth.PhoneAuthProvider
         }
     }
     fun startLoading(){
+        l.logMessage(this,"startLoading")
+
         _isLoading.value = true
     }
     fun stopLoading(){
+        l.logMessage(this,"stopLoading")
         _isLoading.value = false
     }
     fun onCodeSentComplete(){
@@ -149,12 +167,15 @@ import com.google.firebase.auth.PhoneAuthProvider
     fun onCodeResentComplete(){
         _eventCodeResent.value = false
     }
-    /*
-    Verification complete means either success or failure
+
+    /**
+     * Verification complete means either success or failure
      */
     fun onVerificationComplete(){
         _eventVerificationSuccess.value = false
         _eventVerificationFailed.value = false
+        _eventVerificationInvalidCredentials.value = false
+        _eventVerificationFailedTooManyRequests.value = false
     }
 
 
@@ -175,7 +196,6 @@ import com.google.firebase.auth.PhoneAuthProvider
     }
     fun createUserInFirestore(firstName:String ,lastName:String) {
         startLoading()
-        _eventFirestoreUserCreated.value = true
         return repository.createUserInFirestore(firstName,lastName,houseOwnerUser.value!!.mobileNumber)
     }
 
@@ -186,10 +206,23 @@ import com.google.firebase.auth.PhoneAuthProvider
 
     override fun onUserInFireStoreCreatedCallback() {
 
-        _eventFirestoreUserCreated.value = false
-        stopLoading()
+        _eventFirestoreUserCreated.value = true
+
 
     }
+
+    override fun onVerificationFailed(exception: FirebaseException?) {
+        if (exception!= null) {
+            callbacks.value?.onVerificationFailed(exception)
+        }
+        else {
+            _eventVerificationFailed.value = true
+        }
+    }
+     fun onEventUserInFireStoreCreatedHandled(){
+         _eventFirestoreUserCreated.value = false
+         stopLoading()
+     }
 
 }
 

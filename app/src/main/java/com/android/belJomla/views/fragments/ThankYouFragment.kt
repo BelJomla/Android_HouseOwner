@@ -1,6 +1,7 @@
 package com.android.belJomla.views.fragments
 
 
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.Fragment
@@ -23,9 +24,16 @@ import com.android.belJomla.viewmodels.MainViewModel
  */
 class ThankYouFragment : Fragment() {
 
+
+
+   var selfCreationCallback : LifeCycleListener? = null
+
+
     val viewModel by activityViewModels<MainViewModel>()
     private val changeScreenHandler = Handler()
     lateinit var chanheScreenRunnable :Runnable
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,9 +58,32 @@ class ThankYouFragment : Fragment() {
         return binding.root
     }
 
-    override fun onDestroy() {
+
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is LifeCycleListener) {
+            selfCreationCallback = context
+
+        } else {
+            throw RuntimeException("$context must implement FragmentThankyouViewAttachmentListener")
+        }
+    }
+
+    override fun onResume() {
+        selfCreationCallback!!.onThankyouFragmentResumed()
+        super.onResume()
+    }
+
+    override fun onPause() {
+        selfCreationCallback!!.onThankyouFragmentPaused()
         changeScreenHandler.removeCallbacks(chanheScreenRunnable)
-        super.onDestroy()
+        super.onPause()
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        selfCreationCallback = null
     }
 
 
@@ -67,5 +98,11 @@ class ThankYouFragment : Fragment() {
         @JvmStatic
         fun newInstance() =
             ThankYouFragment()
+    }
+
+
+    interface LifeCycleListener{
+        fun onThankyouFragmentResumed()
+        fun onThankyouFragmentPaused()
     }
 }

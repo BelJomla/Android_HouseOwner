@@ -6,5 +6,5 @@ interface ProductsCallbacks {
 
     fun onProductsFetched(products:ArrayList<Product?>)
 
-    fun onProductsFechtingFailed()
+    fun onProductsFetchingFailed()
 }

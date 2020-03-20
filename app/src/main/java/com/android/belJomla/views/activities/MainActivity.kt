@@ -1,7 +1,7 @@
 package com.android.belJomla.views.activities
 
-import android.graphics.PorterDuff
 import android.os.Bundle
+import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -9,11 +9,11 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.NavigationUI.onNavDestinationSelected
 import com.android.belJomla.R
+import com.android.belJomla.views.fragments.ThankYouFragment
 import com.google.android.material.appbar.AppBarLayout
-import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ThankYouFragment.LifeCycleListener {
 
     companion object {
         val TAG = MainActivity.javaClass.simpleName
@@ -32,12 +32,10 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
         navController = findNavController(R.id.nav_host_fragment)
          navView = findViewById(R.id.nav_view)
-         /*mActionBar = findViewById<AppBarLayout>(R.id.appbar)*/
 
         NavigationUI.setupWithNavController(navView,navController)
 
 
-        //navView.setupWithNavController(navController)
 
         navView.setOnNavigationItemSelectedListener {item ->
 
@@ -47,5 +45,13 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         navController.navigateUp()
         return super.onSupportNavigateUp()
+    }
+
+    override fun onThankyouFragmentResumed() {
+        navView.visibility = View.GONE
+    }
+
+    override fun onThankyouFragmentPaused() {
+        navView.visibility = View.VISIBLE
     }
 }

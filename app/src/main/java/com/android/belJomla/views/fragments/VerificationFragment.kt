@@ -18,8 +18,10 @@ import com.android.belJomla.utils.Constants.CODE_MAX_LENGTH as CODE_MAX_LENGTH
 import android.app.Activity
 import android.content.Context
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.android.belJomla.databinding.FragmentVerificationBinding
+import com.android.belJomla.utils.Constants as c
 import com.android.belJomla.utils.FirebaseUtils
 import com.android.belJomla.viewmodels.AuthenticationViewModel
 
@@ -33,7 +35,7 @@ class VerificationFragment : Fragment() {
 
     //TODO Move Timer counter to view model
     lateinit var timer : CountDownTimer
-    var counter = 15
+    var counter = c.VERIFICATION_SMS_RESEND_SECONDS
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -62,6 +64,33 @@ class VerificationFragment : Fragment() {
                 binding.etVerification.isEnabled = true
 
 
+            }
+        })
+
+
+
+        viewModel.eventVerificationFailedTooManyRequests.observe(viewLifecycleOwner, Observer { hasFailed ->
+            if (hasFailed) {
+                Toast.makeText(requireContext(), requireContext().getString(R.string.too_many_requests), Toast.LENGTH_LONG).show()
+                viewModel.onVerificationComplete()
+            }
+        })
+        viewModel.eventVerificationInvalidCredentials.observe(viewLifecycleOwner, Observer { hasFailed ->
+            if (hasFailed) {
+                Toast.makeText(requireContext(), requireContext().getString(R.string.wrong_verif_code), Toast.LENGTH_SHORT).show()
+                viewModel.onVerificationComplete()
+            }
+        })
+        viewModel.eventVerificationFailed.observe(viewLifecycleOwner, Observer { hasFailed ->
+            if (hasFailed) {
+                Toast.makeText(requireContext(), requireContext().getString(R.string.verfication_failed), Toast.LENGTH_SHORT).show()
+                viewModel.onVerificationComplete()
+            }
+        })
+        viewModel.eventVerificationSuccess.observe(viewLifecycleOwner, Observer { hasSucceeded ->
+            if (hasSucceeded) {
+                Toast.makeText(requireContext(), "Verification Success", Toast.LENGTH_SHORT).show()
+                viewModel.onVerificationComplete()
             }
         })
 
@@ -100,11 +129,11 @@ class VerificationFragment : Fragment() {
     }
 
     private fun startResendCounter(binding : FragmentVerificationBinding) {
-        counter =15
+        counter = c.VERIFICATION_SMS_RESEND_SECONDS
         binding.tvResendSms.visibility = View.GONE
 
         timer = object : LifeCycleCountdownTimer(lifecycle,15000, 1000)  {
-            override fun onTick(millisUntilFinished: Long) {
+            override fun onTick(p0: Long) {
                 binding.tvCounter.text = getString(R.string.did_not_receive_sms_in_42s, counter)
                 counter--
 

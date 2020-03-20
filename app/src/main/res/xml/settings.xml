@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
             app:key="@string/account_category"
-            app:title="Account:"
+            app:title="@string/account_colon"
             app:icon="@drawable/account_settings"
             >
 
@@ -18,7 +18,7 @@
 
     <PreferenceCategory
             app:key="@string/general_category"
-            app:title="General"
+            app:title="@string/general_settings"
             app:icon="@drawable/ic_dashboard_black_24dp"
             >
 
@@ -28,13 +28,13 @@
                 android:defaultValue="0"
                 android:entries="@array/language_entries"
                 android:entryValues="@array/language_values"
-                app:summary="Only english is supported currently"
+                app:summary="@string/arabic_might_not_work_well"
                 />
         <SwitchPreference
                 app:key="@string/settings_notification"
                 app:title="@string/notification"
-                android:summaryOn="Notifications is turned on"
-                android:summaryOff="Notification is turned if"
+                android:summaryOn="@string/notification_turned_of"
+                android:summaryOff="@string/notification_turned_on"
                 />
         <Preference
                 app:key="@string/settings_signout"
@@ -56,25 +56,25 @@
         <Preference
                 app:key="@string/settings_getcredit"
                 app:title="@string/get_free_credits"
-                app:summary="Complete simple tasks to earn free points!"
+                app:summary="@string/complete_tasks_earn_points"
                 />
 
     </PreferenceCategory>
 
     <PreferenceCategory
             app:key="help_category"
-            app:title="Help"
+            app:title="@string/help"
             app:icon="@drawable/ic_help_black_24dp"
             >
 
         <Preference
                 app:key="@string/settings_feedback"
-                app:summary="Report technical issues or suggest new features"
-                app:title="Send feedback"/>
+                app:summary="@string/report_technical_issues_or_suggest_new_features"
+                app:title="@string/send_feedback"/>
         <Preference
                 app:key="@string/settings_contact_us"
-                app:summary="Reach out to us if you have any issue"
-                app:title="Contact Us"/>
+                app:summary="@string/reach_out_to_us_if_you_have_any_issue"
+                app:title="@string/contact_us"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.android.belJomla.callbacks.VerificationCallbacks
 import com.android.belJomla.models.HouseOwnerUser
 import com.android.belJomla.repositories.UserRepository
+import com.google.firebase.FirebaseException
 
 class SettingsViewModel : ViewModel() , VerificationCallbacks {
     private val TAG = javaClass.simpleName
@@ -77,6 +78,9 @@ class SettingsViewModel : ViewModel() , VerificationCallbacks {
     }
 
     override fun onUserInFireStoreCreatedCallback() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onVerificationFailed(exception: FirebaseException?) {
+
     }
 }

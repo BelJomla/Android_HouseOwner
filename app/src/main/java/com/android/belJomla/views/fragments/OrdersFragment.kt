@@ -41,6 +41,8 @@ class OrdersFragment : Fragment() {
         binding.btnBack.setOnClickListener {
             findNavController().navigateUp()
         }
+        binding.rvOrders.adapter = OrderAdapter(requireContext(),viewModel)
+
 
         binding.rvOrders.apply {
             adapter = OrderAdapter(requireContext(),viewModel)
@@ -64,14 +66,8 @@ class OrdersFragment : Fragment() {
 
         })
         viewModel.orders.observe(viewLifecycleOwner, Observer {
-            binding.rvOrders.adapter = OrderAdapter(requireContext(),viewModel)
-            if(viewModel.deletdOrderItemPos == -1) {
-                (binding.rvOrders.adapter as OrderAdapter).notifyDataSetChanged()
-            }
-            else {
-                (binding.rvOrders.adapter as OrderAdapter).notifyItemRemoved(viewModel.deletdOrderItemPos)
 
-            }
+            (binding.rvOrders.adapter as OrderAdapter).submitList(it.toMutableList())
 
         })
 

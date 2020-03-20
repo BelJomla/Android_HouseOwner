@@ -62,7 +62,7 @@
 
         <TextView
                 android:id="@+id/tv_total_price"
-                android:layout_width="wrap_content"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
@@ -79,10 +79,9 @@
 
         <TextView
                 android:id="@+id/tv_lbl_total_price"
-                android:layout_width="wrap_content"
+                android:layout_width="56dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="24dp"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/seguisb"
                 android:text="@string/total"
@@ -146,7 +145,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/segoeui"
-            android:textColor="@color/grey"
+            android:textColor="@color/dark_grey"
             android:textSize="12sp"
             android:text="@{order.date.toLocaleString()}"
             tools:text="15/02/2020"
@@ -176,6 +175,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/segoeui"
+            android:padding="4dp"
             android:text="@string/cancel_order"
             android:textColor="@color/red"
             android:textSize="10sp"

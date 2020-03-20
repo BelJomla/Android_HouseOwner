@@ -54,7 +54,15 @@ class CategoryAdapter(var context: Context, var viewModel: MainViewModel,var typ
                 if (type == c.TYPE_CATEGORY){
                     val selectedCateg = viewModel.categories.value!![index]!!
                     viewModel.updateCategory(selectedCateg)
-                    viewModel.updateSubCategory(viewModel.category.value!!.subCategories[0])
+                    l.logMessage(this,"selected categ id is ${selectedCateg.id} and has categ = ${selectedCateg.hasSubCategories()}")
+                    if (selectedCateg.hasSubCategories()) {
+                        viewModel.updateSubCategory(viewModel.category.value!!.subCategories[0])
+                    }
+                    else {
+                        val allSubCateg = Category()
+                        allSubCateg.id = "${selectedCateg.id}_1"
+                        viewModel.updateSubCategory(allSubCateg)
+                    }
                 }
                 else {
 
@@ -67,7 +75,7 @@ class CategoryAdapter(var context: Context, var viewModel: MainViewModel,var typ
 
     private fun setBackgroundColor(holder: CategoryViewHolder) {
         if (type == c.TYPE_CATEGORY) {
-            return if (holder.tvCategory.text == viewModel.category.value?.getLocalisedName(context)) {
+            return if (holder.tvCategory.text == viewModel.category.value?.name?.getLocalisedName(context)) {
 
                 holder.cardView.background =
                     ContextCompat.getDrawable(
@@ -85,7 +93,7 @@ class CategoryAdapter(var context: Context, var viewModel: MainViewModel,var typ
             }
         }
         else {
-            return if (holder.tvCategory.text == viewModel.subCategory.value?.getLocalisedName(context)) {
+            return if (holder.tvCategory.text == viewModel.subCategory.value?.name?.getLocalisedName(context)) {
 
                 holder.cardView.background =
                     ContextCompat.getDrawable(
@@ -110,9 +118,9 @@ class CategoryAdapter(var context: Context, var viewModel: MainViewModel,var typ
     ) {
 
         if (type == c.TYPE_CATEGORY)
-            holder.tvCategory.text = viewModel.categories.value!![index]!!.getLocalisedName(context)
+            holder.tvCategory.text = viewModel.categories.value!![index]!!.name.getLocalisedName(context)
         else {
-            holder.tvCategory.text = viewModel.category.value?.subCategories?.get(index)?.getLocalisedName(context)
+            holder.tvCategory.text = viewModel.category.value?.subCategories?.get(index)?.name?.getLocalisedName(context)
         }
     }
 

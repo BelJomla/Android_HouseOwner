@@ -11,7 +11,7 @@ class FirebaseUtils {
         fun verifyPhoneNumber(activity: Activity, phoneNumber : String, mCallbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks){
             PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 phoneNumber,        // Phone number to verify
-                15,                 // Timeout duration
+                Constants.VERIFICATION_SMS_RESEND_SECONDS.minus(10),                 // Timeout duration
                 TimeUnit.SECONDS,   // Unit of timeout
                 activity,               // Activity (for callback binding)
                 mCallbacks)

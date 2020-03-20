@@ -5,7 +5,7 @@
 <shape
         android:shape="rectangle"
         xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/dark_white" />
+    <solid android:color="@color/main_white_backgorund" />
     <corners android:topRightRadius="64dp"
             android:topLeftRadius="64dp"
             android:bottomRightRadius="0dp"

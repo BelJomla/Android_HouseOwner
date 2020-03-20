@@ -1,6 +1,5 @@
 package com.android.belJomla.models
 
-import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
@@ -12,24 +11,24 @@ import com.bumptech.glide.request.RequestOptions
 class Product() {
 
      var id=""
-     var name: String = ""
+     var name = LocalizedName()
      var imgURLs= ArrayList<String>()
      var category= ""
      var subCategory=""
     var sellingPrice: Double = 0.0
-     var quantativeSize: String = ""
-     var qualitiveSize: String = ""
+     var quantativeSize = LocalizedName()
+     var qualitiveSize = LocalizedName()
 
 
     constructor(
         id: String,
-        name: String,
+        name: LocalizedName,
         imgURLs: ArrayList<String>,
         category: String,
         subCategory: String,
         sellingPrice: Double,
-        quantativeSize: String,
-        qualitiveSize: String
+        quantativeSize: LocalizedName,
+        qualitiveSize: LocalizedName
     ) : this() {
 
         this.id = id
@@ -43,6 +42,15 @@ class Product() {
 
 
     }
+    constructor(product:Product) : this(product.id,
+        product.name,
+        product.imgURLs,
+        product.category,
+        product.subCategory,
+        product.sellingPrice,
+        product.quantativeSize,
+        product.qualitiveSize
+        )
 
     override fun equals(other: Any?): Boolean {
         if (other is Product){
@@ -60,6 +68,11 @@ class Product() {
 
 
         return id.hashCode()
+    }
+
+    fun clone():Product{
+        return Product(this)
+
     }
 
 

@@ -4,6 +4,7 @@ package com.android.belJomla.models
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.android.belJomla.R
 import com.bumptech.glide.Glide
@@ -25,7 +26,7 @@ class HouseOwnerUser() {
     var email : String = ""
     var firstName : String = ""
     var lastName :String = ""
-    var balance : Int = 0
+    var balance : Double = 0.0
     var points : Int = 0
     val type : Int = c.HOUSE_OWNER_USER_TYPE
     var locations :ArrayList<Location> = ArrayList()
@@ -57,6 +58,10 @@ class HouseOwnerUser() {
         }
         else return mobile
     }
+
+    fun hasALocation(): Boolean {
+        return locations.size>0
+    }
 }
 
 // important code for loading image here
@@ -72,4 +77,14 @@ fun loadImage(imageView: ImageView, dummy :Int) {
         .into(imageView)
 
 
+}
+// important code for loading image here
+@BindingAdapter("bind-location")
+fun bindLocation(textView: TextView, locations: ArrayList<Location>?) {
+        if (locations?.isEmpty() == true){
+            textView.text = textView.context.getString(R.string.no_location_added)
+        }
+        else {
+            textView.text = "${locations?.get(0)?.country},${locations?.get(0)?.city}-${locations?.get(0)?.name}"
+        }
 }

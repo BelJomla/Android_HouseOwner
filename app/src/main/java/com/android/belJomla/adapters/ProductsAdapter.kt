@@ -6,34 +6,66 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android.belJomla.R
 import com.android.belJomla.databinding.ProductListItemBinding
+import com.android.belJomla.models.CartItem
+import com.android.belJomla.models.Product
 import com.android.belJomla.utils.LoggerUtils as l
 import com.android.belJomla.viewmodels.MainViewModel
-import kotlinx.android.synthetic.main.product_list_item.view.*
 
-class ProductsAdapter(var context: Context,var viewModel: MainViewModel) : RecyclerView.Adapter<ProductsAdapter.ProductViewHolder>() {
+class ProductsAdapter(var context: Context,var viewModel: MainViewModel) : ListAdapter<Product,ProductsAdapter.ProductViewHolder>(DiffCallBacks()) {
+
+    class DiffCallBacks : DiffUtil.ItemCallback<Product>()
+    {
+        override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
+                return oldItem == newItem
+        }
+
+        override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
+            val itemEqual = oldItem == newItem
+            val nameEqual = oldItem.name ==newItem.name
+            val qualSizeEqual = oldItem.qualitiveSize ==newItem.qualitiveSize
+            val quanSizeEqual = oldItem.quantativeSize == newItem.quantativeSize
+            val sellingPriceEqual = oldItem.sellingPrice == newItem.sellingPrice
+            val categEqual = oldItem.category == newItem.category
+            val subCategEqual = oldItem.subCategory == newItem.subCategory
+            val imageEqual = oldItem.imgURLs[0] == newItem.imgURLs[0]
+
+
+
+            return  itemEqual && nameEqual &&
+                    qualSizeEqual && quanSizeEqual
+                    && sellingPriceEqual && categEqual &&
+                    subCategEqual && imageEqual
+        }
+
+
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val binding : ProductListItemBinding = DataBindingUtil.inflate(LayoutInflater.from(context),R.layout.product_list_item,parent,false)
 
         return   ProductViewHolder(binding)
 
-
-
     }
 
+/*
     override fun getItemCount(): Int {
 
         return viewModel.productList.value?.size?:0
     }
+*/
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
 
-        val product = viewModel.productList.value!![holder.adapterPosition]
+        val product = getItem(position)//viewModel.productList.value!![holder.adapterPosition]
+        val quantity = viewModel.cart.value?.items?.find { it.product == product }?.quantity?:0
+
+            //.get(product)//getItem(position).quantity
         holder.binding.product = product
         //l.logMessage(this,"${viewModel.cart.value?.get(product)}")
         if(viewModel.cart.value?.cartContains(product!!) == false){
@@ -48,7 +80,8 @@ class ProductsAdapter(var context: Context,var viewModel: MainViewModel) : Recyc
 
             holder.binding.btnProduct.isClickable = true
             holder.binding.btnProduct.setOnClickListener {
-                viewModel.addToCart(product!!)
+                l.logMessage(this,"product ${product.name} add to cart clicked")
+                viewModel.addToCart(product)
             }
 
 
@@ -62,8 +95,7 @@ class ProductsAdapter(var context: Context,var viewModel: MainViewModel) : Recyc
             holder.binding.ivRemove.visibility = View.VISIBLE
             holder.binding.tvCartCount.visibility = View.VISIBLE
 
-            val itemCartCnt  = viewModel.cart.value?.items?.find { it.product == product }?.quantity?:0
-            holder.binding.tvCartCount.text = "$itemCartCnt"
+            holder.binding.tvCartCount.text = "$quantity"
             holder.binding.ivAdd.setOnClickListener {
                 viewModel.addToCart(product!!)
             }

@@ -9,7 +9,10 @@ import com.android.belJomla.utils.Constants
 import com.android.belJomla.utils.Constants.USERS_DB_PATH
 import com.android.belJomla.callbacks.VerificationCallbacks
 import com.android.belJomla.models.Location
+import com.google.firebase.FirebaseException
+import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.firestore.FirebaseFirestore
+import java.lang.Exception
 
 /**
  * This repo is responsible for all user related data.
@@ -37,6 +40,7 @@ class UserRepository(var verifCallbacks: VerificationCallbacks) {
         if(auth.currentUser!= null){
             getUser()
             startUserListener()
+
 
         }
     }
@@ -79,8 +83,7 @@ class UserRepository(var verifCallbacks: VerificationCallbacks) {
         }
 
     }
-    fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential)  {
-
+    fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
 
 
         auth.signInWithCredential(credential)
@@ -93,23 +96,21 @@ class UserRepository(var verifCallbacks: VerificationCallbacks) {
                     val firebaseUser = auth.currentUser
                     Log.d(TAG, "firebase houseOwnerUser : $firebaseUser isNewUser : $isNewUser")
 
-                    if (firebaseUser != null ) {
-                       val uid = firebaseUser.uid
-                        val name = firebaseUser.displayName
-                        val email = firebaseUser.email
-                        val mobile = firebaseUser.phoneNumber
+                    if (firebaseUser != null) {
+
                         val user = HouseOwnerUser(auth.currentUser!!.phoneNumber!!)
                         checkIfUserIsNew(user)
                         user.isAuthenticated = true
 
 
-                    }
-                    else {
+                    } else {
                         val user = HouseOwnerUser("")
                         user.isNew = isNewUser
                         user.isAuthenticated = true
-                        Log.d(TAG, "onUserFetched  HouseOwnerUser : $user\n" +
-                                "FirebaseUser ${auth.currentUser?.phoneNumber}")
+                        Log.d(
+                            TAG, "onUserFetched  HouseOwnerUser : $user\n" +
+                                    "FirebaseUser ${auth.currentUser?.phoneNumber}"
+                        )
                         verifCallbacks.onUserFetched(user)
                     }
 
@@ -118,21 +119,12 @@ class UserRepository(var verifCallbacks: VerificationCallbacks) {
                 } else {
                     // Sign in failed, display a message and update the UI
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    if (task.exception is FirebaseAuthInvalidCredentialsException) {
-                        // The verification code entered was invalid
-                        val user = HouseOwnerUser("")
-                        user.isAuthenticated = false
-                        user.isCreated = false
-                        Log.d(TAG, "onUserFetched  HouseOwnerUser : $user\n" +
-                                "FirebaseUser ${auth.currentUser?.phoneNumber}")
-                        verifCallbacks.onUserFetched(user)
 
+                    verifCallbacks.onVerificationFailed(task.exception as FirebaseException)
 
-                    }
                 }
 
             }
-
     }
 
 
@@ -148,10 +140,8 @@ class UserRepository(var verifCallbacks: VerificationCallbacks) {
              if (userCreationTask.isSuccessful) {
                  verifCallbacks.onUserInFireStoreCreatedCallback()
                  this.currentHouseOwnerUser = user
-                 // Todo SignUp Event Successful
              }
              else {
-                 // Todo SignUp Event Failure
 
                     logErrorMessage("HouseOwnerUser Creation Failure")
              }
@@ -214,14 +204,12 @@ class UserRepository(var verifCallbacks: VerificationCallbacks) {
         user.email = email
         user.id = auth.uid!!
         user.locations = ArrayList()
-        user.locations.add(Location("Subhani Play-COut","A place Were we hangout","KSA","Makkah","Al-Subhani",22.7,33.8))
-        user.locations.add(Location("Subhani2 Play-COut","A place Were we hangout","KSA","Makkah","Al-Subhani",22.7,33.8))
+        //user.locations.add(Location("Subhani Play-COut","A place Were we hangout","KSA","Makkah","Al-Subhani",22.7,33.8))
+      //  user.locations.add(Location("Subhani2 Play-COut","A place Were we hangout","KSA","Makkah","Al-Subhani",22.7,33.8))
         uidRef.set(user).addOnCompleteListener { userCreationTask ->
             if (userCreationTask.isSuccessful) {
                 getUser()
-                // Todo SignUp Event Successful
             } else {
-                // Todo SignUp Event Failure
                 getUser()
                 logErrorMessage("HouseOwnerUser Creation Failure")
             }

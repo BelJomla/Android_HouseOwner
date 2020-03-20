@@ -94,7 +94,7 @@
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/divider"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:text="@{`SAR `+String.format(`%.2f`,cart.calculateCartPrice())}"
+                android:text="@{@string/sar_x(cart.calculateCartPrice())}"
                 tools:text="SAR 500" />
 
         <TextView
