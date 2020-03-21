@@ -55,7 +55,7 @@ class Order() {
 
     override fun equals(other: Any?): Boolean {
         if (other is Order)
-            return this.orderID==other.orderID
+            return this.orderID == other.orderID
         return false
     }
 

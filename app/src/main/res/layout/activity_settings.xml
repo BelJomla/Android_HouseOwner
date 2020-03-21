@@ -5,7 +5,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:theme="@style/AppTheme.Settings"
-        style="@style/AppTheme.Settings"
         tools:context="com.android.belJomla.views.activities.SettingsActivity">
 
     <fragment
@@ -13,6 +12,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:name="com.android.belJomla.views.fragments.SettingsFragment"
-            />
+            tools:layout="@layout/activity_settings" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

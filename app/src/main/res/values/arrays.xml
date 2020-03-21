@@ -11,8 +11,8 @@
     </array>
     <!-- Reply Preference -->
     <string-array name="language_entries">
-        <item>English</item>
-        <item>Arabic</item>
+        <item>@string/english</item>
+        <item>@string/arabic</item>
     </string-array>
 
     <string-array name="language_values">
@@ -20,4 +20,6 @@
         <item>arabic</item>
     </string-array>
 
+    <string name="english">English</string>
+    <string name="arabic">عربي</string>
 </resources>

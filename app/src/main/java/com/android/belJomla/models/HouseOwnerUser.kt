@@ -20,6 +20,8 @@ class HouseOwnerUser() {
     var isNew: Boolean = false
     @get:Exclude
     var isCreated: Boolean = false
+
+
     var mobileNumber = ""
 
     var id : String = ""

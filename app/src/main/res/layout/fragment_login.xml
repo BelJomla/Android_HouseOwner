@@ -77,7 +77,7 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-            android:text="Sign In/Up"
+            android:text="@string/sign_in_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView4"

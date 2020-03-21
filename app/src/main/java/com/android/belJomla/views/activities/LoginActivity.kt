@@ -1,8 +1,11 @@
 package com.android.belJomla.views.activities
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.fragment.app.FragmentManager
@@ -16,7 +19,9 @@ import com.android.belJomla.models.HouseOwnerUser
 
 import com.android.belJomla.utils.Constants
 import com.android.belJomla.viewmodels.AuthenticationViewModel
+import com.android.belJomla.views.fragments.SettingsFragment
 import com.google.firebase.auth.FirebaseAuth
+import java.util.*
 
 
 class LoginActivity : AppCompatActivity() {
@@ -24,10 +29,27 @@ class LoginActivity : AppCompatActivity() {
     private val TAG = LoginActivity::class.java.simpleName
     }
     private val fm = supportFragmentManager
+    private var mLocale : Locale? = null
 
+   // private val preferences: SharedPreferences = getSharedPreferences(Constants.MAIN_PREF_NAME, Context.MODE_PRIVATE)
+    var language = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+
+
+
+     /*   if (language == "ar") {
+            window.decorView.layoutDirection = View.LAYOUT_DIRECTION_RTL
+
+        }
+        if (language == "en") {
+            window.decorView.layoutDirection = View.LAYOUT_DIRECTION_LTR
+
+        }*/
+
         setContentView(R.layout.activity_login)
         val viewModel by viewModels<AuthenticationViewModel>()
         //FirebaseAuth.getInstance().signOut()
@@ -104,6 +126,7 @@ class LoginActivity : AppCompatActivity() {
             }
         })
     }
+
 
     private fun goToMainActivity() {
         val mainActivityIntent = Intent(this, MainActivity::class.java)

@@ -114,6 +114,9 @@
     <string name="send_feedback">Send feedback</string>
     <string name="reach_out_to_us_if_you_have_any_issue">Reach out to us if you have any issue</string>
     <string name="contact_us">Contact Us</string>
+    <string name="locale">en</string>
+    <string name="sign_in_up">Sign In/Up</string>
+    <string name="title_activity_demo">DemoActivity</string>
 
 
 </resources>

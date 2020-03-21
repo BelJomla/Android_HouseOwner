@@ -60,6 +60,7 @@ class CartFragment : Fragment() {
 
         }
         binding.btnNext.setOnClickListener {
+            viewModel.clearGeneratedOrder()
             findNavController().navigate(R.id.action_cartFragment_to_checkoutFragment)
         }
 

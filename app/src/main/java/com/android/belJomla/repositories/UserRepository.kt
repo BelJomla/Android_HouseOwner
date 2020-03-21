@@ -9,6 +9,7 @@ import com.android.belJomla.utils.Constants
 import com.android.belJomla.utils.Constants.USERS_DB_PATH
 import com.android.belJomla.callbacks.VerificationCallbacks
 import com.android.belJomla.models.Location
+import com.android.belJomla.utils.LoggerUtils
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.firestore.FirebaseFirestore
@@ -154,6 +155,7 @@ class UserRepository(var verifCallbacks: VerificationCallbacks) {
     fun getUser(){
         val userRef = firestore.collection(USERS_DB_PATH).document(auth.uid!!)
         isNewUser = false
+
         userRef.get().addOnCompleteListener { getUserTask ->
             Log.d(TAG, "signInWithCredential_getUserRef:  ")
             if (getUserTask.isSuccessful){
@@ -195,7 +197,7 @@ class UserRepository(var verifCallbacks: VerificationCallbacks) {
     }
 
     fun updateUser(fname: String ="", lname : String = "", email  :String = "") {
-
+        LoggerUtils.logMessage(this,"$fname $lname $email")
         val usersRef = firestore.collection(Constants.USERS_DB_PATH)
         val uidRef = usersRef.document(auth.currentUser!!.uid)
         val user = HouseOwnerUser(auth.currentUser!!.phoneNumber!!)

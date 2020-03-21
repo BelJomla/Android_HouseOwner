@@ -40,6 +40,10 @@ class SettingsViewModel : ViewModel() , VerificationCallbacks {
     val eventUpdateProfile : LiveData<Boolean>
         get() = _eventUpdateProfile
 
+    private val _currentLocale = MutableLiveData<String>()
+    val currentLocale : LiveData<String>
+        get() = _currentLocale
+
     init {
         //getHouseOwnerUser()
         _isLoading.value = false
@@ -82,5 +86,8 @@ class SettingsViewModel : ViewModel() , VerificationCallbacks {
 
     override fun onVerificationFailed(exception: FirebaseException?) {
 
+    }
+    fun updateLocale(newLocale : String){
+        _currentLocale.value = newLocale
     }
 }

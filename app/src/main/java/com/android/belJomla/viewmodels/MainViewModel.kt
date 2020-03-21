@@ -278,6 +278,9 @@ class MainViewModel: ViewModel() , VerificationCallbacks , CategoryCallBacks, Pr
         generatedOrder = order
 
     }
+    fun clearGeneratedOrder(){
+        generatedOrder = Order()
+    }
 
     override fun onOrderIDSet(orderID: String) {
         generatedOrder.orderID = orderID

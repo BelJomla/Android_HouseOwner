@@ -88,10 +88,16 @@ class CheckoutFragment : Fragment() {
 
 
         viewModel.orders.observe(viewLifecycleOwner, Observer {
+            l.logMessage(this, "orders changed")
+
+            l.logMessage(this,"generatedOrder id is ${viewModel.generatedOrder.orderID}")
+            it.forEach {order->
+                l.logMessage(this,"listOrderID is ${order?.orderID}")
+            }
+            l.logMessage(this," isOrderPosted: ${viewModel.isOrderPosted(viewModel.generatedOrder)}")
             if (viewModel.isOrderPosted(viewModel.generatedOrder)) {
                 /*  If the user is in this page and the
                  Order has been added, go to next page*/
-                l.logMessage(this, "orders changed")
 
                 findNavController().navigate(R.id.action_checkoutFragment_to_thankYouFragment)
             }
