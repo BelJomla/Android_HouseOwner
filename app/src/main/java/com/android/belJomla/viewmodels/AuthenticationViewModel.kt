@@ -46,6 +46,8 @@ class AuthenticationViewModel :ViewModel(),
     val eventVerificationFailed : LiveData<Boolean>
         get() = _eventVerificationFailed
 
+    var errorMessage : String? = "error"
+
      private val _eventVerificationFailedTooManyRequests =  MutableLiveData<Boolean>()
      val eventVerificationFailedTooManyRequests : LiveData<Boolean>
          get() = _eventVerificationFailedTooManyRequests
@@ -103,23 +105,30 @@ class AuthenticationViewModel :ViewModel(),
             override fun onVerificationFailed(e: FirebaseException) {
                 // This callback is invoked in an invalid request for verification is made,
                 // for instance if the the phone number format is not valid.
-                Log.e(TAG, "onVerificationFailed", e)
+                Log.e(TAG, "onVerificationFailed ${e.localizedMessage}" )
 
 
                 when (e) {
                     is FirebaseAuthInvalidCredentialsException -> {
                         // Invalid request
                         // ...
+                        errorMessage = e.localizedMessage
                         _eventVerificationInvalidCredentials.value = true
+
                     }
                     is FirebaseTooManyRequestsException -> {
                         // The SMS quota for the project has been exceeded
                         // ...
-
+                        errorMessage = e.localizedMessage
                         _eventVerificationFailedTooManyRequests.value = true
+
+
                     }
                     else -> {
+                        errorMessage = e.localizedMessage
                         _eventVerificationFailed.value = true
+
+
                     }
                 }
                 stopLoading()
@@ -212,11 +221,13 @@ class AuthenticationViewModel :ViewModel(),
     }
 
     override fun onVerificationFailed(exception: FirebaseException?) {
+        errorMessage = exception?.localizedMessage
         if (exception!= null) {
             callbacks.value?.onVerificationFailed(exception)
         }
         else {
             _eventVerificationFailed.value = true
+
         }
     }
      fun onEventUserInFireStoreCreatedHandled(){

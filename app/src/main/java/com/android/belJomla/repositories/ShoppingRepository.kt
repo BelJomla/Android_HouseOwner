@@ -266,6 +266,7 @@ class ShoppingRepository(var categoryCallbacks: CategoryCallBacks,var  productsC
             l.logMessage(this,"Order Listener No Error")
 
             val orders = querySnapshot?.toObjects(Order::class.java)
+
             ordersCallBacks.onOrdersFetched(orders as ArrayList<Order?>)
         }
 

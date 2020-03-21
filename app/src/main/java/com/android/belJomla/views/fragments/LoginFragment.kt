@@ -76,6 +76,7 @@ class LoginFragment : Fragment() {
                 viewModel.onVerificationComplete()
             }
         })
+
     }
 
     private fun setupCountryCodePicker(binding: FragmentLoginBinding) {
@@ -101,10 +102,9 @@ class LoginFragment : Fragment() {
         )
 
         if (!binding.countryCodePicker.isValid) {
-
             Toast.makeText(
                 context,
-                "Invalid number in " + binding.countryCodePicker.selectedCountryName + "! Please re-enter it.",
+                getString(R.string.invalid_num_in_x,binding.countryCodePicker.selectedCountryName),
                 Toast.LENGTH_SHORT
             ).show()
         } else {

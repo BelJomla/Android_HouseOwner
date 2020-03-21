@@ -89,7 +89,7 @@ class VerificationFragment : Fragment() {
         })
         viewModel.eventVerificationSuccess.observe(viewLifecycleOwner, Observer { hasSucceeded ->
             if (hasSucceeded) {
-                Toast.makeText(requireContext(), "Verification Success", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.verif_success), Toast.LENGTH_SHORT).show()
                 viewModel.onVerificationComplete()
             }
         })

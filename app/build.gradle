@@ -52,6 +52,10 @@ dependencies {
     // EventBus
     //implementation 'org.greenrobot:eventbus:3.2.0'
 
+
+    // Localization Library
+    implementation 'com.akexorcist:localization:1.2.4'
+
     // Kotlin Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"

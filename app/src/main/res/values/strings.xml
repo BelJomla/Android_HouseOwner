@@ -25,6 +25,7 @@
     <string name="next">Next</string>
     <string name="saudi_arabia_966">Saudi Arabia ( + 966 )</string>
     <string name="please_type_the_verification_code_sent_to_x">Please type the verification code sent to %s</string>
+    <string name="please_type_the_verification_code_sent_to_966xxxxxxxxx">Please type the verification code sent to +966xxxxxxxxx</string>
     <string name="_4325">4325</string>
     <string name="did_not_receive_sms_in_42s">Did not receive SMS in %ds ?</string>
     <string name="resend_sms">Resend SMS</string>
@@ -116,7 +117,7 @@
     <string name="contact_us">Contact Us</string>
     <string name="locale">en</string>
     <string name="sign_in_up">Sign In/Up</string>
-    <string name="title_activity_demo">DemoActivity</string>
-
+    <string name="invalid_num_in_x">Invalid number in %s Please re-enter it.</string>
+    <string name="verif_success">Verification Success</string>
 
 </resources>

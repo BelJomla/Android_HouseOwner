@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
+import com.akexorcist.localizationactivity.ui.LocalizationActivity
 import com.android.belJomla.R
 import com.android.belJomla.views.fragments.LoginFragment
 import com.android.belJomla.views.fragments.SignUpFragment
@@ -24,7 +25,7 @@ import com.google.firebase.auth.FirebaseAuth
 import java.util.*
 
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : LocalizationActivity() {
     companion object {
     private val TAG = LoginActivity::class.java.simpleName
     }
@@ -32,27 +33,22 @@ class LoginActivity : AppCompatActivity() {
     private var mLocale : Locale? = null
 
    // private val preferences: SharedPreferences = getSharedPreferences(Constants.MAIN_PREF_NAME, Context.MODE_PRIVATE)
-    var language = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
 
-
-
-
-     /*   if (language == "ar") {
+        if (getCurrentLanguage().language == "ar") {
             window.decorView.layoutDirection = View.LAYOUT_DIRECTION_RTL
 
         }
-        if (language == "en") {
+        if (getCurrentLanguage().language  == "en") {
             window.decorView.layoutDirection = View.LAYOUT_DIRECTION_LTR
 
-        }*/
+        }
 
         setContentView(R.layout.activity_login)
         val viewModel by viewModels<AuthenticationViewModel>()
-        //FirebaseAuth.getInstance().signOut()
 
         if (savedInstanceState == null) {
 
@@ -123,6 +119,13 @@ class LoginActivity : AppCompatActivity() {
             if (eventUserCreated){
                 goToMainActivity()
                 viewModel.onEventUserInFireStoreCreatedHandled()
+            }
+        })
+
+        viewModel.eventVerificationFailed.observe(this, Observer { hasFailed ->
+            if (hasFailed) {
+                Toast.makeText(this, viewModel.errorMessage, Toast.LENGTH_LONG).show()
+                viewModel.onVerificationComplete()
             }
         })
     }

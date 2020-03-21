@@ -27,8 +27,9 @@
         <string name="next">التالي</string>
         <string name="saudi_arabia_966">السعودية (+966)</string>
         <string name="please_type_the_verification_code_sent_to_x">الرجاء إدخال رمز التحقق المرسل إلى %s</string>
+        <string name="please_type_the_verification_code_sent_to_966xxxxxxxxx">الرجاء إدخال رمز التحقق المرسل إلى +9665xxxxxxxx</string>
         <string name="_4325">4325</string>
-        <string name="did_not_receive_sms_in_42s">لم تصلك الرسالة خلال %s ثانية؟</string>
+        <string name="did_not_receive_sms_in_42s">لم تصلك الرسالة خلال %d ثانية؟</string>
         <string name="resend_sms">إعادة إرسال الرمز</string>
         <string name="wrong_verif_code">رمز التحقق خاطئ</string>
         <string name="invalid_code">رمز خاطئ</string>
@@ -119,6 +120,8 @@
         <string name="contact_us">تواصل معنا</string>
         <string name="locale">ar</string>
         <string name="sign_in_up">تسجيل/تسجيل دخول</string>
+        <string name="invalid_num_in_x">صيغة الرقم خاطئة في %s الرجاء ادخال صيغة صحيحة</string>
+        <string name="verif_success">تم التحقق بنجاح</string>
 
 
 
