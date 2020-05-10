@@ -1,0 +1,1173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="847e0dd0-a0df-4a8f-8787-2b869b53f0ae" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Kingdom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/src/androidTest/java/com/android/beljomla/database_classes/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/src/main/java/com/android/beljomla/database_classes/models/AccumulatedOrder.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/src/main/java/com/android/beljomla/database_classes/models/Carts.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/src/main/java/com/android/beljomla/database_classes/models/DataClasses.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/src/main/java/com/android/beljomla/database_classes/models/DeliveryPersonUser.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/src/main/java/com/android/beljomla/database_classes/models/HOOrderInfo.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/src/main/java/com/android/beljomla/database_classes/models/HouseOwnerUser.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/src/main/java/com/android/beljomla/database_classes/models/Order.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/src/main/java/com/android/beljomla/database_classes/models/ProductVtmp.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/src/main/java/com/android/beljomla/database_classes/models/Route.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/src/main/java/com/android/beljomla/database_classes/models/TMPCart.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/src/main/java/com/android/beljomla/database_classes/models/Tuple.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/src/main/java/com/android/beljomla/database_classes/models/WSS.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/src/main/java/com/android/beljomla/database_classes/models/WSSOrderInfo.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/src/main/java/com/android/beljomla/utils/Constants.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/src/main/java/com/android/beljomla/utils/DummyDataUtils.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/src/main/java/com/android/beljomla/utils/LoggerUtils.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_classes/src/test/java/com/android/beljomla/database_classes/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/google-services.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/androidTest/java/com/android/belJomla/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/image_placeholder-web.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/LifeCycleCountdownTimer.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/adapters/AddressAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/adapters/CartAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/adapters/CategoryAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/adapters/OrderAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/adapters/ProductsAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/application/MainApplication.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/callbacks/CategoryCallBacks.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/callbacks/OrdersCallBacks.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/callbacks/ProductsCallbacks.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/callbacks/VerificationCallbacks.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/decorators/MarginItemDecoration.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/extensions/Toast.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/extensions/View.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/models/AuthenticationMessage.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/models/Carts.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/models/Categories.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/models/DataClasses.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/models/HouseOwnerUser.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/models/Order.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/models/Product.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/repositories/ShoppingRepository.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/repositories/UserRepository.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/utils/Constants.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/utils/DateUtils.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/utils/DummyDataUtils.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/utils/FirebaseUtils.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/utils/LoggerUtils.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/utils/SingletonHolder.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/viewmodels/AuthenticationViewModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/viewmodels/DatabaseFetchingCallbacks.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/viewmodels/MainViewModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/viewmodels/SettingsViewModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/viewmodels/SplashScreenViewModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/views/activities/LoginActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/views/activities/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/views/activities/SettingsActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/views/activities/SplashScreenActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/views/fragments/AddressesFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/views/fragments/BalanceFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/views/fragments/CartFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/views/fragments/CheckoutFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/views/fragments/EditProfileFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/views/fragments/HistoryFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/views/fragments/LoginFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/views/fragments/OrdersFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/views/fragments/ProfileFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/views/fragments/SettingsFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/views/fragments/ShoppingFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/views/fragments/SignUpFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/views/fragments/ThankYouFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/java/com/android/belJomla/views/fragments/VerificationFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable-v24/ic_location_outline_primary_24dp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable-v24/ic_location_white_48dp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable-v24/ic_search_24px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable-v24/image_placeholder_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable-v24/img_placeholder.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/account_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/add_black_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/arrow_down_24px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/badge_shape.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/cart.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/categ_non_selected_circle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/categ_selected_circle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/edit_text_verif_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic__cart_white_48dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_account_black_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_add_circle_outline_primary_72dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_add_shopping_cart_primary_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_add_shopping_cart_white_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_add_white_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_arrow_back_white_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_arrow_right_black_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_call_primary_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_dashboard_black_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_delete_red_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_edit_primary_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_help_black_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_history_primary_37dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_home_black_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_info_black_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_location_color_primary_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_notifications_black_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_person_black_128dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_person_white_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_remove_white_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_search_white_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_settings_black_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_settings_white_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/ic_shopping_cart_white_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/image_placeholder_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/logo_place_holder.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/message_text.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/orders.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/product_item_button.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/round_primary_backgorund.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/rounded_et.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/spinner_mobile_region.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/store.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/test_img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/tmp_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/top_rounded_white_bg.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/drawable/white_bg_round_corners.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/font/segoeui.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/font/segoeuib.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/font/segoeuii.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/font/segoeuil.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/font/segoeuisl.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/font/segoeuiz.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/font/seguibl.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/font/seguibli.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/font/seguili.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/font/seguisb.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/font/seguisbi.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/font/seguisli.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/action_bar_shopping.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/activity_login.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/activity_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/activity_splash_screen.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/address_list_item.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/btn_history.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/btn_my_adresses.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/cart_product_list_item.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/category_not_selected_item.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/category_selected_item.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/content_demo.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/fragment_addresses.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/fragment_balance.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/fragment_cart.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/fragment_checkout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/fragment_edit_profile.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/fragment_history.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/fragment_item.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/fragment_login.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/fragment_orders.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/fragment_profile.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/fragment_shopping.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/fragment_sign_up.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/fragment_thank_you.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/fragment_verification.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/order_item_item.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/order_list_item.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/product_list_item.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/layout/searchbar_item.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/menu/bottom_nav_menu.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/menu/bottom_nav_menu1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-anydpi-v26/image_placeholder.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-anydpi-v26/image_placeholder_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-hdpi/image_placeholder.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-hdpi/image_placeholder_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-mdpi/image_placeholder.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-mdpi/image_placeholder_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-xhdpi/image_placeholder.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-xhdpi/image_placeholder_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-xxhdpi/image_placeholder.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-xxhdpi/image_placeholder_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-xxxhdpi/image_placeholder.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/mipmap-xxxhdpi/image_placeholder_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/navigation/navigation.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/values-ar/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/values/arrays.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/values/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/values/keys.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/main/res/xml/settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseOwner/src/test/java/com/android/belJomla/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_5X_API_24" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/..">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/views/fragments/EditProfileFragment.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-570">
+              <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+              <folding>
+                <element signature="e#47#508#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/views/fragments/OrdersFragment.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-942">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/adapters/OrderAdapter.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="388">
+              <caret line="53" selection-start-line="53" selection-end-line="53" />
+              <folding>
+                <element signature="e#39#843#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/views/fragments/ShoppingFragment.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-5130">
+              <caret line="21" column="59" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../database_classes/src/main/java/com/android/beljomla/database_classes/Order.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>size</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/../database_classes/src/main/java/com/android/beljomla/database_classes/house_owner_models/DeliveryPersonUser.kt" />
+        <option value="$PROJECT_DIR$/../database_classes/src/main/java/com/android/beljomla/database_classes/house_owner_models/HOOrderInfo.kt" />
+        <option value="$PROJECT_DIR$/../database_classes/src/main/java/com/android/beljomla/database_classes/house_owner_models/WSS.kt" />
+        <option value="$PROJECT_DIR$/../database_classes/src/main/java/com/android/beljomla/database_classes/house_owner_models/WSSOrderInfo.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/models/Order.kt" />
+        <option value="$PROJECT_DIR$/../database_classes/src/main/java/com/android/beljomla/database_classes/house_owner_models/Order.kt" />
+        <option value="$PROJECT_DIR$/../database_classes/src/main/java/com/android/beljomla/database_classes/models/Order.kt" />
+        <option value="$PROJECT_DIR$/../database_classes/src/main/java/com/android/beljomla/database_classes/models/Route.kt" />
+        <option value="$PROJECT_DIR$/../deliveryPerson/src/main/java/com/android/belJomla/deliveryperson/repositories/OrdersRepository.kt" />
+        <option value="$PROJECT_DIR$/../deliveryPerson/src/main/java/com/android/belJomla/deliveryperson/views/DeliveringListFragment.kt" />
+        <option value="$PROJECT_DIR$/../deliveryPerson/src/main/java/com/android/belJomla/deliveryperson/views/OrdersFragment.kt" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_edit_profile.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_cart.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/cart_product_list_item.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_shopping.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/action_bar_shopping.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/order_item_item.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_checkout.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/product_list_item.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/order_list_item.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/address_list_item.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_profile.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/adapters/AddressAdapter.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/adapters/CartAdapter.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/adapters/CategoryAdapter.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/adapters/ProductsAdapter.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/callbacks/CategoryCallBacks.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/callbacks/OrdersCallBacks.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/callbacks/ProductsCallbacks.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/callbacks/VerificationCallbacks.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/repositories/ShoppingRepository.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/repositories/UserRepository.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/utils/DummyDataUtils.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/viewmodels/AuthenticationViewModel.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/viewmodels/DatabaseFetchingCallbacks.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/viewmodels/MainViewModel.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/viewmodels/SettingsViewModel.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/views/activities/LoginActivity.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/views/fragments/CheckoutFragment.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/views/fragments/OrdersFragment.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/renamed_models/AuthenticationMessage.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/renamed_models/Carts.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/renamed_models/Categories.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/renamed_models/DataClasses.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/renamed_models/HouseOwnerUser.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/renamed_models/Order.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/renamed_models/Product.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/views/fragments/ShoppingFragment.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/android/belJomla/adapters/OrderAdapter.kt" />
+        <option value="$PROJECT_DIR$/../database_classes/src/main/java/com/android/beljomla/database_classes/Order.kt" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="530" />
+    <option name="y" value="129" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="houseOwner" type="1abcf292:AndroidViewProjectNode" />
+              <item name="database_classes" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="houseOwner" type="1abcf292:AndroidViewProjectNode" />
+              <item name="database_classes" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="houseOwner" type="1abcf292:AndroidViewProjectNode" />
+              <item name="database_classes" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="houseOwner" type="1abcf292:AndroidViewProjectNode" />
+              <item name="database_classes" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="houseOwner" type="1abcf292:AndroidViewProjectNode" />
+              <item name="database_classes" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="beljomla" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="houseOwner" type="1abcf292:AndroidViewProjectNode" />
+              <item name="database_classes" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="beljomla" type="462c0819:PsiDirectoryNode" />
+              <item name="database_classes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="houseOwner" type="1abcf292:AndroidViewProjectNode" />
+              <item name="deliveryPerson" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="houseOwner" type="1abcf292:AndroidViewProjectNode" />
+              <item name="deliveryPerson" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="houseOwner" type="1abcf292:AndroidViewProjectNode" />
+              <item name="houseOwner" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="houseOwner" type="1abcf292:AndroidViewProjectNode" />
+              <item name="houseOwner" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="houseOwner" type="1abcf292:AndroidViewProjectNode" />
+              <item name="houseOwner" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="houseOwner" type="1abcf292:AndroidViewProjectNode" />
+              <item name="houseOwner" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="houseOwner" type="1abcf292:AndroidViewProjectNode" />
+              <item name="houseOwner" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="belJomla" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="houseOwner" type="1abcf292:AndroidViewProjectNode" />
+              <item name="houseOwner" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="belJomla" type="462c0819:PsiDirectoryNode" />
+              <item name="adapters" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="houseOwner" type="1abcf292:AndroidViewProjectNode" />
+              <item name="houseOwner" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="belJomla" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="houseOwner" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Nexus_5X_API_24" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-05-10T12:58:23.609Z" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="android.project.structure.last.selected" value="SDK Location" />
+    <property name="android.project.structure.proportion" value="0.15" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="not.eligible.for.single.variant.sync" value="true" />
+    <property name="project.structure.last.edited" value="Dependencies" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Kingdom\Documents\KfUPM\192\Senior_Project\Integeration\database_classes\src\main\java\com\android\beljomla\database_classes" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Android App.houseOwner">
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+    </configuration>
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="deliveryPerson" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="deliveryPerson" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="houseOwner" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="houseOwner" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="847e0dd0-a0df-4a8f-8787-2b869b53f0ae" name="Default Changelist" comment="" />
+      <created>1589108781334</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589108781334</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="1" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.19349681" />
+      <window_info id="Structure" order="4" side_tool="true" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Build Variants" order="6" side_tool="true" />
+      <window_info id="Image Layers" order="7" />
+      <window_info id="Resources Explorer" order="8" />
+      <window_info anchor="bottom" id="Find" />
+      <window_info anchor="bottom" id="TODO" order="0" />
+      <window_info anchor="bottom" id="Statistic" order="1" />
+      <window_info anchor="bottom" id="Terminal" order="2" />
+      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="4" />
+      <window_info anchor="bottom" id="Build" order="5" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Logcat" order="6" />
+      <window_info anchor="bottom" id="Android Profiler" order="7" />
+      <window_info anchor="bottom" id="Run" order="8" />
+      <window_info anchor="bottom" id="Debug" order="9" />
+      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Gradle" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Preview" order="5" />
+    </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../database_classes/src/main/java/com/android/beljomla/database_classes/models/ProductVtmp.kt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../database_classes/src/main/java/com/android/beljomla/database_classes/models/Route.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="3" selection-start-line="2" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../database_classes/src/main/java/com/android/beljomla/database_classes/models/TMPCart.kt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../database_classes/src/main/java/com/android/beljomla/database_classes/models/Tuple.kt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../deliveryPerson/src/main/java/com/android/belJomla/deliveryperson/views/DeliveringListFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="18" column="63" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../deliveryPerson/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="80" column="18" selection-start-line="80" selection-end-line="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="84" column="41" selection-start-line="84" selection-start-column="41" selection-end-line="84" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/generated/data_binding_base_class_source_out/debug/dataBindingGenBaseClassesDebug/out/com/android/belJomla/databinding/ActionBarShoppingBinding.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_edit_profile.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="8" column="79" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="79" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_cart.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="7" column="78" selection-start-line="7" selection-start-column="78" selection-end-line="7" selection-end-column="78" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/cart_product_list_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="8" column="79" selection-start-line="8" selection-start-column="79" selection-end-line="8" selection-end-column="79" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_shopping.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="12" column="79" selection-start-line="12" selection-start-column="79" selection-end-line="12" selection-end-column="79" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/action_bar_shopping.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-191">
+          <caret line="9" column="79" selection-start-line="9" selection-start-column="79" selection-end-line="9" selection-end-column="79" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/order_item_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="7" column="79" selection-start-line="7" selection-start-column="79" selection-end-line="7" selection-end-column="79" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_checkout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-76">
+          <caret line="10" column="79" selection-start-line="10" selection-start-column="79" selection-end-line="10" selection-end-column="79" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/product_list_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-381">
+          <caret line="12" column="79" selection-start-line="12" selection-start-column="79" selection-end-line="12" selection-end-column="79" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/order_list_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-38">
+          <caret line="8" column="79" selection-start-line="8" selection-start-column="79" selection-end-line="8" selection-end-column="79" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/address_list_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-228">
+          <caret line="9" column="79" selection-start-line="9" selection-start-column="79" selection-end-line="9" selection-end-column="79" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_profile.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-912">
+          <caret line="9" column="79" selection-start-line="9" selection-start-column="79" selection-end-line="9" selection-end-column="79" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/adapters/AddressAdapter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/adapters/CartAdapter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-38">
+          <caret line="11" column="64" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/adapters/CategoryAdapter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="64" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/adapters/ProductsAdapter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="15" column="64" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/callbacks/CategoryCallBacks.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-38">
+          <caret line="2" column="64" selection-start-line="2" selection-start-column="64" selection-end-line="2" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/callbacks/OrdersCallBacks.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-113">
+          <caret line="2" column="64" selection-start-line="2" selection-start-column="64" selection-end-line="2" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/callbacks/ProductsCallbacks.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="2" column="64" selection-start-line="2" selection-start-column="64" selection-end-line="2" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/callbacks/VerificationCallbacks.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="2" column="64" selection-start-line="2" selection-start-column="64" selection-end-line="2" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/repositories/ShoppingRepository.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="6" column="64" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/repositories/UserRepository.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-190">
+          <caret line="10" column="64" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/viewmodels/AuthenticationViewModel.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="6" column="64" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/utils/DummyDataUtils.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="64" />
+          <folding>
+            <element signature="e#36#127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/viewmodels/DatabaseFetchingCallbacks.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="2" column="64" selection-start-line="2" selection-start-column="64" selection-end-line="2" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/viewmodels/MainViewModel.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#41#628#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/viewmodels/SettingsViewModel.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/views/activities/LoginActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="13" column="64" selection-start-line="13" selection-start-column="64" selection-end-line="13" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/views/activities/SplashScreenActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1178">
+          <caret line="52" column="31" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="31" />
+          <folding>
+            <element signature="e#47#795#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/views/fragments/CartFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-456">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+          <folding>
+            <element signature="e#47#718#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/views/fragments/CheckoutFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/views/fragments/EditProfileFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-570">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+          <folding>
+            <element signature="e#47#508#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/generated/source/kapt/debug/com/android/belJomla/databinding/OrderListItemBindingImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/renamed_models/Product.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="3" selection-start-line="2" selection-end-line="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/renamed_models/Order.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="64" selection-start-line="2" selection-end-line="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/renamed_models/HouseOwnerUser.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="3" column="2" selection-start-line="3" selection-end-line="91" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/renamed_models/DataClasses.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="3" selection-start-line="2" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/renamed_models/Categories.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="13" selection-start-line="12" selection-end-line="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/renamed_models/Carts.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="165" selection-start-line="2" selection-end-line="178" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/renamed_models/AuthenticationMessage.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="30" column="1" selection-start-line="2" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/views/fragments/ShoppingFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5130">
+          <caret line="21" column="59" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/views/fragments/OrdersFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-942">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/android/belJomla/adapters/OrderAdapter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+          <folding>
+            <element signature="e#39#843#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../database_classes/src/main/java/com/android/beljomla/database_classes/Order.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

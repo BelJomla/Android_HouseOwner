@@ -1,31 +1,90 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply plugin: 'com.android.application'
 
-buildscript {
-    ext.kotlin_version = '1.3.31'
-    repositories {
-        google()
-        jcenter()
+apply plugin: 'kotlin-android'
 
-        
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'kotlin-kapt'
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.0"
+    defaultConfig {
+        applicationId "com.android.BelJomla"
+        minSdkVersion 21
+        targetSdkVersion 29
+        multiDexEnabled true
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.2'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.google.gms:google-services:4.3.3'
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        jcenter()
-        maven { url "https://jitpack.io" }
-        
-    }
-}
+dependencies {
+    def nav_version = '2.2.1'
+    def lifecycle_version = '2.2.0'
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation "androidx.fragment:fragment-ktx:1.2.2"
+    implementation 'com.google.android.material:material:1.2.0-alpha05'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+    // Prefernece
+    implementation 'androidx.preference:preference:1.1.0'
+    implementation "androidx.preference:preference-ktx:1.1.0"
+    // EventBus
+    //implementation 'org.greenrobot:eventbus:3.2.0'
+
+
+    // Localization Library
+    implementation 'com.akexorcist:localization:1.2.4'
+
+    // Kotlin Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    //Glide
+    implementation("com.github.bumptech.glide:glide:4.11.0")
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    // Google Analytics
+    implementation 'com.google.firebase:firebase-analytics:17.2.2'
+    // Firebase Auth
+    implementation 'com.google.firebase:firebase-auth:19.2.0'
+    // Cloud FireStore
+    implementation 'com.google.firebase:firebase-firestore:21.4.0'
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+    //Country Code Picker
+    implementation 'com.github.joielechong:countrycodepicker:2.4.1'
+
+    // MultiDex
+    implementation 'androidx.multidex:multidex:2.0.0'
+
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation project(path: ':database_classes')
+
 }

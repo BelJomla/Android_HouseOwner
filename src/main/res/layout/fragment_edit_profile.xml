@@ -1,0 +1,113 @@
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+                name="houseOwnerUser"
+                type="com.android.beljomla.database_classes.HouseOwnerUser" />
+
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.android.belJomla.views.fragments.EditProfileFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <EditText
+            android:id="@+id/et_profile_fname"
+            android:layout_width="312dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="88dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="15sp"
+            android:textColorHint="@color/edit_profile_hint_color"
+            android:fontFamily="@font/segoeuisl"
+            android:background="@drawable/rounded_et"
+            android:drawableStart="@drawable/account_settings"
+            android:drawablePadding="16dp"
+            android:padding="8dp"
+            android:hint="@string/first_name"
+            android:text="@{houseOwnerUser.firstName}"
+            android:inputType="textPersonName"
+            android:imeOptions="actionNext"
+            android:nextFocusForward="@id/et_profile_lname"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+            android:id="@+id/et_profile_lname"
+            android:layout_width="312dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="54dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="15sp"
+            android:textColorHint="@color/edit_profile_hint_color"
+            android:fontFamily="@font/segoeuisl"
+            android:background="@drawable/rounded_et"
+            android:drawableStart="@drawable/account_settings"
+            android:drawablePadding="16dp"
+            android:padding="8dp"
+            android:hint="@string/last_name"
+            android:text="@{houseOwnerUser.lastName}"
+            android:inputType="textPersonName"
+            android:imeOptions="actionNext"
+            android:nextFocusForward="@id/et_profile_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_profile_fname" />
+
+    <EditText
+            android:id="@+id/et_profile_email"
+            android:layout_width="312dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="54dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="15sp"
+            android:textColorHint="@color/edit_profile_hint_color"
+            android:fontFamily="@font/segoeuisl"
+            android:background="@drawable/rounded_et"
+            android:drawableStart="@drawable/account_settings"
+            android:drawablePadding="16dp"
+            android:padding="8dp"
+            android:hint="@string/demo_mail"
+            android:text="@{houseOwnerUser.email}"
+            android:inputType="textEmailAddress"
+            android:imeOptions="actionDone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_profile_lname" />
+
+    <Button
+            android:id="@+id/btn_profle_save"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/save"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_profile_email" />
+
+    <ProgressBar
+            android:id="@+id/pb_loading"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
