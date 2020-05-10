@@ -32,11 +32,11 @@
                 android:id="@+id/iv_icon_location"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/iv_btn_call"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_location_outline_primary_24dp" />
 
@@ -91,19 +91,6 @@
                 app:layout_constraintEnd_toStartOf="@+id/tv_total_price"
                 app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-                android:id="@+id/iv_btn_call"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_call_primary_24dp"
-                tools:visibility="visible" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -117,6 +104,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_order_number"
+            app:layout_constraintVertical_bias="0.0"
             tools:itemCount="5"
             tools:listitem="@layout/order_item_item" />
 
@@ -184,5 +172,58 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:visibility="visible" />
+
+    <ImageView
+            android:id="@+id/iv_btn_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_order_items"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/ic_call_primary_24dp"
+            tools:visibility="visible" />
+
+    <TextView
+            android:id="@+id/tv_call_driver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/segoeui"
+            android:text="@{@string/call_the_driver_colon_x(order.dpName.fullName)}"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/iv_btn_call"
+            app:layout_constraintTop_toTopOf="@+id/iv_btn_call"
+            tools:text="Call the driver: Abdullah Barnawi"
+            tools:visibility="visible" />
+
+    <TextView
+            android:id="@+id/tv_order_state"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/segoeuisl"
+            android:textColor="@color/black"
+
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/iv_btn_call"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_order_items"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="Jon Doe is now buying and collecting your order"
+            tools:visibility="visible" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

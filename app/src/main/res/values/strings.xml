@@ -119,5 +119,7 @@
     <string name="sign_in_up">Sign In/Up</string>
     <string name="invalid_num_in_x">Invalid number in %s Please re-enter it.</string>
     <string name="verif_success">Verification Success</string>
-
+    <string name="call_the_driver_colon_x">Call the driver: %s</string>
+    <string name="x_is_now_collecting_your_order">%s is now collecting your items</string>
+    <string name="x_collected_has_started_to_deliver_orders">%s has started to deliver the orders, you should expect him soon</string>
 </resources>

@@ -20,7 +20,43 @@ import java.util.*
         this.long = long
 
     }
+     constructor(city: String):this(){
+         this.city = city
+     }
 
 }
 
-data class CreditCard(var holderFirstName : String, var holderLastName : String, var expireDate: Date, var creditCardNumber:Int , var CVV :Int)
+ class CreditCard(){
+     var holderFirstName : String = ""
+      var holderLastName : String = ""
+     var expireDate =  Date()
+     var creditCardNumber = 0
+     var CVV :Int = 0
+
+    constructor( holderFirstName : String,  holderLastName : String,  expireDate: Date, creditCardNumber:Int ,CVV :Int):this(){
+        this.CVV = CVV
+        this.creditCardNumber = creditCardNumber
+        this.expireDate = expireDate
+        this.holderFirstName = holderFirstName
+        this.holderLastName = holderLastName
+
+    }
+}
+
+class Name() {
+    var first = ""
+    var last = ""
+    var fullName : String
+    get() = "$first $last"
+        set(value: String) {
+            first = value.substring(0,value.indexOf(" "))
+            last = value.substring(value.indexOf(" ")+1,value.length)
+        }
+
+    constructor(first: String, last: String) :this(){
+        this.first = first
+        this.last = last
+    }
+
+
+}

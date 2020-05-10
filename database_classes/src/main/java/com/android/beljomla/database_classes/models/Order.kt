@@ -1,19 +1,18 @@
-package com.android.belJomla.models
+package com.android.beljomla.database_classes.models
 
 import com.google.firebase.Timestamp
-import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ServerTimestamp
 import java.util.*
 
 
-class Order() {
+class Order {
+    constructor()
 
     companion object{
-
         const val STATE_CANCELLED = -1
         const val STATE_NEW = 0
         const val STATE_IN_PROGRESS = 1
-        const val STATE_COLLECTED = 2
+        const val STATE_COLLECTED = 20
         const val STATE_COMPLETED = 3
 
         const val DELIVERY_PERIOD_MORNING = 0
@@ -26,9 +25,6 @@ class Order() {
         const val PAYMENT_METHOD_HYBIRD = 3
 
 
-
-
-
     }
 
     var orderID  = ""
@@ -39,7 +35,7 @@ class Order() {
     var date  = Date()
     @ServerTimestamp
     var time = Timestamp(date)
-    var deliveryPeriod = 0
+    var deliveryPeriod = -1
     var cart = Cart()
     var totalPrice =0.0
     var discountPrice = 0.0
@@ -48,13 +44,11 @@ class Order() {
     var paymentMethod = -1
     var coupon = ""
     var country  =""
-    var city = "Dammam"
-    var reigon = "reigon1"
-    var deliveryLocation = Location("Dammam")
-    var WSSLocaiton = arrayListOf<String>()
+    var city = ""
+    var deliveryLocation = Location()
+    var WSSIDs = arrayListOf<String>()
+    var WSSLocations = arrayListOf<Location>()
     var orderState = -1
-    var dpName = Name()
-    var dpMobile = "0599694259"
 
 
     override fun equals(other: Any?): Boolean {

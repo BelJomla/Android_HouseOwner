@@ -39,7 +39,7 @@ class ShoppingRepository(var categoryCallbacks: CategoryCallBacks,var  productsC
 
     init {
         l.logMessage(this,"init ")
-        addDummyProducts()
+        //addDummyProducts()
         //addDummyCategories() TODO DO NOT OPEN THIS COMMENT
         //getCategories()
 
@@ -242,7 +242,7 @@ class ShoppingRepository(var categoryCallbacks: CategoryCallBacks,var  productsC
     fun getOrders() {
         val ordersRef = firestore.collection(c.ORDERS_DB_PATH)
         ordersRef.whereEqualTo("houseOwnerID",auth.uid).whereIn("orderState",
-            listOf(Order.STATE_NEW,Order.STATE_PENDING,Order.STATE_IN_PROGRESS)).orderBy("date", Query.Direction.DESCENDING).get().addOnSuccessListener {
+            listOf(Order.STATE_NEW,Order.STATE_IN_PROGRESS,Order.STATE_COLLECTED)).orderBy("date", Query.Direction.DESCENDING).get().addOnSuccessListener {
             l.logMessage(this,"Fetched Order Successfully ${it.toObjects(Order::class.java).size}")
             //ordersCallBacks.onOrdersFetched(it.toObjects(Order::class.java) as ArrayList<Order?>)
         }
@@ -251,7 +251,7 @@ class ShoppingRepository(var categoryCallbacks: CategoryCallBacks,var  productsC
         l.logMessage(this,"startOrdersListener auth uid is ${auth.uid}")
         val ordersRef = firestore.collection(c.ORDERS_DB_PATH)
         ordersListener = ordersRef.whereEqualTo("houseOwnerID",auth.uid)
-            .whereIn("orderState", listOf(Order.STATE_NEW,Order.STATE_PENDING,Order.STATE_IN_PROGRESS))
+            .whereIn("orderState", listOf(Order.STATE_NEW,Order.STATE_IN_PROGRESS,Order.STATE_COLLECTED))
             .orderBy("date", Query.Direction.DESCENDING)
             .addSnapshotListener { querySnapshot, e ->
 

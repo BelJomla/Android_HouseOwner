@@ -17,9 +17,10 @@ import com.android.belJomla.models.Cart
 import com.android.belJomla.models.Order
 import com.android.belJomla.viewmodels.MainViewModel
 import com.android.belJomla.utils.LoggerUtils as l
+import androidx.core.content.ContextCompat.startActivity
+import android.content.Intent
 
-
-
+import android.net.Uri
 
 
 class OrderAdapter(var context:Context, val viewModel:MainViewModel) : ListAdapter<Order?,OrderAdapter.OrderViewHolder>(OrderDiffCallBack()) {
@@ -68,11 +69,11 @@ class OrderDiffCallBack : DiffUtil.ItemCallback<Order?>(){
             order?.orderState == Order.STATE_NEW  -> {
                 setNewStateVisibilities(holder.binding)
             }
-            order?.orderState == Order.STATE_PENDING  -> {
-                setPendingStateVisibilities(holder.binding)
-            }
             order?.orderState == Order.STATE_IN_PROGRESS  -> {
                 setInProgressStateVisibilities(holder.binding)
+            }
+            order?.orderState == Order.STATE_COLLECTED  -> {
+                setCollectedStateVisibilities(holder.binding)
             }
 
         }
@@ -100,6 +101,13 @@ class OrderDiffCallBack : DiffUtil.ItemCallback<Order?>(){
                 }.create().show()
         }
 
+        holder.binding.ivBtnCall.setOnClickListener {
+            val phoneNumber = holder.binding.order?.dpMobile
+            val intent = Intent(Intent.ACTION_DIAL)
+            intent.data = Uri.parse("tel:${phoneNumber}")
+            context.startActivity(intent)
+        }
+
 
     }
 
@@ -109,18 +117,45 @@ class OrderDiffCallBack : DiffUtil.ItemCallback<Order?>(){
     }
 
 
-    private fun setInProgressStateVisibilities(binding: OrderListItemBinding) {
+    private fun setCollectedStateVisibilities(binding: OrderListItemBinding) {
         binding.ivBtnCall.visibility = View.VISIBLE
+        binding.tvCallDriver.visibility = View.VISIBLE
+        binding.tvOrderState.visibility = View.VISIBLE
+
+        binding.btnEdit.visibility = View.GONE
+        binding.tvBtnCancel.visibility = View.GONE
+
+        val dpName = binding.order?.dpName!!.fullName
+        binding.tvOrderState.text = context.getString(R.string.x_collected_has_started_to_deliver_orders,dpName)
+
+
     }
 
-    private fun setPendingStateVisibilities(binding: OrderListItemBinding) {
-        binding.tvBtnCancel.visibility = View.VISIBLE
+    private fun setInProgressStateVisibilities(binding: OrderListItemBinding) {
+        //binding.tvBtnCancel.visibility = View.VISIBLE
+        binding.ivBtnCall.visibility = View.VISIBLE
+        binding.tvCallDriver.visibility = View.VISIBLE
+        binding.tvOrderState.visibility = View.VISIBLE
 
+
+        binding.btnEdit.visibility = View.GONE
+        binding.tvBtnCancel.visibility = View.GONE
+
+        val dpName = binding.order?.dpName!!.fullName
+        binding.tvOrderState.text = context.getString(R.string.x_is_now_collecting_your_order,dpName)
     }
 
     private fun setNewStateVisibilities(binding: OrderListItemBinding) {
         binding.btnEdit.visibility = View.VISIBLE
         binding.tvBtnCancel.visibility = View.VISIBLE
+
+        binding.ivBtnCall.visibility = View.GONE
+        binding.tvCallDriver.visibility = View.GONE
+        binding.tvOrderState.visibility = View.GONE
+
+
+
+
 
 
     }

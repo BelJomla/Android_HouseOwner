@@ -60,6 +60,13 @@ class MainCategory() : Category() {
           return "{en: $en,\n" +
                   "ar: $ar}"
       }
+
+      override fun equals(other: Any?): Boolean {
+          if (other is LocalizedName){
+              return this.ar == other.ar && this.en == other.en
+          }
+          return false
+      }
       fun getLocalisedName(context : Context) : String{
 
 

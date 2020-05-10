@@ -87,6 +87,7 @@ fun loadImage(imageView: ImageView,imgURL : String) {
                 //.circleCrop()
         )
         .load(imgURL)
+        .centerCrop()
         .placeholder(ColorDrawable(ContextCompat.getColor(imageView.context,R.color.sugar_white)))
         .into(imageView)
 

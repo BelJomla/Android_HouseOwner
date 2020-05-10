@@ -122,6 +122,10 @@
         <string name="sign_in_up">تسجيل/تسجيل دخول</string>
         <string name="invalid_num_in_x">صيغة الرقم خاطئة في %s الرجاء ادخال صيغة صحيحة</string>
         <string name="verif_success">تم التحقق بنجاح</string>
+        <string name="call_the_driver_colon_x">اتصل بالسائق: %s</string>
+        <string name="x_is_now_collecting_your_order">%s يقوم الان بشراء و تجميع طلبك</string>
+        <string name="x_collected_has_started_to_deliver_orders">%s بدأ بتوصيل الطلبات، توقع وصوله إليك قريبا</string>
+
 
 
 

@@ -5,9 +5,9 @@ object Constants {
     const val MAIN_PREF_NAME = "main_pref"
     const val SHARED_PREF_LOCALE_KEY =  "locale"
     const val VERIFICATION_SMS_RESEND_SECONDS :Long = 60
-    const val PRODUCTS_DB_PATH: String = "localized_products"
+    const val PRODUCTS_DB_PATH: String = "products"
     const val CATEGORIES_DB_PATH: String = "categories"
-    const val ORDERS_DB_PATH : String = "localized_orders"
+    const val ORDERS_DB_PATH : String = "orders"
     const val DEMO_USER_PATH = "demo_user"
 
     const val LOCALE_ARABIC = "ar"
